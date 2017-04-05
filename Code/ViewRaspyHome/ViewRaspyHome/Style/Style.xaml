@@ -1,0 +1,112 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ViewRaspyHome.Style">
+    <!--|   COLOR   |-->
+    <Color x:Key="White"
+           A="255"
+           R="245"
+           G="245"
+           B="245"/>
+    
+    <Color x:Key="LightGray"
+           A="255"
+           R="222"
+           G="222"
+           B="222"/>
+
+    <Color x:Key="Gray"
+           A="255"
+           R="173"
+           G="173"
+           B="173"/>
+
+    <Color x:Key="DarkGray"
+           A="255"
+           R="60"
+           G="60"
+           B="60"/>
+
+    <Color x:Key="BlueAzure"
+           A="255"
+           R="55"
+           G="113"
+           B="200"/>
+
+    <Color x:Key="LightBlueAzure"
+           A="255"
+           R="95"
+           G="141"
+           B="211"/>
+
+    <Color x:Key="BlueAzureOnEvent"
+           A="75"
+           R="55"
+           G="113"
+           B="200"/>
+
+    <Color x:Key="LightBlueAzureOnEvent"
+           A="75"
+           R="95"
+           G="141"
+           B="211"/>
+    <!--|   BRUSH   |-->
+    <SolidColorBrush x:Key="DefaultBackColor" 
+                     Color="{StaticResource White}"/>
+    
+    <SolidColorBrush x:Key="DefaultBorderColor" 
+                     Color="{StaticResource DarkGray}"/>
+
+    <SolidColorBrush x:Key="OverColor" 
+                     Color="{StaticResource BlueAzure}"/>
+
+    <SolidColorBrush x:Key="PressedColor" 
+                     Color="{StaticResource BlueAzureOnEvent}"/>
+    <!--|   STYLE   |-->
+    <Style x:Key="RoundedButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource DefaultBackColor}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource DefaultBorderColor}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="20">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <!--On over-->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="BorderBrush" 
+                                    Value="{StaticResource OverColor}"/>
+                        </MultiTrigger>
+                        
+                        <!--Button pressed-->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsPressed" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="BorderBrush" 
+                                    Value="{StaticResource PressedColor}"/>
+                        </MultiTrigger>
+
+                        <!--Initialze button-->
+                        <Trigger Property="IsEnabled" Value="True"/>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="BorderBrush"
+                                    Value="{StaticResource DefaultBorderColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>
