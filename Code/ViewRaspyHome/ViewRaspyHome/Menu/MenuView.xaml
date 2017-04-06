@@ -37,8 +37,11 @@
 
                 <StackPanel x:Name="stkMenuToolbar" Margin="0,5,0,0" Orientation="Horizontal"/>
             </Grid>
-    
-            <Frame Name="frame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
+
+            <Grid x:Name="grdFrame" Grid.Row="1">
+                <Frame Name="frame" NavigationUIVisibility="Hidden"/>
+            </Grid>
+            
         </Grid>
     </Grid>
 </UserControl>

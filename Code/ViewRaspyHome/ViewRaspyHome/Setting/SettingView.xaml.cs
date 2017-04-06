@@ -25,7 +25,7 @@ namespace ViewRaspyHome.Setting
         #endregion
 
         #region Variables
-        private SettingController controller = null;
+        private SettingController _controller = null;
         #endregion
         #endregion
 
@@ -34,23 +34,21 @@ namespace ViewRaspyHome.Setting
         {
             get
             {
-                return controller;
+                return _controller;
             }
 
             set
             {
-                controller = value;
+                _controller = value;
             }
         }
         #endregion
 
         #region Constructor
-        public SettingView(Frame f)
+        public SettingView(Grid g)
         {
-            InitializeComponent();
-
             this.Controller = new SettingController(this);
-            SetWindowsSize(f.ActualWidth, f.ActualHeight);
+            SetWindowsSize(g.Width, g.Height);
         }
         #endregion
 

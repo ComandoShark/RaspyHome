@@ -28,7 +28,7 @@ namespace ViewRaspyHome
         #endregion
 
         #region Variables
-        private MenuController controller = null;
+        private MenuController _controller = null;
 
         private double _pageWidth = DEFAULT_SIZE_W;
         private double _pageHeight = DEFAULT_SIZE_H;
@@ -40,12 +40,12 @@ namespace ViewRaspyHome
         {
             get
             {
-                return controller;
+                return _controller;
             }
 
             set
             {
-                controller = value;
+                _controller = value;
             }
         }
 
@@ -98,7 +98,7 @@ namespace ViewRaspyHome
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            this.frame.Navigate(new SettingView(this.frame));
+            this.frame.Navigate(new SettingView(this.grdFrame));
         }
     }
 }
