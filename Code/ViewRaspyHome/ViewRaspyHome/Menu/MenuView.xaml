@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:ViewRaspyHome"
+      xmlns:local="clr-namespace:ViewRaspyHome.Menu.MenuToolbar"    
       mc:Ignorable="d" 
       d:DesignHeight="{Binding Path=PageHeight}" d:DesignWidth="{Binding Path=PageWidth}">
     <Grid>
@@ -29,19 +29,15 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <!--TOOLBAR-->
 
-                <StackPanel x:Name="stkMenuToolbar" Margin="0,5,0,0" Orientation="Horizontal"/>
+                <StackPanel x:Name="stkMenuToolbar" Margin="0,0,5,0" Orientation="Horizontal"/>
             </Grid>
 
             <Grid x:Name="grdFrame" Grid.Row="1">
                 <Frame Name="frame" NavigationUIVisibility="Hidden"/>
             </Grid>
-            
+
         </Grid>
     </Grid>
 </UserControl>

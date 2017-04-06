@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace ViewRaspyHome.Menu.MenuToolbar
 {
     /// <summary>
-    /// Logique d'interaction pour ToolbarButton.xaml
+    /// Logique d'interaction pour ToolbarButtonView.xaml
     /// </summary>
     public partial class ToolbarButtonView : UserControl
     {
@@ -27,9 +27,14 @@ namespace ViewRaspyHome.Menu.MenuToolbar
         #region Variables
         private ToolbarButtonModel _model = null;
 
-        private event EventHandler _click;
+        public event EventHandler _click;
+
         private ToolTip _tTip;
-        
+
+        private bool _isSelected = false;
+        private bool _isPressed = false;  
+
+        private string _whoseButtonClicked = "";
         #endregion
         #endregion
 
@@ -46,14 +51,66 @@ namespace ViewRaspyHome.Menu.MenuToolbar
                 _model = value;
             }
         }
+
+        public bool IsSelected
+        {
+            get
+            {
+                return _isSelected;
+            }
+
+            set
+            {
+                _isSelected = value;
+
+                btnToolbar.IsTabStop = _isSelected;
+
+                if (_isSelected)
+                {
+                    btnToolbar.Background = new SolidColorBrush(Color.FromArgb(255, 234, 128, 33));
+                }
+                else
+                {
+                    btnToolbar.Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+                }
+            }
+        }
+
+        public bool IsPressed
+        {
+            get
+            {
+                return _isPressed;
+            }
+
+            set
+            {
+                _isPressed = value;
+            }
+        }
+
+        public string WhoseButtonClicked
+        {
+            get
+            {
+                return _whoseButtonClicked;
+            }
+
+            set
+            {
+                _whoseButtonClicked = value;
+            }
+        }
         #endregion
 
         #region Constructor
-        public ToolbarButtonView(string folderProjectName, string folderIconName, string description, string iconLink)
+        public ToolbarButtonView(string frameChoose, string folderProjectName, string folderIconName, string description, string iconLink)
         {
             InitializeComponent();
 
             this.Model = new ToolbarButtonModel(this);
+
+            this.WhoseButtonClicked = frameChoose;
 
             SetInformation(folderProjectName, folderIconName, description, iconLink);
         }
@@ -64,6 +121,7 @@ namespace ViewRaspyHome.Menu.MenuToolbar
         {
             if (this._click != null)
                 this._click(this, null);
+            this.IsPressed = true;
         }
         #endregion
 
@@ -71,6 +129,13 @@ namespace ViewRaspyHome.Menu.MenuToolbar
         private void SetInformation(string folderProjectName, string folderIconName, string description, string iconLink)
         {
             this.Model.SetInformation(folderProjectName, folderIconName, description, iconLink);
+        }
+
+
+        public void ChangeIcon(string iconPath)
+        {
+            if(iconPath != "")
+                this.imgMenuToolbarButton.Source = new BitmapImage(new Uri(iconPath));
         }
 
         public void ShowToolTip(string description)

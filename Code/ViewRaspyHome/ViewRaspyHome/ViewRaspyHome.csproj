@@ -58,10 +58,10 @@
     <Compile Include="justforclassstart.cs" />
     <Compile Include="Menu\MenuController.cs" />
     <Compile Include="Menu\MenuModel.cs" />
+    <Compile Include="Menu\MenuToolbar\ToolbarButtonModel.cs" />
     <Compile Include="Menu\MenuToolbar\ToolbarButtonView.xaml.cs">
       <DependentUpon>ToolbarButtonView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Menu\MenuToolbar\ToolbarButtonModel.cs" />
     <Compile Include="PropertyChangedBase.cs" />
     <Compile Include="Setting\SettingController.cs" />
     <Compile Include="Setting\SettingModel.cs" />
@@ -80,11 +80,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Menu\MenuView.xaml">
+    <Page Include="Menu\MenuToolbar\ToolbarButtonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Menu\MenuToolbar\ToolbarButtonView.xaml">
+    <Page Include="Menu\MenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

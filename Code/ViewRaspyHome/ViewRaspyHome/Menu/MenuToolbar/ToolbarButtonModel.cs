@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
-using ViewRaspyHome.Menu.MenuToolbar;
 
-namespace ViewRaspyHome
+namespace ViewRaspyHome.Menu.MenuToolbar
 {
     public class ToolbarButtonModel : PropertyChangedBase
     {
@@ -16,12 +15,12 @@ namespace ViewRaspyHome
 
         #region Variables
         private ToolbarButtonView _view = null;
-        
+
         private string _description = "";
         private string _folderProjectName = "";
         private string _folderIconName = "";
         private string _iconLink = null;
-        private BitmapImage imgSource;
+        private BitmapImage imgSource = null;
         #endregion
         #endregion
 
@@ -82,7 +81,7 @@ namespace ViewRaspyHome
         {
             get
             {
-                return "pack://application:,,,/" + this.FolderProjectName + ";component/" + this.FolderIconName + "/" + _iconLink;
+                return _iconLink;
             }
 
             set
@@ -90,6 +89,8 @@ namespace ViewRaspyHome
                 _iconLink = value;
             }
         }
+
+        public string IconPath { get; set; }
 
         public BitmapImage ImgSource
         {
@@ -101,9 +102,8 @@ namespace ViewRaspyHome
             set
             {
                 imgSource = value;
-                OnPropertyChanged("ImgSource");
             }
-        }    
+        }
         #endregion
 
         #region Constructor 
@@ -119,16 +119,22 @@ namespace ViewRaspyHome
         #region Methods
         public void SetInformation(string folderProjectName, string folderIconName, string description, string iconLink)
         {
-            this.FolderProjectName = FolderProjectName;
-            this.FolderIconName = FolderIconName;
+            this.FolderProjectName = folderProjectName;
+            this.FolderIconName = folderIconName;
             this.Description = description;
             this.IconLink = iconLink;
 
-            this.ImgSource.BeginInit();
-            this.ImgSource.UriSource = new Uri(this.IconLink);
-            this.ImgSource.EndInit();
+            if (iconLink != "")
+                this.IconPath = "pack://application:,,,/" + this.FolderProjectName + ";component/" + this.FolderIconName + "/" + _iconLink;
+            else
+                this.IconPath = "";
 
+            ChangeIcon();
+        }
 
+        private void ChangeIcon()
+        {
+            this.View.ChangeIcon(this.IconPath);
         }
 
         private void ShowToolInfo()

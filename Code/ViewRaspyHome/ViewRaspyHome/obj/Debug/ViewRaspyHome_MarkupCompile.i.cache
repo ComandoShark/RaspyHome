@@ -14,7 +14,7 @@ C:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\App.xaml
 
 191910501511
 13738642453
-MainWindow.xaml;Menu\MenuView.xaml;Menu\MenuToolbar\ToolbarButtonView.xaml;Setting\SettingView.xaml;Style\Style.xaml;
+MainWindow.xaml;Menu\MenuToolbar\ToolbarButtonView.xaml;Menu\MenuView.xaml;Setting\SettingView.xaml;Style\Style.xaml;
 
-False
+True
 
