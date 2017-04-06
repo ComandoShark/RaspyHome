@@ -13,40 +13,35 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ViewRaspyHome
+namespace ViewRaspyHome.Menu
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour ToolbarButton.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ToolbarButton : UserControl
     {
-        #region Fields;
+        #region Fields
         #region Constants
         #endregion
 
-        #region Variables       
-
+        #region Variables
         #endregion
         #endregion
 
-        #region Properties        
+        #region Properties
         #endregion
 
         #region Constructor
-        public MainWindow()
+        public ToolbarButton()
         {
             InitializeComponent();
         }
         #endregion
 
         #region Events
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.frame.Navigate(new MenuView(this));
-        }
         #endregion
 
-        #region Methods    
-        #endregion    
+        #region Methods
+        #endregion
     }
 }

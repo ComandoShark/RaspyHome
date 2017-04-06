@@ -1,18 +1,44 @@
-﻿<Page x:Class="ViewRaspyHome.MenuView"
+﻿<UserControl x:Class="ViewRaspyHome.MenuView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ViewRaspyHome"
       mc:Ignorable="d" 
-      d:DesignHeight="{Binding Path=PageHeight}" d:DesignWidth="{Binding Path=PageWidth}"
-      Title="MenuView">
+      d:DesignHeight="{Binding Path=PageHeight}" d:DesignWidth="{Binding Path=PageWidth}">
     <Grid>
-        <Button x:Name="MenuButton" Width="100" Height="100" 
-                Style="{StaticResource RoundedButton}"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center">
-            <Image/>
-        </Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" MinHeight="160"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!--TOOLBAR-->
+
+                <StackPanel x:Name="stkMenuToolbar" Margin="0,5,0,0" Orientation="Horizontal"/>
+            </Grid>
+    
+            <Frame Name="frame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
+        </Grid>
     </Grid>
-</Page>
+</UserControl>

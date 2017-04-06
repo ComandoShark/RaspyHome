@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ViewRaspyHome
+namespace ViewRaspyHome.Setting
 {
-    public class MenuModel : PropertyChangedBase
+    public class SettingModel : PropertyChangedBase
     {
         #region Fields
         #region Constants
@@ -15,7 +15,7 @@ namespace ViewRaspyHome
         #endregion
 
         #region Variables
-        private MenuController controller = null;
+        private SettingController controller = null;
 
         private double _pageWidth = DEFAULT_SIZE_W;
         private double _pageHeight = DEFAULT_SIZE_H;
@@ -23,7 +23,7 @@ namespace ViewRaspyHome
         #endregion
 
         #region Properties
-        public MenuController Controller
+        public SettingController Controller
         {
             get
             {
@@ -66,7 +66,7 @@ namespace ViewRaspyHome
         #endregion
 
         #region Constructor
-        public MenuModel(MenuController controller)
+        public SettingModel(SettingController controller)
         {
             this.Controller = controller;
         }

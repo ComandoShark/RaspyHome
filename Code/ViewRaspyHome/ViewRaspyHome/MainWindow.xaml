@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ViewRaspyHome"
         mc:Ignorable="d"
-        Title="RaspyHome" ResizeMode="NoResize" WindowState="Maximized" Background="{DynamicResource DefaultBackColor}" Loaded="Window_Loaded">
+        Title="RaspyHome" ResizeMode="NoResize" WindowState="Maximized" Background="#FF3F3F46" Loaded="Window_Loaded" WindowStartupLocation="Manual" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
     <Grid>
         <Frame Name="frame" NavigationUIVisibility="Hidden"/>
     </Grid>

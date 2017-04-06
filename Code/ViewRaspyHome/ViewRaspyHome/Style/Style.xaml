@@ -26,6 +26,12 @@
            G="60"
            B="60"/>
 
+    <Color x:Key="ShadowGray"
+           A="255"
+           R="63"
+           G="63"
+           B="70"/>
+
     <Color x:Key="BlueAzure"
            A="255"
            R="55"
@@ -52,7 +58,10 @@
     <!--|   BRUSH   |-->
     <SolidColorBrush x:Key="DefaultBackColor" 
                      Color="{StaticResource White}"/>
-    
+
+    <SolidColorBrush x:Key="DefaultBackgroundColor" 
+                     Color="{StaticResource ShadowGray}"/>
+
     <SolidColorBrush x:Key="DefaultBorderColor" 
                      Color="{StaticResource DarkGray}"/>
 
@@ -64,8 +73,8 @@
     <!--|   STYLE   |-->
     <Style x:Key="RoundedButton" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource DefaultBackColor}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource DefaultBorderColor}"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource DefaultBackgroundColor}"/>
+        <Setter Property="BorderThickness" Value="5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -73,7 +82,7 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="20">
+                            CornerRadius="70">
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>

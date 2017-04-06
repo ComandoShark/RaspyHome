@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ViewRaspyHome
+namespace ViewRaspyHome.Setting
 {
-    public class MenuController
+    public class SettingController
     {
         #region Fields
         #region Variables
-        private MenuView _view = null;
-        private MenuModel _model = null;
+        private SettingView _view = null;
+        private SettingModel _model = null;
         #endregion
         #endregion
 
         #region Properties  
-        public MenuView View
+        public SettingView View
         {
             get
             {
@@ -29,7 +29,7 @@ namespace ViewRaspyHome
             }
         }
 
-        public MenuModel Model
+        public SettingModel Model
         {
             get
             {
@@ -44,10 +44,10 @@ namespace ViewRaspyHome
         #endregion
 
         #region Constructor
-        public MenuController(MenuView view)
+        public SettingController(SettingView view)
         {
             this.View = view;
-            this.Model = new MenuModel(this);
+            this.Model = new SettingModel(this);
         }
         #endregion
 

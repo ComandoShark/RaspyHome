@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\App.xaml
-3582898061
+4-1600609871
 
-91581368903
+121804736613
 13738642453
-MainWindow.xaml;Menu\MenuView.xaml;Style\Style.xaml;
+MainWindow.xaml;Menu\MenuView.xaml;Setting\SettingView.xaml;Style\Style.xaml;
 
-True
+False
 

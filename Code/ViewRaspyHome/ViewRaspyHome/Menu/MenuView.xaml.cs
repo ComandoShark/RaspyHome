@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewRaspyHome.Setting;
 
-namespace ViewRaspyHome.MenuView
+namespace ViewRaspyHome
 {
     /// <summary>
     /// Logique d'interaction pour Menu.xaml
     /// </summary>
-    public partial class MenuView : Page
+    public partial class MenuView : UserControl
     {
         #region Fields
         #region Constants
@@ -78,7 +79,10 @@ namespace ViewRaspyHome.MenuView
         #region Constructor
         public MenuView(Window w)
         {
+            InitializeComponent();
+
             this.Controller = new MenuController(this);
+            SetWindowsSize(w.Width, w.Height);        
         }
         #endregion
 
@@ -86,6 +90,15 @@ namespace ViewRaspyHome.MenuView
         #endregion
 
         #region Methods
+        public void SetWindowsSize(double actualWidth, double actualHeight)
+        {
+            this.Controller.SetWindowsSize(actualWidth, actualHeight);
+        }
         #endregion
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            this.frame.Navigate(new SettingView(this.frame));
+        }
     }
 }
