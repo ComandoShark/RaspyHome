@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ViewRaspyHome.Module.Setting"
       mc:Ignorable="d" 
       d:DesignHeight="{Binding Path=PageHeight}" d:DesignWidth="{Binding Path=PageWidth}">
-    <Grid Background="{StaticResource DefaultBackColor}">
+    <Grid>
         <Label Content="Paramettre" FontSize="100" Foreground="Crimson"/>
     </Grid>
 </UserControl>

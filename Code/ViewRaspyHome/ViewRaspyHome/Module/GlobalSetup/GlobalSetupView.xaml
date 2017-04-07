@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ViewRaspyHome.Module.GlobalSetup"
              mc:Ignorable="d" 
              d:DesignHeight="{Binding Path=PageHeight}" d:DesignWidth="{Binding Path=PageWidth}">
-    <Grid Background="{StaticResource DefaultBackColor}">
+    <Grid>
         <Label Content="Status du matériel globalement" FontSize="100" Foreground="Brown"/>
     </Grid>
 </UserControl>
