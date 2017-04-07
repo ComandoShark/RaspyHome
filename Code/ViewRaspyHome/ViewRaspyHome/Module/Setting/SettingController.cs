@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ViewRaspyHome.Setting
+namespace ViewRaspyHome.Module.Setting
 {
     public class SettingController
     {

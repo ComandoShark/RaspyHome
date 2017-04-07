@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ViewRaspyHome.Information
+namespace ViewRaspyHome.Module.Information
 {
     /// <summary>
     /// Logique d'interaction pour InformationView.xaml
@@ -47,9 +47,9 @@ namespace ViewRaspyHome.Information
         #region Constructor
         public InformationView(Grid g)
         {
-            //InitializeComponent();
+            InitializeComponent();
 
-            //this.Controller = new InformationController(this);
+            this.Controller = new InformationController(this);
             SetWindowsSize(g.Width, g.Height);
         }
         #endregion
