@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViewRaspyHome.Setting;
 using ViewRaspyHome.Menu.MenuToolbar;
+using System.Windows.Threading;
+using System.Collections.ObjectModel;
 
 namespace ViewRaspyHome
 {
@@ -31,14 +33,24 @@ namespace ViewRaspyHome
         #region Variables
         private MenuController _controller = null;
 
-       // private ToolbarButtonView _btnToolbar;
+        private ToolbarButtonView _btnToolbarView;
 
         private double _pageWidth = DEFAULT_SIZE_W;
         private double _pageHeight = DEFAULT_SIZE_H;
 
         private string _frameChoose = "";
-        private string[,] _arrayBidim = { { "Home", "" }, { "Setting", "" } };
+        private string[,] _arrayBidim = {
+            { "Home", "Retourner à l'accueil", "" },
+            { "Global setup", "Visualiser l'ensemble des modules", "" },
+            { "Information", "Regarder les information du système", "" },
+            { "Setting", "Parametrage de l'application", "" }
+        };
         private List<string> _listChoise;
+
+        private List<ToolbarButtonData> _lstToolbarButton;
+
+        private DispatcherTimer _dispatcherTimer = null;
+        private Window _w = null;
         #endregion
         #endregion
 
@@ -94,24 +106,40 @@ namespace ViewRaspyHome
                 _frameChoose = value;
             }
         }
+
+        public List<ToolbarButtonData> LstToolbarButton
+        {
+            get
+            {
+                return _lstToolbarButton;
+            }
+
+            set
+            {
+                _lstToolbarButton = value;
+            }
+        }
         #endregion
 
         #region Constructor
         public MenuView(Window w)
         {
             InitializeComponent();
+            this._w = w;
+
+            this.Loaded += UserControl_Loaded;
 
             this.Controller = new MenuController(this);
             SetWindowsSize(w.Width, w.Height);
-
-            stkMenuToolbar.Children.Add(new ToolbarButtonView(this._arrayBidim[0, 0], "ViewRaspyHome", "Icon", "Retour à la maison", this._arrayBidim[0,1]));
-            stkMenuToolbar.Children.Add(new ToolbarButtonView(this._arrayBidim[1, 0], "ViewRaspyHome", "Icon", "Réglage de paramettre", this._arrayBidim[1, 1]));
-
+            this.LstToolbarButton = new List<ToolbarButtonData>();
             int i = 0;
             this._listChoise = new List<string>();
-            for (int a = 0; a < this._arrayBidim.Length; a++)
-                if ((a % 2) == 0)
+            var value = this._arrayBidim.Length - 3;
+            for (int a = 0; a <= value; a++)
+                if ((a % 3) == 0)
                 {
+                    stkMenuToolbar.Children.Add(new ToolbarButtonView(this._arrayBidim[i, 0], "ViewRaspyHome", "Icon", this._arrayBidim[i, 1], this._arrayBidim[i, 2]));
+                    this.LstToolbarButton.Add(new ToolbarButtonData(this._arrayBidim[i, 0], "ViewRaspyHome", "Icon", this._arrayBidim[i, 1], this._arrayBidim[i, 2]));
                     this._listChoise.Add(this._arrayBidim[i, 0]);
                     i++;
                 }
@@ -121,11 +149,24 @@ namespace ViewRaspyHome
         #region Events
         private void MenuToolbarButton_Click(object sender, EventArgs e)
         {
-            switch (this._listChoise.ToString())
+            switch (((ViewRaspyHome.Menu.MenuToolbar.ToolbarButtonView)sender).WhoseButtonClicked)
             {
                 case "Home":
+                    this.frame.Content = null;
+                    this.frame.NavigationService.RemoveBackEntry();
+                    break;
+                case "Global setup":
+                    this.frame.Content = null;
+                    this.frame.NavigationService.RemoveBackEntry();
+                    break;
+                case "Information":
+                    this.frame.Content = null;
+                    this.frame.NavigationService.RemoveBackEntry();
                     break;
                 case "Setting":
+                    this.frame.Content = null;
+                    this.frame.NavigationService.RemoveBackEntry();
+                    this.frame.Navigate(new SettingView(this.grdFrame));
                     break;
             }
         }
@@ -139,16 +180,35 @@ namespace ViewRaspyHome
 
         private void UpdateMenuToolbar()
         {
-            foreach (ToolbarButtonView t in stkMenuToolbar.Children)
-            {
-                t._click -= MenuToolbarButton_Click;
-                if (t.IsPressed)
-                {
-                    this.FrameChoose = t.WhoseButtonClicked;
-                    t._click += MenuToolbarButton_Click;                    
-                }
+            foreach (ToolbarButtonView t in this.stkMenuToolbar.Children)            
+                t._click -= MenuToolbarButton_Click;            
+
+            stkMenuToolbar.Children.Clear();
+
+            foreach (ToolbarButtonData t in this.LstToolbarButton)
+            {                
+                    this._btnToolbarView = new ToolbarButtonView(t.FrameChoose, t.FolderProjectName, t.FolderIconName, t.Description, t.IconLink);
+                    this._btnToolbarView.Tag = t;
+                    this._btnToolbarView._click += MenuToolbarButton_Click;
+                    stkMenuToolbar.Children.Add(this._btnToolbarView);
             }
         }
         #endregion
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            this._dispatcherTimer = new DispatcherTimer();
+            this._dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            this._dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            this._dispatcherTimer.Start();
+
+            UpdateMenuToolbar();
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            //UpdateMenuToolbar();
+        }
+
     }
 }

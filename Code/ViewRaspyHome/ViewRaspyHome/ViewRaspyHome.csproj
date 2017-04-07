@@ -55,19 +55,47 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Module\GlobalSetup\GlobalSetupController.cs" />
+    <Compile Include="Module\GlobalSetup\GlobalSetupModel.cs" />
+    <Compile Include="Module\GlobalSetup\GlobalSetupView.xaml.cs">
+      <DependentUpon>GlobalSetupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Home\HomeController.cs" />
+    <Compile Include="Module\Home\HomeModel.cs" />
+    <Compile Include="Module\Home\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Information\InformationController.cs" />
+    <Compile Include="Module\Information\InformationModel.cs" />
+    <Compile Include="Module\Information\InformationView.xaml.cs">
+      <DependentUpon>InformationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="justforclassstart.cs" />
     <Compile Include="Menu\MenuController.cs" />
     <Compile Include="Menu\MenuModel.cs" />
+    <Compile Include="Menu\MenuToolbar\ToolbarButtonData.cs" />
     <Compile Include="Menu\MenuToolbar\ToolbarButtonModel.cs" />
     <Compile Include="Menu\MenuToolbar\ToolbarButtonView.xaml.cs">
       <DependentUpon>ToolbarButtonView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PropertyChangedBase.cs" />
-    <Compile Include="Setting\SettingController.cs" />
-    <Compile Include="Setting\SettingModel.cs" />
-    <Compile Include="Setting\SettingView.xaml.cs">
+    <Compile Include="Module\Setting\SettingController.cs" />
+    <Compile Include="Module\Setting\SettingModel.cs" />
+    <Compile Include="Module\Setting\SettingView.xaml.cs">
       <DependentUpon>SettingView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Module\GlobalSetup\GlobalSetupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Module\Home\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Module\Information\InformationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,7 +116,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Setting\SettingView.xaml">
+    <Page Include="Module\Setting\SettingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

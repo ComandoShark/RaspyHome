@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ViewRaspyHome.Module.Setting;
+using ViewRaspyHome.Setting;
 
-namespace ViewRaspyHome.Setting
+namespace ViewRaspyHome
 {
     public class SettingModel : PropertyChangedBase
     {
@@ -73,7 +75,7 @@ namespace ViewRaspyHome.Setting
         #endregion
 
         #region Methods
-        public void SetWindowsSize(double actualWidth, double actualHeight)
+        public void SetFrameSize(double actualWidth, double actualHeight)
         {
             this.PageWidth = actualWidth;
             this.PageHeight = actualHeight;

@@ -1,8 +1,11 @@
 ﻿
 FC:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\App.xaml;;
+FC:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\Module\GlobalSetup\GlobalSetupView.xaml;;
+FC:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\Module\Home\HomeView.xaml;;
+FC:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\Module\Information\InformationView.xaml;;
 FC:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\MainWindow.xaml;;
 FC:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\Menu\MenuToolbar\ToolbarButtonView.xaml;;
 FC:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\Menu\MenuView.xaml;;
-FC:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\Setting\SettingView.xaml;;
+FC:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\Module\Setting\SettingView.xaml;;
 FC:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\Style\Style.xaml;;
 

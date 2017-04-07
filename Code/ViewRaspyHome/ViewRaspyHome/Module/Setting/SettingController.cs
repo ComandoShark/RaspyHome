@@ -52,9 +52,9 @@ namespace ViewRaspyHome.Setting
         #endregion
 
         #region Methods
-        public void SetWindowsSize(double actualWidth, double actualHeight)
+        public void SetFrameSize(double actualWidth, double actualHeight)
         {
-            this.Model.SetWindowsSize(actualWidth, actualHeight);
+            this.Model.SetFrameSize(actualWidth, actualHeight);
         }
         #endregion
     }

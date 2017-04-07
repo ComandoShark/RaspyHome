@@ -13,24 +13,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ViewRaspyHome.Setting
+namespace ViewRaspyHome.Module.Home
 {
     /// <summary>
-    /// Logique d'interaction pour SettingView.xaml
+    /// Logique d'interaction pour HomeView.xaml
     /// </summary>
-    public partial class SettingView : UserControl
+    public partial class HomeView : UserControl
     {
         #region Fields
         #region Constants
         #endregion
 
         #region Variables
-        private SettingController _controller = null;
+        private HomeController _controller = null;
         #endregion
         #endregion
 
         #region Properties
-        public SettingController Controller
+        public HomeController Controller
         {
             get
             {
@@ -45,9 +45,11 @@ namespace ViewRaspyHome.Setting
         #endregion
 
         #region Constructor
-        public SettingView(Grid g)
+        public HomeView(Grid g)
         {
-            this.Controller = new SettingController(this);
+            InitializeComponent();
+
+            this.Controller = new HomeController(this);
             SetWindowsSize(g.Width, g.Height);
         }
         #endregion
@@ -58,7 +60,7 @@ namespace ViewRaspyHome.Setting
         #region Methods
         public void SetWindowsSize(double actualWidth, double actualHeight)
         {
-            this.Controller.SetWindowsSize(actualWidth, actualHeight);
+            this.Controller.SetFrameSize(actualWidth, actualHeight);
         }
         #endregion
     }
