@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ViewRaspyHome.Module.Setting;
-using ViewRaspyHome.Setting;
 
-namespace ViewRaspyHome
+namespace ViewRaspyHome.Module.Setting
 {
     public class SettingModel : PropertyChangedBase
     {

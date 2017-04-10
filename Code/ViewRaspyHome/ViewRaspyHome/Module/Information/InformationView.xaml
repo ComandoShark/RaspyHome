@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ViewRaspyHome.Module.Information"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             d:DesignHeight="{Binding Path=PageHeight}" d:DesignWidth="{Binding Path=PageWidth}">
+    <Grid Background="{StaticResource DefaultBackColor}">
+        <Label Content="Information" FontSize="100" Foreground="Green"/>
     </Grid>
 </UserControl>

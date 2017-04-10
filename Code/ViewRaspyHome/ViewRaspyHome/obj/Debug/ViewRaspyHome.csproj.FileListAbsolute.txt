@@ -26,4 +26,35 @@ C:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\View
 C:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.csproj.GenerateResource.Cache
 C:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.exe
 C:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.pdb
+<<<<<<< HEAD
 C:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.csprojResolveAssemblyReference.cache
+=======
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\bin\Debug\ViewRaspyHome.exe.config
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.exe
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.pdb
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\bin\Debug\ViewRaspyHome.exe
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\bin\Debug\ViewRaspyHome.pdb
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.csprojResolveAssemblyReference.cache
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Module\GlobalSetup\GlobalSetupView.g.cs
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Module\Home\HomeView.g.cs
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Module\Information\InformationView.g.cs
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\MainWindow.g.cs
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Menu\MenuToolbar\ToolbarButtonView.g.cs
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Menu\MenuView.g.cs
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Module\Setting\SettingView.g.cs
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\App.g.cs
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome_MarkupCompile.cache
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome_MarkupCompile.lref
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\App.baml
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Module\GlobalSetup\GlobalSetupView.baml
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Module\Home\HomeView.baml
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Module\Information\InformationView.baml
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\MainWindow.baml
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Menu\MenuToolbar\ToolbarButtonView.baml
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Menu\MenuView.baml
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Module\Setting\SettingView.baml
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\Style\Style.baml
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.g.resources
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.Properties.Resources.resources
+D:\Comando\Documents\GitHub\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.csproj.GenerateResource.Cache
+>>>>>>> origin/master

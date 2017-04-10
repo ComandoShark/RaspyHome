@@ -13,9 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViewRaspyHome.Module.Setting;
-using ViewRaspyHome.Setting;
 
-namespace ViewRaspyHome
+namespace ViewRaspyHome.Module.Setting
 {
     /// <summary>
     /// Logique d'interaction pour SettingView.xaml
@@ -49,7 +48,7 @@ namespace ViewRaspyHome
         #region Constructor
         public SettingView(Grid g)
         {
-            //InitializeComponent();
+            InitializeComponent();
 
             this.Controller = new SettingController(this);
             SetWindowsSize(g.Width, g.Height);
