@@ -26,3 +26,4 @@ C:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\View
 C:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.csproj.GenerateResource.Cache
 C:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.exe
 C:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.pdb
+C:\Users\Cyril\Desktop\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.csprojResolveAssemblyReference.cache
