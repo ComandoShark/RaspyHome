@@ -150,7 +150,7 @@ namespace ViewRaspyHome
             for (int a = 0; a <= value; a++)
                 if ((a % 3) == 0)
                 {
-                    stkMenuToolbar.Children.Add(new ToolbarButtonView(this._arrayBidim[i, 0], "ViewRaspyHome", "Icon", this._arrayBidim[i, 1], this._arrayBidim[i, 2]));
+                    //stkMenuToolbar.Children.Add(new ToolbarButtonView(this._arrayBidim[i, 0], "ViewRaspyHome", "Icon", this._arrayBidim[i, 1], this._arrayBidim[i, 2]));
                     this.LstToolbarButton.Add(new ToolbarButtonData(this._arrayBidim[i, 0], "ViewRaspyHome", "Icon", this._arrayBidim[i, 1], this._arrayBidim[i, 2]));
                     this.ListChoise.Add(this._arrayBidim[i, 0]);
                     i++;
@@ -200,11 +200,9 @@ namespace ViewRaspyHome
 
         private void UpdateMenuToolbar()
         {
-            foreach (ToolbarButtonView t in this.stkMenuToolbar.Children)
-                t._click -= MenuToolbarButton_Click;
-
+            //foreach (ToolbarButtonView t in this.stkMenuToolbar.Children)
+            //    t._click -= MenuToolbarButton_Click;
             stkMenuToolbar.Children.Clear();
-
             foreach (ToolbarButtonData t in this.LstToolbarButton)
             {
                 this._btnToolbarView = new ToolbarButtonView(t.FrameChoose, t.FolderProjectName, t.FolderIconName, t.Description, t.IconLink);

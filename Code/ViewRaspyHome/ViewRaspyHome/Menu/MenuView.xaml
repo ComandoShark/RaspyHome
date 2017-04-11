@@ -40,7 +40,7 @@
                 </Grid>
             </Grid>
 
-            <Grid x:Name="grdFrame" Grid.Row="1" Background="Red" >
+            <Grid x:Name="grdFrame" Grid.Row="1">
                 <Frame Name="frame" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>
