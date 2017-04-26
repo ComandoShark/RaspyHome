@@ -86,6 +86,9 @@ C:\Users\Cyril\Desktop\RaspyHome\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\
 C:\Users\Cyril\Desktop\RaspyHome\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.g.resources
 C:\Users\Cyril\Desktop\RaspyHome\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.Properties.Resources.resources
 C:\Users\Cyril\Desktop\RaspyHome\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.csproj.GenerateResource.Cache
+<<<<<<< HEAD:Code/obsolete_ViewRaspyHome/ViewRaspyHome/obj/Debug/ViewRaspyHome.csproj.FileListAbsolute.txt
 C:\Users\Cyril\Desktop\RaspiHome\Code\ViewRaspyHome\ViewRaspyHome\bin\Debug\ViewRaspyHome.exe.config
 C:\Users\Cyril\Desktop\RaspiHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.exe
 C:\Users\Cyril\Desktop\RaspiHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\ViewRaspyHome.pdb
+=======
+>>>>>>> origin/master:Code/ViewRaspyHome/ViewRaspyHome/obj/Debug/ViewRaspyHome.csproj.FileListAbsolute.txt

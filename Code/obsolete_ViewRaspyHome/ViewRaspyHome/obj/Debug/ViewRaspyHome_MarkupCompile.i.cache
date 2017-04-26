@@ -4,12 +4,20 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD:Code/obsolete_ViewRaspyHome/ViewRaspyHome/obj/Debug/ViewRaspyHome_MarkupCompile.i.cache
 C:\Users\Cyril\Desktop\RaspiHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\
+=======
+C:\Users\Cyril\Desktop\RaspyHome\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\obj\Debug\
+>>>>>>> origin/master:Code/ViewRaspyHome/ViewRaspyHome/obj/Debug/ViewRaspyHome_MarkupCompile.i.cache
 ViewRaspyHome
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD:Code/obsolete_ViewRaspyHome/ViewRaspyHome/obj/Debug/ViewRaspyHome_MarkupCompile.i.cache
 C:\Users\Cyril\Desktop\RaspiHome\Code\ViewRaspyHome\ViewRaspyHome\App.xaml
+=======
+C:\Users\Cyril\Desktop\RaspyHome\RaspyHome\Code\ViewRaspyHome\ViewRaspyHome\App.xaml
+>>>>>>> origin/master:Code/ViewRaspyHome/ViewRaspyHome/obj/Debug/ViewRaspyHome_MarkupCompile.i.cache
 8763890594
 
 29-338136468
