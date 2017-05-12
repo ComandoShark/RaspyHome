@@ -1,8 +1,0 @@
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTextToSpeech\RaspiHomeTextToSpeech\bin\Debug\RaspiHomeTextToSpeech.exe.config
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTextToSpeech\RaspiHomeTextToSpeech\obj\Debug\Interop.SpeechLib.dll
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTextToSpeech\RaspiHomeTextToSpeech\obj\Debug\RaspiHomeTextToSpeech.csproj.ResolveComReference.cache
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTextToSpeech\RaspiHomeTextToSpeech\bin\Debug\RaspiHomeTextToSpeech.exe
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTextToSpeech\RaspiHomeTextToSpeech\bin\Debug\RaspiHomeTextToSpeech.pdb
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTextToSpeech\RaspiHomeTextToSpeech\obj\Debug\RaspiHomeTextToSpeech.csprojResolveAssemblyReference.cache
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTextToSpeech\RaspiHomeTextToSpeech\obj\Debug\RaspiHomeTextToSpeech.exe
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTextToSpeech\RaspiHomeTextToSpeech\obj\Debug\RaspiHomeTextToSpeech.pdb

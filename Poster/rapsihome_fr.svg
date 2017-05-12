@@ -29,16 +29,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="1025.9042"
-     inkscape:cy="873.96833"
+     inkscape:zoom="0.50000001"
+     inkscape:cx="1098.0038"
+     inkscape:cy="860.45728"
      inkscape:document-units="px"
      inkscape:current-layer="layer6"
      showgrid="false"
      showborder="false"
      inkscape:window-width="1680"
      inkscape:window-height="987"
-     inkscape:window-x="1672"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      showguides="false" />
@@ -6239,8 +6239,7 @@
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="Information"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <rect
        y="1071.179"
        x="69.056374"
@@ -6282,7 +6281,7 @@
          style="font-size:39.33076096px"
          sodipodi:role="line"
          x="91.577888"
-         y="1326.3589">tel que les lumières, les stores, ou enoce recevoir des informations tel </tspan><tspan
+         y="1326.3589">tel que les lumières, les stores, ou encore recevoir des informations tel </tspan><tspan
          style="font-size:39.33076096px"
          sodipodi:role="line"
          x="91.577888"

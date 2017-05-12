@@ -1,0 +1,6 @@
+C:\Users\Cyril\Desktop\RaspiHome\Code\ServerDatabase\ServerDatabase\bin\Debug\ServerDatabase.exe.config
+C:\Users\Cyril\Desktop\RaspiHome\Code\ServerDatabase\ServerDatabase\bin\Debug\ServerDatabase.exe
+C:\Users\Cyril\Desktop\RaspiHome\Code\ServerDatabase\ServerDatabase\bin\Debug\ServerDatabase.pdb
+C:\Users\Cyril\Desktop\RaspiHome\Code\ServerDatabase\ServerDatabase\obj\Debug\ServerDatabase.csprojResolveAssemblyReference.cache
+C:\Users\Cyril\Desktop\RaspiHome\Code\ServerDatabase\ServerDatabase\obj\Debug\ServerDatabase.exe
+C:\Users\Cyril\Desktop\RaspiHome\Code\ServerDatabase\ServerDatabase\obj\Debug\ServerDatabase.pdb
