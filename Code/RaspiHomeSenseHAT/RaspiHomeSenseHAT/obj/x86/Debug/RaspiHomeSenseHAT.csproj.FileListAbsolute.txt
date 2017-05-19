@@ -1,0 +1,11 @@
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\x86\Debug\RaspiHomeSenseHAT.csprojResolveAssemblyReference.cache
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\x86\Debug\App.g.i.cs
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\x86\Debug\App.g.cs
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\x86\Debug\ViewSensHAT.g.i.cs
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\x86\Debug\ViewSensHAT.g.cs
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\x86\Debug\XamlTypeInfo.g.cs
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\x86\Debug\App.xaml
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\x86\Debug\ViewSensHAT.xaml
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\x86\Debug\App.xbf
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\x86\Debug\ViewSensHAT.xbf
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\x86\Debug\XamlSaveStateFile.xml

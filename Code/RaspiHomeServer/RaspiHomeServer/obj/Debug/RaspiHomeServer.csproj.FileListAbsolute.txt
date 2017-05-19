@@ -1,0 +1,6 @@
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeServer\RaspiHomeServer\bin\Debug\RaspiHomeServer.exe.config
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeServer\RaspiHomeServer\bin\Debug\RaspiHomeServer.exe
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeServer\RaspiHomeServer\bin\Debug\RaspiHomeServer.pdb
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeServer\RaspiHomeServer\obj\Debug\RaspiHomeServer.csprojResolveAssemblyReference.cache
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeServer\RaspiHomeServer\obj\Debug\RaspiHomeServer.exe
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeServer\RaspiHomeServer\obj\Debug\RaspiHomeServer.pdb

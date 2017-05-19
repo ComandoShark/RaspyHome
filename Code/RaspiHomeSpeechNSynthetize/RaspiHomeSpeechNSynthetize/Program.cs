@@ -12,7 +12,7 @@ namespace RaspiHomeSpeechNSynthetize
     {
         static void Main(string[] args)
         {
-            RaspiHomeSynthetize rhSynt = new RaspiHomeSynthetize();
+            Speecher speech = new Speecher();
 
             while (true)
             {

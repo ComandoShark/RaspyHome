@@ -1,8 +1,0 @@
-﻿<Application
-    x:Class="TestAddRaspberryOnDB.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:TestAddRaspberryOnDB"
-    RequestedTheme="Light">
-
-</Application>

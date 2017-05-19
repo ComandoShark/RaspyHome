@@ -46,14 +46,10 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Speech\RaspiHomeSpeech.cs" />
-    <Compile Include="Synthetize\ActionNoObjectUse.cs" />
-    <Compile Include="Synthetize\ActionUse.cs" />
-    <Compile Include="Synthetize\CommandTheRaspi.cs" />
-    <Compile Include="Synthetize\LocationUse.cs" />
-    <Compile Include="Synthetize\ObjectUse.cs" />
-    <Compile Include="Synthetize\RaspiHomeCommands.cs" />
-    <Compile Include="Synthetize\RaspiHomeSynthetize.cs" />
+    <Compile Include="Speech\Speecher.cs" />
+    <Compile Include="Synthetize\CommunicationWithServer.cs" />
+    <Compile Include="Commands.cs" />
+    <Compile Include="Synthetize\Synthetizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
