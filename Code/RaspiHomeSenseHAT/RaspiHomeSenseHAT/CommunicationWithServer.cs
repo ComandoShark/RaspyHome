@@ -348,14 +348,14 @@ namespace RaspiHomeSenseHAT
         /// </summary>
         /// <param name="socket"></param>
         /// <param name="message"></param>
-        async private void SendMessage(StreamSocket socket, string message)
+        private async void SendMessage(StreamSocket socket, string message)
         {
             DataWriter dataWriter = new DataWriter(socket.OutputStream);
             var len = dataWriter.MeasureString(message); // Gets the UTF-8 string length.
             dataWriter.WriteInt32((int)len);
             dataWriter.WriteString(message);
             var ret = await dataWriter.StoreAsync();
-            dataWriter.DetachStream();          
+            dataWriter.DetachStream();        
         }
 
         /// <summary>
@@ -363,7 +363,7 @@ namespace RaspiHomeSenseHAT
         /// </summary>
         private void SendForInitialize()
         {
-            SendMessage(this.Socket, string.Format(FORMATSTRING, GetHostName(),LOCATION,COMPONENT));
+            SendMessage(this.Socket, string.Format("Client:"+FORMATSTRING, GetHostName(),LOCATION,COMPONENT));
         }
 
         /// <summary>

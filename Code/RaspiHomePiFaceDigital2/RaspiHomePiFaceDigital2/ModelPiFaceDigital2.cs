@@ -14,6 +14,9 @@ namespace RaspiHomePiFaceDigital2
 
         #region Variables
         private ViewPiFaceDigital2 _vPiFace;
+
+        private List<Component> _components;
+        private CommunicationWithServer _comWithServer;
         #endregion
         #endregion
 
@@ -30,12 +33,44 @@ namespace RaspiHomePiFaceDigital2
                 _vPiFace = value;
             }
         }
+
+        public List<Component> Components
+        {
+            get
+            {
+                return _components;
+            }
+
+            set
+            {
+                _components = value;
+            }
+        }
+
+        public CommunicationWithServer ComWithServer
+        {
+            get
+            {
+                return _comWithServer;
+            }
+
+            set
+            {
+                _comWithServer = value;
+            }
+        }
         #endregion
 
         #region Constructors
         public ModelPiFaceDigital2(ViewPiFaceDigital2 paramView)
         {
             this.VPiFace = paramView;
+
+            this.ComWithServer = new CommunicationWithServer(this);
+
+            this.Components = new List<Component>();
+            this.Components.Add(new Light());
+            this.Components.Add(new Light());
         }
         #endregion
 

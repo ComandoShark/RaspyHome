@@ -43,7 +43,7 @@ namespace RaspiHomePiFaceDigital2
             {
                 _mPiFace = value;
             }
-        }
+        }       
         #endregion
 
         #region Constructors
@@ -51,7 +51,7 @@ namespace RaspiHomePiFaceDigital2
         {
             this.InitializeComponent();
 
-            this.MPiFace = new ModelPiFaceDigital2(this);
+            this.MPiFace = new ModelPiFaceDigital2(this);            
         }
         #endregion
 

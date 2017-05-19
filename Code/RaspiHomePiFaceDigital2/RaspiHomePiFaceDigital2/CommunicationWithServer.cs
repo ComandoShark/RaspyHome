@@ -18,7 +18,7 @@ namespace RaspiHomePiFaceDigital2
         #endregion
 
         #region Properties
-        public ModelPiFaceDigital2 MPiFace2
+        public ModelPiFaceDigital2 MPiFace
         {
             get
             {
@@ -35,11 +35,12 @@ namespace RaspiHomePiFaceDigital2
         #region Constructors
         public CommunicationWithServer(ModelPiFaceDigital2 paramModel)
         {
-
+            this.MPiFace = paramModel;            
         }
         #endregion
 
         #region Methods
+
         #endregion
     }
 }

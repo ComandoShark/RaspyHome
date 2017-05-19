@@ -96,7 +96,10 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="CommunicationWithServer.cs" />
+    <Compile Include="Component.cs" />
+    <Compile Include="Light.cs" />
     <Compile Include="ModelPiFaceDigital2.cs" />
+    <Compile Include="Store.cs" />
     <Compile Include="ViewPiFaceDigital2.xaml.cs">
       <DependentUpon>ViewPiFaceDigital2.xaml</DependentUpon>
     </Compile>
