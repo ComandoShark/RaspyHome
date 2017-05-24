@@ -8,7 +8,7 @@
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
     <SolutionConfiguration>Debug|ARM</SolutionConfiguration>
     <PackageArchitecture>arm</PackageArchitecture>
-    <PackageIdentityName>93e02ad6-3ed8-440e-90e6-39621674ab2f</PackageIdentityName>
+    <PackageIdentityName>5e481698-7e45-409f-bf65-2b5443b38efc</PackageIdentityName>
     <PackageIdentityPublisher>CN=Cyril</PackageIdentityPublisher>
     <IntermediateOutputPath>C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
@@ -16,10 +16,10 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>B15E17F37CF35FA48EC484BE11B9648EAF533F67E3B9B2335D57EF03E380A3E9</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>93e02ad6-3ed8-440e-90e6-39621674ab2f_1.0.0.0_arm__5gp5ddayzekgc</RegisteredPackageMoniker>
-    <RegisteredUserModeAppID>93e02ad6-3ed8-440e-90e6-39621674ab2f_5gp5ddayzekgc!App</RegisteredUserModeAppID>
-    <RegisteredPackageID>93e02ad6-3ed8-440e-90e6-39621674ab2f</RegisteredPackageID>
+    <RegisteredManifestChecksum>ACB4FB3B483B75D636C94145F9299AB56A73311EF939C2CF88005EC3EFA68D63</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>5e481698-7e45-409f-bf65-2b5443b38efc_1.0.0.0_arm__5gp5ddayzekgc</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>5e481698-7e45-409f-bf65-2b5443b38efc_5gp5ddayzekgc!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>5e481698-7e45-409f-bf65-2b5443b38efc</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=Cyril</RegisteredPackagePublisher>
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
     <JitOptimizationSuppressed>False</JitOptimizationSuppressed>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-19T08:41:01.592</Modified>
+      <Modified>2017-05-23T12:52:54.249</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\ARM\Debug\RaspiHomeSenseHAT.exe">
       <PackagePath>entrypoint\RaspiHomeSenseHAT.exe</PackagePath>
-      <Modified>2017-05-19T08:41:00.027</Modified>
+      <Modified>2017-05-23T12:52:53.158</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\.nuget\packages\Emmellsoft.IoT.RPi.SenseHat\0.1.0.10\lib\.NETCore50\Emmellsoft.IoT.Rpi.SenseHat.dll">
       <PackagePath>Emmellsoft.IoT.Rpi.SenseHat.dll</PackagePath>
@@ -458,7 +458,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2017-05-18T09:25:31.751</Modified>
+      <Modified>2017-05-23T12:43:00.574</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -496,7 +496,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\ARM\Debug\RaspiHomeSenseHAT.xr.xml">
       <PackagePath>RaspiHomeSenseHAT.xr.xml</PackagePath>
-      <Modified>2017-05-18T13:13:46.032</Modified>
+      <Modified>2017-05-23T12:52:53.005</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -505,11 +505,11 @@
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-18T13:13:47.873</Modified>
+      <Modified>2017-05-23T12:52:54.044</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\ARM\Debug\Core\RaspiHomeSenseHAT.exe">
       <PackagePath>RaspiHomeSenseHAT.exe</PackagePath>
-      <Modified>2017-05-19T08:41:01.581</Modified>
+      <Modified>2017-05-23T12:52:54.237</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

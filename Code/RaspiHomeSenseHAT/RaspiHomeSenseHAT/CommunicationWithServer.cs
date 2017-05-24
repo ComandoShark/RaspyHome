@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -20,12 +21,14 @@ namespace RaspiHomeSenseHAT
         #region Fields
         #region Constants
         private const int PORT = 8080;
-        private const string IPSERVER = "192.168.2.3";
+        private const string IPSERVER = "10.134.97.117";// "192.168.2.8";        
         private const string FORMATSTRING = "IPRasp={0};Location={1};Component={2}";
+        private const string COMMUNICATIONSEPARATOR = "@";
 
         // Important need to be changed if it's another room!
         private const string LOCATION = "Salon";
         private const string COMPONENT = "Sensor";
+        private const string RPINAME = "SenseHAT_" + LOCATION;
         #endregion      
 
         #region Variables
@@ -129,182 +132,6 @@ namespace RaspiHomeSenseHAT
         #endregion
 
         #region Methods
-        #region Take information
-        /*
-        #region Client initialisation
-        private async void InitilizeRaspberryToTheServer()
-        {
-            // remote device is 192.168.2.x
-            Debug.WriteLine("About to connect");
-            StreamSocket socket = new StreamSocket();
-            StreamSocketListener listener = new StreamSocketListener();
-            Debug.WriteLine("Made StreamSocket");
-
-            CoreApplication.Properties.Add("serverAddress", IPSERVER);
-
-            string hostName = GetHostName();
-            IPAddress rpiIPAddress = GetIPAddress(hostName);
-
-            listener.Control.KeepAlive = true;
-
-            CoreApplication.Properties.Add("listner", listener);
-
-            listener.ConnectionReceived += OnConnection;
-
-            try
-            {
-                await listener.BindEndpointAsync(new Windows.Networking.HostName(hostName), PORT.ToString());
-
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }
-        }
-
-        private async void OnConnection(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
-        {
-            DataReader reader = new DataReader(args.Socket.InputStream);
-            try
-            {
-                while (true)
-                {
-                    // Read first 4 bytes (length of the subsequent string).
-                    uint sizeFieldCount = await reader.LoadAsync(sizeof(uint));
-                    if (sizeFieldCount != sizeof(uint))
-                    {
-                        // The underlying socket was closed before we were able to read the whole data.
-                        return;
-                    }
-
-                    // Read the string.
-                    uint stringLength = reader.ReadUInt32();
-                    uint actualStringLength = await reader.LoadAsync(stringLength);
-                    if (stringLength != actualStringLength)
-                    {
-                        // The underlying socket was closed before we were able to read the whole data.
-                        return;
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                if (Windows.Networking.Sockets.SocketError.GetStatus(e.HResult) == SocketErrorStatus.Unknown)
-                {
-                    throw;
-                }
-            }
-        }
-        #endregion
-
-        #region Connection to server
-        private async void ConnectSocket()
-        {
-            if (CoreApplication.Properties.ContainsKey("clientSocket"))
-            {
-                return;
-            }
-
-            // By default 'HostNameForConnect' is disabled and host name validation is not required. When enabling the
-            // text box validating the host name is required since it was received from an untrusted source
-            // (user input). The host name is validated by catching ArgumentExceptions thrown by the HostName
-            // constructor for invalid input.
-            HostName hostName;
-
-            try
-            {
-                hostName = new HostName(IPSERVER);
-            }
-            catch (ArgumentException)
-            {
-                return;
-            }
-
-            StreamSocket socket = new StreamSocket();
-
-            // If necessary, tweak the socket's control options before carrying out the connect operation.
-            // Refer to the StreamSocketControl class' MSDN documentation for the full list of control options.
-            socket.Control.KeepAlive = false;
-
-            // Save the socket, so subsequent steps can use it.
-            CoreApplication.Properties.Add("clientSocket", socket);
-
-            try
-            {
-                // Connect to the server (by default, the listener we created in the previous step).
-                await socket.ConnectAsync(hostName, PORT.ToString());
-
-                // Mark the socket as connected. Set the value to null, as we care only about the fact that the 
-                // property is set.
-                CoreApplication.Properties.Add("connected", null);
-            }
-            catch (Exception exception)
-            {
-                // If this is an unknown status it means that the error is fatal and retry will likely fail.
-                if (Windows.Networking.Sockets.SocketError.GetStatus(exception.HResult) == SocketErrorStatus.Unknown)
-                {
-                    throw;
-                }
-            }
-        }
-        #endregion
-
-        #region Send message
-        private async void SendMessage()
-        {
-            // Need to be connected before
-            if (!CoreApplication.Properties.ContainsKey("connected"))
-            {
-                return;
-            }
-
-            object outValue;
-            StreamSocket socket;
-
-            if (!CoreApplication.Properties.TryGetValue("clientSocket", out outValue))
-            {
-                return;
-            }
-
-            socket = (StreamSocket)outValue;
-
-            // Create a DataWriter if we did not create one yet. Otherwise use one that is already cached.
-            DataWriter writer;
-            if (!CoreApplication.Properties.TryGetValue("clientDataWriter", out outValue))
-            {
-                writer = new DataWriter(socket.OutputStream);
-                CoreApplication.Properties.Add("clientDataWriter", writer);
-            }
-            else
-            {
-                writer = (DataWriter)outValue;
-            }
-
-            // Write first the length of the string as UINT32 value followed up by the string. 
-            // Writing data to the writer will just store data in memory.
-            string stringToSend = SendValues();
-            writer.WriteUInt32(writer.MeasureString(stringToSend));
-            writer.WriteString(stringToSend);
-
-            // Write the locally buffered data to the network.
-            try
-            {
-                await writer.StoreAsync();
-                this.MSenseHAT.Message = "\"" + stringToSend + "\" sent successfully.";
-            }
-            catch (Exception exception)
-            {
-                // If this is an unknown status it means that the error if fatal and retry will likely fail.
-                if (Windows.Networking.Sockets.SocketError.GetStatus(exception.HResult) == SocketErrorStatus.Unknown)
-                {
-                    throw;
-                }
-            }
-        }
-        #endregion
-        */
-        #endregion
-
         /// <summary>
         /// Connect the raspberry to the server
         /// </summary>
@@ -333,12 +160,12 @@ namespace RaspiHomeSenseHAT
         private async void Listen()
         {
             this.Listener.ConnectionReceived += listenerConnectionReceived;
-            await this.Listener.BindServiceNameAsync(PORT.ToString());            
+            await this.Listener.BindServiceNameAsync(PORT.ToString());
         }
 
         void listenerConnectionReceived(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
         {
-            this.Connections.Add(args.Socket);            
+            this.Connections.Add(args.Socket);
 
             WaitForData(args.Socket);
         }
@@ -355,7 +182,7 @@ namespace RaspiHomeSenseHAT
             dataWriter.WriteInt32((int)len);
             dataWriter.WriteString(message);
             var ret = await dataWriter.StoreAsync();
-            dataWriter.DetachStream();        
+            dataWriter.DetachStream();
         }
 
         /// <summary>
@@ -363,15 +190,15 @@ namespace RaspiHomeSenseHAT
         /// </summary>
         private void SendForInitialize()
         {
-            SendMessage(this.Socket, string.Format("Client:"+FORMATSTRING, GetHostName(),LOCATION,COMPONENT));
+            SendMessage(this.Socket, string.Format(COMMUNICATIONSEPARATOR + RPINAME + COMMUNICATIONSEPARATOR + "Connection:" + FORMATSTRING, GetHostName(), LOCATION, COMPONENT));
         }
 
         /// <summary>
         /// Send values in reply to the server
         /// </summary>
-        private void ReplayValues()
+        public void ReplyValues()
         {
-            SendMessage(this.Socket, this.MSenseHAT.SendValues());
+            SendMessage(this.Socket, COMMUNICATIONSEPARATOR + "Reply:" + this.MSenseHAT.SendValues());
         }
 
         /// <summary>
@@ -381,10 +208,31 @@ namespace RaspiHomeSenseHAT
         private async void WaitForData(StreamSocket socket)
         {
             DataReader dataReader = new DataReader(socket.InputStream);
-            var stringHeader = await dataReader.LoadAsync(4);
+            dataReader.InputStreamOptions = InputStreamOptions.Partial;
+            var msglenght = dataReader.UnconsumedBufferLength;
+            uint stringBytes = msglenght;
 
-            if (stringHeader == 0)            
-                return;            
+            try
+            {        
+                // Read modification in the stream       
+                stringBytes = await dataReader.LoadAsync(512);               
+                
+                // read message
+                string msg = dataReader.ReadString(stringBytes);
+
+                // Send in return if the value exist
+                if (msg != "")
+                {
+                    ReplyValues();
+                }
+            }
+            catch (Exception e)
+            {
+                string output = e.Message;
+
+                if (msglenght < 1)
+                    return;                
+            }            
 
             WaitForData(socket);
         }

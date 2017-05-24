@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="93e02ad6-3ed8-440e-90e6-39621674ab2f"
+    Name="5e481698-7e45-409f-bf65-2b5443b38efc"
     Publisher="CN=Cyril"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="93e02ad6-3ed8-440e-90e6-39621674ab2f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="5e481698-7e45-409f-bf65-2b5443b38efc" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>RaspiHomeSenseHAT</DisplayName>

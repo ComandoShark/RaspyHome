@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,6 @@ namespace RaspiHomeServer
         #region Variables
         private RaspiHomeCommands _rhCommands;
         private string _sentence = "";
-        private List<RaspberryClient> _lstClients;
 
         private string[] typeValue = { "Boolean", "Double", "Int16", "Int32", "Int64" };
         #endregion
@@ -60,15 +60,15 @@ namespace RaspiHomeServer
         /// <param name="paramSentence"></param>
         /// <param name="paramRaspberryClients"></param>
         /// <returns></returns>
-        public List<RaspberryClient> ApplyFilter(string paramSentence, List<RaspberryClient> paramRaspberryClients)
+        public List<TcpClient> ApplyFilter(string paramSentence, List<RaspberryClient> paramRaspberryClients, Dictionary<string,Dictionary<RaspberryClient,TcpClient>> paramClientsName)
         {
             this.Sentence = RemoveDiacritics(paramSentence);
 
-            List<RaspberryClient> result = new List<RaspberryClient>();
+            List<TcpClient> result = new List<TcpClient>();
                         
             string action = "";
             string location = "";
-            string componentWithoutAction = "";
+            string componentWithoutAction = this.GetIndependantComponentFromSentence(this.Sentence);
             string component = this.GetComponentFromSentence(this.Sentence);
 
             Type componentType = null;
@@ -88,18 +88,39 @@ namespace RaspiHomeServer
                 componentType = this.GetComponentType(componentWithoutAction);
             }
 
+            // All clients
             foreach (var rpiClient in paramRaspberryClients)
             {
                 location = this.GetSentenceLocationOrRaspberryLocation(this.Sentence, rpiClient);
 
+                // All clients at this location
                 if (rpiClient.Location.ToLower() == location.ToLower())
                 {
+                    // All clients at this location with this component
                     foreach (var item in rpiClient.Components)
                         if (item.GetType() == componentType)
-                            if(action != "")
-                                // MET A JOUR LES VALEURS
+                            if (action != "")
+                            // MET A JOUR LES VALEURS
+                            {
                                 this.WriteValue(item, action, item.GetType().GetProperty(actionValue));
+                                foreach (var name in paramClientsName.Keys)
+                                {
+                                    if (paramClientsName[name].ContainsKey(rpiClient))
+                                    {
+                                        result.Add(paramClientsName[name][rpiClient]);
+                                    }
+                                }
+                            }
                             else
+                            {
+                                foreach (var name in paramClientsName.Keys)
+                                {
+                                    if (paramClientsName[name].ContainsKey(rpiClient))
+                                    {
+                                        result.Add(paramClientsName[name][rpiClient]);
+                                    }
+                                }
+                            }
                                 // ENVOIE UN MESSAGE D'ATTENTE DE RETOUR D'INFROMATIONS
                                 // RENVOIE AU RASPBERRY PARLEUT LES DONNEES A LIRE
                                 // CREATION DE LA REQUETTE RETOUR ICI
@@ -107,7 +128,6 @@ namespace RaspiHomeServer
                                 //readvalues from the sensor REQUETTES AU CLIENT 
                                 //SendMessageToSensorRaspberry("")
                                 //break;
-                    result.Add(rpiClient);
                 }
             }
 

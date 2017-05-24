@@ -1,5 +1,5 @@
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\ARM\Debug\App.xbf
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\ARM\Debug\ViewSensHAT.xbf
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\ARM\Debug\ViewSenseHAT.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\ARM\Debug\RaspiHomeSenseHAT.xr.xml
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\ARM\Debug\RaspiHomeSenseHAT.exe
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\ARM\Debug\RaspiHomeSenseHAT.pdb
@@ -115,13 +115,13 @@ C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\AR
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\bin\ARM\Debug\System.Xml.XmlSerializer.dll
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\App.g.i.cs
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\App.g.cs
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\ViewSensHAT.g.i.cs
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\ViewSensHAT.g.cs
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\ViewSenseHAT.g.i.cs
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\ViewSenseHAT.g.cs
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\XamlTypeInfo.g.cs
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\App.xaml
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\ViewSensHAT.xaml
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\ViewSenseHAT.xaml
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\App.xbf
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\ViewSensHAT.xbf
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\ViewSenseHAT.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\XamlSaveStateFile.xml
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\RaspiHomeSenseHAT.exe
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\RaspiHomeSenseHAT.pdb
@@ -193,4 +193,3 @@ C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\AR
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\resources.en-us.resfiles
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\resources.en-us.resfiles.intermediate
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\ProjectArchitectures.txt
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\RaspiHomeSenseHAT.csprojResolveAssemblyReference.cache

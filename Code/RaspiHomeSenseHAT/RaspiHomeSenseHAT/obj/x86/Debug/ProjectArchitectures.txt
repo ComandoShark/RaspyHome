@@ -1,0 +1,1 @@
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\RaspiHomeSenseHAT.csproj;x86

@@ -136,7 +136,7 @@ namespace RaspiHomeSenseHAT
 
         public string SendValues()
         {
-            return "TEMP=" + Math.Round((decimal)this.Data.Temperature) + ";" + "HUMI" + Math.Round((decimal)this.Data.Humidity) + ";" + "PRES=" + Math.Round((decimal)this.Data.Pressure);
+            return "TEMP=" + Math.Round((decimal)this.Data.Temperature) + ";" + "HUMI=" + Math.Round((decimal)this.Data.Humidity) + ";" + "PRES=" + Math.Round((decimal)this.Data.Pressure);
         }
         #endregion
     }

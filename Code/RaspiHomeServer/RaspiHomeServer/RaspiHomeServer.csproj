@@ -52,7 +52,7 @@
     <Compile Include="RaspiHomeCommands.cs" />
     <Compile Include="Sensor.cs" />
     <Compile Include="Server.cs" />
-    <Compile Include="SpeechNSynthetize.cs" />
+    <Compile Include="Microphone.cs" />
     <Compile Include="Store.cs" />
   </ItemGroup>
   <ItemGroup>

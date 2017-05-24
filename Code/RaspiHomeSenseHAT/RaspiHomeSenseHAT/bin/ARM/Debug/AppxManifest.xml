@@ -7,8 +7,8 @@
 
     Pour plus d'informations sur les fichiers manifeste, consultez http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="93e02ad6-3ed8-440e-90e6-39621674ab2f" Publisher="CN=Cyril" Version="1.0.0.0" ProcessorArchitecture="arm" />
-  <mp:PhoneIdentity PhoneProductId="93e02ad6-3ed8-440e-90e6-39621674ab2f" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="5e481698-7e45-409f-bf65-2b5443b38efc" Publisher="CN=Cyril" Version="1.0.0.0" ProcessorArchitecture="arm" />
+  <mp:PhoneIdentity PhoneProductId="5e481698-7e45-409f-bf65-2b5443b38efc" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>RaspiHomeSenseHAT</DisplayName>
     <PublisherDisplayName>Cyril</PublisherDisplayName>
@@ -37,7 +37,7 @@
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2015" />
     <build:Item Name="OperatingSystem" Version="10.0.14393.0 (rs1_release.160715-1616)" />
     <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="14.0.25431.1" />
-    <build:Item Name="ProjectGUID" Value="{69839FD6-098A-4CE8-AE4B-C796A665B5E8}" />
+    <build:Item Name="ProjectGUID" Value="{C1639E52-D021-40D9-B813-1B8CBF371CEB}" />
     <build:Item Name="OptimizingToolset" Value="None" />
     <build:Item Name="TargetRuntime" Value="Managed" />
     <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="14.0.25527.1" />

@@ -8,7 +8,7 @@
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
     <SolutionConfiguration>Debug|ARM</SolutionConfiguration>
     <PackageArchitecture>arm</PackageArchitecture>
-    <PackageIdentityName>93e02ad6-3ed8-440e-90e6-39621674ab2f</PackageIdentityName>
+    <PackageIdentityName>5e481698-7e45-409f-bf65-2b5443b38efc</PackageIdentityName>
     <PackageIdentityPublisher>CN=Cyril</PackageIdentityPublisher>
     <IntermediateOutputPath>C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>

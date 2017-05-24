@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -24,11 +25,14 @@ namespace RaspiHomeServer
 
         private TcpListener _listener;
         private List<TcpClient> _clients;
-        private Dictionary<TcpClient, RaspberryClient> _names;
+        private TcpClient _clientRequest;
+        private Dictionary<string, Dictionary<RaspberryClient, TcpClient>> _names;
         public readonly string _roomName;
         public readonly int _port;
         public readonly int _bufferSize = 2048;  // 2048 byte
         private bool _isRunning = false;
+
+        private Queue<string> _messageQueue;
         #endregion
         #endregion
 
@@ -85,7 +89,7 @@ namespace RaspiHomeServer
             }
         }
 
-        public Dictionary<TcpClient, RaspberryClient> Names
+        public Dictionary<string, Dictionary<RaspberryClient, TcpClient>> ClientsNames
         {
             get
             {
@@ -110,6 +114,32 @@ namespace RaspiHomeServer
                 _isRunning = value;
             }
         }
+
+        public Queue<string> MessageQueue
+        {
+            get
+            {
+                return _messageQueue;
+            }
+
+            set
+            {
+                _messageQueue = value;
+            }
+        }
+
+        public TcpClient ClientRequest
+        {
+            get
+            {
+                return _clientRequest;
+            }
+
+            set
+            {
+                _clientRequest = value;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -117,7 +147,8 @@ namespace RaspiHomeServer
         {
             this.RpiClients = new List<RaspberryClient>();
             this.Clients = new List<TcpClient>();
-            this.Names = new Dictionary<TcpClient, RaspberryClient>();
+            this.ClientsNames = new Dictionary<string, Dictionary<RaspberryClient, TcpClient>>();
+            this.MessageQueue = new Queue<string>();
 
             StartListening();
         }
@@ -126,30 +157,34 @@ namespace RaspiHomeServer
         #region Methods
         private void StartListening()
         {
+            // Some info
+            Console.WriteLine("Starting the {0} TCP Server on port {1}.", HOST_NAME, DEFAULT_PORT);
+            Console.WriteLine();
+
+            IPHostEntry host = Dns.GetHostEntry("localhost");
             IPAddress ipAddress = GetIPAdress();
             this.Listener = new TcpListener(GetIPAdress(), DEFAULT_PORT);
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, DEFAULT_PORT);
 
             // Create a TCP/IP socket.  
-            Socket listener = new Socket(AddressFamily.InterNetwork,
-                SocketType.Stream, ProtocolType.Tcp);
+            //Socket listener = new Socket(AddressFamily.InterNetwork,
+            //    SocketType.Stream, ProtocolType.Tcp);
 
             this.Listener.Start();
-            this.IsRunning = false;
+            this.IsRunning = true;
 
             while (this.IsRunning)
             {
                 if (this.Listener.Pending())
                 {
-                    this.HandleNewConnection();
+                    this.NewConnection();
                 }
+
+                this.CheckForDisconnects();
+                this.CheckForNewMessages();
 
                 // Wait before sending and clearing messages
                 Thread.Sleep(200);
-                this.SendMessages("test");
-
-                // Update only every 10ms
-                Thread.Sleep(10);
             }
 
             // Stop the server, and clean up any connected clients
@@ -161,7 +196,8 @@ namespace RaspiHomeServer
             this.Listener.Stop();
         }
 
-        private void HandleNewConnection()
+
+        private void NewConnection()
         {
             bool clientIsAccepted = false;
             TcpClient newClient = this.Listener.AcceptTcpClient();
@@ -173,50 +209,55 @@ namespace RaspiHomeServer
 
             // Print some info
             EndPoint endPoint = newClient.Client.RemoteEndPoint;
-            Console.WriteLine("{0}Handling a new client from {1}...", Environment.NewLine, endPoint);
+            Console.WriteLine();
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine("Client information");
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine("{0} Handling a new client from {1}.", Environment.NewLine, endPoint);
+            Console.WriteLine();
 
             // Let them identify themselves
             byte[] msgBuffer = new byte[_bufferSize];
             int bytesRead = netStream.Read(msgBuffer, 0, msgBuffer.Length);
-            //Console.WriteLine("Got {0} bytes.", bytesRead);
+
             if (bytesRead > 0)
             {
                 string msg = Encoding.UTF8.GetString(msgBuffer, 0, bytesRead);
 
-                // Check for the correct format
-                if (msg.StartsWith("Client:"))
+                string messageConnection = msg.Split('@').Last().Split(':').Last();
+
+                try
                 {
-                    string messageToConvert = msg.Substring(msg.IndexOf(':') + 1);
+                    // Get the name of the client
+                    string name = msg.Split('@')[1];
 
-                    RaspberryClient actualClient = InitializeNewRaspberryClient(messageToConvert);
-
-                    if (this.RpiClients != null)
+                    if ((name != string.Empty))
                     {
-                        //if ((name != string.Empty) && (!_names.ContainsValue(name)))
-                        //{
                         // Add the player
                         clientIsAccepted = true;
-                        this.Names.Add(newClient, actualClient);
+                        this.ClientsNames.Add(name, new Dictionary<RaspberryClient, TcpClient>() { { this.InitializeNewRaspberryClient(messageConnection), newClient } });
                         this.Clients.Add(newClient);
-
-                        // Show ip and name
-                        Console.WriteLine("{0} is a player with the location {1}.", endPoint, actualClient.Location);
-
+                        
+                        Console.WriteLine(msg);
                         // Tell the current players we have a new player
-                        //this.MessageQueue.Enqueue(String.Format("{0}{1} has joined the game.", Environment.NewLine, name));
+                        this.MessageQueue.Enqueue(String.Format("{0} has joined the server.", name));
+                        Console.WriteLine();
+                        Console.WriteLine("----------------------------------------");
                     }
                 }
-                else
+                catch (Exception)
                 {
                     // Wasn't either a viewer or messenger, clean up anyways.
-                    Console.WriteLine("Client wasn't able to connect (check message format?).", endPoint);
+                    Console.WriteLine("Client wasn't able to connect.", endPoint);
+                    Console.WriteLine("----------------------------------------");
+                    Console.WriteLine();
                     CleanupClient(newClient);
                 }
-            }
 
-            // Clear the client if he doesn't meet our requirements
-            if (!clientIsAccepted)
-                newClient.Close();
+                // Clear the client if he doesn't meet our requirements
+                if (!clientIsAccepted)
+                    newClient.Close();
+            }
         }
 
         private void CleanupClient(TcpClient client)
@@ -226,21 +267,159 @@ namespace RaspiHomeServer
             client.Close();
         }
 
-        // Clears out the message queue (and sends it to all of the viewers
-        public void SendMessages(string message)
+        /// <summary>
+        /// 
+        /// </summary>
+        private void CheckForDisconnects()
         {
-            // Encode the message
-            byte[] msgBuffer = Encoding.UTF8.GetBytes(message);
+            // For every client
+            foreach (TcpClient client in this.Clients.ToArray())
+            {
+                if (this.IsDisconnected(client))
+                {
+                    try
+                    {
+                        // Get info about the messenger
+                        foreach (string name in this.ClientsNames.Keys)
+                        {
+                            if (this.ClientsNames[name].ContainsValue(client))
+                            {
+                                Console.WriteLine();
+                                Console.WriteLine("----------------------------------------");
+                                Console.WriteLine("Client disconnect from the server");
+                                Console.WriteLine("----------------------------------------");
+                                Console.WriteLine("Client named {0} has left.", name);
+                                Console.WriteLine();
+                                foreach (var information in this.ClientsNames[name].Keys)
+                                {
+                                    if (this.ClientsNames[name].ContainsKey(information))
+                                    {
+                                        Console.WriteLine("Location : " + information.Location);
+                                        Console.WriteLine("Ip client :" + information.IpClient);
+                                        Console.Write("Component : ");
+                                        foreach (var componnent in information.Components)
+                                        {
+                                            Console.WriteLine(componnent.ToString());
+                                        }
+                                        Console.WriteLine();
+                                    }
+                                }
+                                Console.WriteLine("----------------------------------------");
 
-            // Send the message to each client
+                                this.Clients.Remove(client);  // Remove from list
+                                this.ClientsNames.Remove(name);    // Remove taken name
+                                this.CleanupClient(client);   // Cleanup
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    //this.MessageQueue.Enqueue(String.Format("{0}{1} has left the game", Environment.NewLine, name));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void CheckForNewMessages()
+        {
             foreach (TcpClient client in this.Clients)
             {
-                SocketAddress sa = client.Client.LocalEndPoint.Serialize();
-                client.GetStream().Write(msgBuffer, 0, msgBuffer.Length);
+                int messageLength = client.Available;
+                if (messageLength > 0)
+                {
+                    // Get the message if there is one
+                    byte[] msgBuffer = new byte[messageLength];
+                    client.GetStream().Read(msgBuffer, 0, msgBuffer.Length);
+
+                    // Attach a name to it and shove it into the queue
+                    string msg = String.Format("{0}", Encoding.UTF8.GetString(msgBuffer));
+                    string subject = msg.Split('@').Last().Split(':').First();
+                    string informationInReply = msg.Split('@').Last().Split(':').Last();
+                    Console.WriteLine();
+
+                    switch (msg.Split('@').Last().Split(':').First())
+                    {
+                        case "Send":
+                            Console.WriteLine("----------------------------------------");
+                            Console.WriteLine("Command send and reply");
+                            Console.WriteLine("----------------------------------------");
+                            Console.WriteLine(subject);
+                            List<TcpClient> clientsToSend = this.CmdFilter.ApplyFilter(informationInReply, this.RpiClients, this.ClientsNames);
+                            this.ClientRequest = client;
+
+                            foreach (TcpClient clientToSend in clientsToSend)
+                            {
+                                this.SendMessages(clientToSend, informationInReply);
+                            }
+
+                            break;
+
+                        case "Reply":
+                            Console.WriteLine(subject);
+                            this.SendMessages(this.ClientRequest, informationInReply);
+                            Console.WriteLine("----------------------------------------");
+                            break;
+                    }
+
+                    this.MessageQueue.Enqueue(msg);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Disconnect client frome the server when they leave
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
+        private bool IsDisconnected(TcpClient client)
+        {
+            try
+            {
+                Socket clientSocket = client.Client;
+                return clientSocket.Poll(10 * 1000, SelectMode.SelectRead) && (clientSocket.Available == 0);
+            }
+            catch (SocketException)
+            {
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        public void SendMessages(TcpClient clientToSend, string message)
+        {
+            // Encode the message
+            if (this.MessageQueue.Count != 0)
+            {
+                byte[] msgBuffer = Encoding.UTF8.GetBytes(message);
+
+                // Send the message to each client
+                //SocketAddress sa = clientToSend.Client.LocalEndPoint.Serialize();
+
+
+                //Console.WriteLine("Connected " + _socket.RemoteEndPoint);
+
+                //Stream stream = new NetworkStream(_socket);
+                //StreamWriter writer = new StreamWriter(stream);
+                //StreamReader reader = new StreamReader(stream);
+
+                //writer.AutoFlush = true;
+
+                //writer.Write(message);
+
+                Thread.Sleep(200);
+                clientToSend.GetStream().Write(msgBuffer, 0, msgBuffer.Length);
+                Thread.Sleep(200);
+
+                Console.WriteLine(message);
             }
 
-            Console.WriteLine(message);
-
+            this.MessageQueue.Clear();
         }
 
         /// <summary>
@@ -272,7 +451,7 @@ namespace RaspiHomeServer
             string rpiIPv4 = "";
             string rpiLocation = "";
             string rpiComponent = "";
-            
+
             foreach (var information in rpiInformations)
             {
                 switch (information.Split('=').First())
@@ -341,22 +520,22 @@ namespace RaspiHomeServer
         /// </summary>
         /// <param name="command"></param>
         /// <returns>List of client whose values been changed</returns>
-        private List<RaspberryClient> FilterTheCommand(string command)
-        {
-            return this.CmdFilter.ApplyFilter(command, this.RpiClients);
-        }
+        //private List<RaspberryClient> FilterTheCommand(string command)
+        //{
+        //    return this.CmdFilter.ApplyFilter(command, this.RpiClients);
+        //}
 
         /// <summary>
         /// Look for each client who ther value has changed and send to the client a refresh
         /// </summary>
         /// <param name="rpiClientWithNewValue"></param>
-        private void UpdateRaspberryClientWithNewValue(List<RaspberryClient> rpiClientWithNewValue)
-        {
-            foreach (RaspberryClient client in rpiClientWithNewValue)
-            {
+        //private void UpdateRaspberryClientWithNewValue(List<RaspberryClient> rpiClientWithNewValue)
+        //{
+        //    foreach (RaspberryClient client in rpiClientWithNewValue)
+        //    {
 
-            }
-        }
+        //    }
+        //}
         #endregion
     }
 }

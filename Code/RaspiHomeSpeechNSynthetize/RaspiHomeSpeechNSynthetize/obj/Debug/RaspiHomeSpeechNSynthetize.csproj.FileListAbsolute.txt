@@ -1,8 +1,0 @@
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\bin\Debug\RaspiHomeSpeechNSynthetize.exe.config
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\bin\Debug\RaspiHomeSpeechNSynthetize.exe
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\bin\Debug\RaspiHomeSpeechNSynthetize.pdb
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\obj\Debug\RaspiHomeSpeechNSynthetize.csprojResolveAssemblyReference.cache
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\obj\Debug\Interop.SpeechLib.dll
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\obj\Debug\RaspiHomeSpeechNSynthetize.csproj.ResolveComReference.cache
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\obj\Debug\RaspiHomeSpeechNSynthetize.exe
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\obj\Debug\RaspiHomeSpeechNSynthetize.pdb

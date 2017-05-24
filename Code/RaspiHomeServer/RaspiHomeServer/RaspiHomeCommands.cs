@@ -63,6 +63,7 @@ namespace RaspiHomeServer
             { "temperature","Sensor"},
             { "humidite","Sensor"},
             { "pression","Sensor"},
+            { "etat","Sensor"},
         };
 
         Dictionary<string, Dictionary<string, bool>> _raspiBooleanCommandTranslation = new Dictionary<string, Dictionary<string, bool>>()

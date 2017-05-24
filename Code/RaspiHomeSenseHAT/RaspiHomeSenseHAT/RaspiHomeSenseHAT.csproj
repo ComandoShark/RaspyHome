@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{69839FD6-098A-4CE8-AE4B-C796A665B5E8}</ProjectGuid>
+    <ProjectGuid>{C1639E52-D021-40D9-B813-1B8CBF371CEB}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RaspiHomeSenseHAT</RootNamespace>
@@ -98,8 +98,8 @@
     <Compile Include="CommunicationWithServer.cs" />
     <Compile Include="ModelSenseHAT.cs" />
     <Compile Include="SenseHatData.cs" />
-    <Compile Include="ViewSensHAT.xaml.cs">
-      <DependentUpon>ViewSensHAT.xaml</DependentUpon>
+    <Compile Include="ViewSenseHAT.xaml.cs">
+      <DependentUpon>ViewSenseHAT.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -124,7 +124,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="ViewSensHAT.xaml">
+    <Page Include="ViewSenseHAT.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

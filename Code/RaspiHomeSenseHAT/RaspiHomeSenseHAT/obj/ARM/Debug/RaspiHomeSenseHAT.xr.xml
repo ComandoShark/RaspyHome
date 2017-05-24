@@ -17,9 +17,8 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Children" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Margin" />
-      <RootProperty Name="Text" />
     </RootType>
     <RootType FullName="RaspiHomeSenseHAT.ViewSenseHAT" />
   </Roots.RootTypes>

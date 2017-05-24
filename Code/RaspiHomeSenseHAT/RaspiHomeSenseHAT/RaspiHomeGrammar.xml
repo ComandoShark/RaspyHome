@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<grammar version="1.0" xml:lang="en-US" mode="voice" root="toplevel"
+tag-format="semantics/1.0"
+  xml:base="http://www.contoso.com/"
+  xmlns="http://www.w3.org/2001/06/grammar"
+  xmlns:sapi="http://schemas.microsoft.com/Speech/2002/06/SRGSExtensions">
+  <rule id="toplevel" scope="public">
+    <one-of>
+      <item>
+        <ruleref uri="#Raspi"/>
+      </item>
+      <item>
+        <ruleref uri="#Meteo"/>
+      </item>
+      <item>
+        <ruleref uri="#Action"/>
+      </item>
+    </one-of>
+  </rule>
+
+  <rule id="Raspi">
+    <example> raspi </example>
+
+    <item> raspi </item>
+  </rule>
+
+  <rule id="Meteo">
+    <example> quel est la temperature </example>
+    <example> quel est le taux d'humidite </example>
+    <example> quel est le niveau de pression </example>
+    <example> quel est l'etat</example>
+
+    <one-of>
+      <item> temperature </item>
+      <item> humidite </item>
+      <item> pression </item>
+      <item> etat </item>
+    </one-of>
+    <ruleref uri="#Localisation"/>
+  </rule>
+
+  <rule id="Action">
+    <example> allume la lumiere</example>
+    <example> eteint la lumiere</example>
+    <example> monte le store</example>
+    <example> descend le store</example>
+    <example> ouvre le store</example>
+    <example> ferme le store</example>
+
+    <one-of>
+      <item> allume </item>
+      <item> eteint </item>
+      <item> monte </item>
+      <item> descend </item>
+      <item> ouvre </item>
+      <item> ferme </item>
+    </one-of>
+    
+    <ruleref uri="#Composant"/>
+  </rule>
+
+  <rule id="Composant">
+    <example> la lumiere </example>
+    <example> les lumieres </example>
+    <example> le store </example>
+    <example> les stores </example>
+
+    <one-of>
+      <item> lumiere </item>
+      <item> store </item>
+    </one-of>
+    <ruleref uri="#Localisation"/>
+  </rule>
+
+  <rule id="Localisation">
+    <example> du salon </example>
+    <example> de la cuisine </example>
+    <example> du bureau </example>
+    <example> de la chambre </example>
+    <example> des toilettes </example>
+    <example> de la salle de bain </example>
+    <example> de la maison </example>
+
+    <item repeat="0-1"> salon </item>
+    <item repeat="0-1"> cuisine </item>
+    <item repeat="0-1"> bureau </item>
+    <item repeat="0-1"> chambre </item>
+    <item repeat="0-1"> toilette </item>
+    <item repeat="0-1"> salle de bain </item>
+    <item repeat="0-1"> maison </item>
+  </rule>
+</grammar>
