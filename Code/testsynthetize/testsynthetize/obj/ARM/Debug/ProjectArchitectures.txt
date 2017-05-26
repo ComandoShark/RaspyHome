@@ -1,1 +1,0 @@
-C:\Users\Cyril\Desktop\RaspiHome\Code\testsynthetize\testsynthetize\testsynthetize.csproj;arm

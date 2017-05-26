@@ -10,6 +10,10 @@ namespace RaspiHomePiFaceDigital2
     {
         #region Fields
         #region Constant
+        private const byte DEFAULT_PORT = PiFaceDigital2.LED0;
+
+        private const byte OFF = MCP23S17.Off;
+        private const byte ON = MCP23S17.On;
         #endregion
 
         #region Variable
@@ -19,6 +23,11 @@ namespace RaspiHomePiFaceDigital2
         private bool _isClose = false;
         private double _percentUp = 0.0;        
         private double _percentOpen = 0.0;
+
+        private byte _pinCommunicationUp = DEFAULT_PORT;
+        private byte _pinCommunicationDown = DEFAULT_PORT;
+        private byte _pinCommunicationOpen = DEFAULT_PORT;
+        private byte _pinCommunicationClose = DEFAULT_PORT;
         #endregion
         #endregion
 
@@ -35,8 +44,10 @@ namespace RaspiHomePiFaceDigital2
                 _isUp = value;
 
                 if (value)
-                {
+                {                    
                     this.IsDown = false;
+                    MCP23S17.WritePin(this.PinCommunicationDown, OFF);
+                    MCP23S17.WritePin(this.PinCommunicationUp, ON);
                     this.PercentUp = 100.0;
                 }
             }
@@ -56,6 +67,8 @@ namespace RaspiHomePiFaceDigital2
                 if (value)
                 {
                     this.IsUp = false;
+                    MCP23S17.WritePin(this.PinCommunicationUp, OFF);
+                    MCP23S17.WritePin(this.PinCommunicationDown, ON);
                     this.PercentUp = 100.0;
                 }
             }
@@ -75,6 +88,8 @@ namespace RaspiHomePiFaceDigital2
                 if (value)
                 {
                     this.IsClose = false;
+                    MCP23S17.WritePin(this.PinCommunicationClose, OFF);
+                    MCP23S17.WritePin(this.PinCommunicationOpen, ON);
                     this.PercentOpen = 100.0;
                 }
             }
@@ -94,6 +109,8 @@ namespace RaspiHomePiFaceDigital2
                 if (value)
                 {
                     this.IsOpen = false;
+                    MCP23S17.WritePin(this.PinCommunicationOpen, OFF);
+                    MCP23S17.WritePin(this.PinCommunicationClose, ON);                    
                     this.PercentOpen = 100.0;
                 }
             }
@@ -134,21 +151,64 @@ namespace RaspiHomePiFaceDigital2
                     _percentOpen = 0.0;
             }
         }
+
+        public byte PinCommunicationDown
+        {
+            get
+            {
+                return _pinCommunicationDown;
+            }
+
+            set
+            {
+                _pinCommunicationDown = value;
+            }
+        }
+
+        public byte PinCommunicationOpen
+        {
+            get
+            {
+                return _pinCommunicationOpen;
+            }
+
+            set
+            {
+                _pinCommunicationOpen = value;
+            }
+        }
+
+        public byte PinCommunicationClose
+        {
+            get
+            {
+                return _pinCommunicationClose;
+            }
+
+            set
+            {
+                _pinCommunicationClose = value;
+            }
+        }
+
+        public byte PinCommunicationUp
+        {
+            get
+            {
+                return _pinCommunicationUp;
+            }
+
+            set
+            {
+                _pinCommunicationUp = value;
+            }
+        }
         #endregion
 
         #region Constructor
         #endregion
 
         #region Methods
-        public string ToSend()
-        {
-            string result = "";
-
-            result += "IsUp=" + this.IsUp + ";" + "IsDown=" + this.IsDown + ";" + "PercentUp=" + this.PercentUp + ";";
-            result += "IsOpen=" + this.IsOpen + ";" + "IsClose=" + this.IsClose + ";" + "PercentOpen=" + this.PercentOpen + ";";
-
-            return result;
-        }
         #endregion
     }
 }

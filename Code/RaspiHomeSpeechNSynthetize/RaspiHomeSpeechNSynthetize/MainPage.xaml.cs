@@ -41,8 +41,24 @@ namespace RaspiHomeSpeechNSynthetize
             if (this.tbxCommandToSend.Text != "")
                 this._speecher.SendBrutCommand(this.tbxCommandToSend.Text);
             else
-                this._speecher.SendBrutCommand("Quel est la température du salon");
+                this._speecher.SendBrutCommand("Allume lumiere salon");
         }
         #endregion
+
+        private void btnSendCommand2_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.tbxCommandToSend.Text != "")
+                this._speecher.SendBrutCommand(this.tbxCommandToSend2.Text);
+            else
+                this._speecher.SendBrutCommand("Eteins lumiere salon");
+        }
+
+        private void btnSendCommand3_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.tbxCommandToSend.Text != "")
+                this._speecher.SendBrutCommand(this.tbxCommandToSend3.Text);
+            else
+                this._speecher.SendBrutCommand("Temperature du salon");
+        }
     }
 }

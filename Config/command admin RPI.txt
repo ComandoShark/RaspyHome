@@ -1,4 +1,6 @@
 net start WinRM
-Set-Item WSMan:\localhost\Client\TrustedHosts –Value <ipv
+Set-Item WSMan:\localhost\Client\TrustedHosts –Value <ipv4>
 Enter-PSSession -ComputerName 192.168.2.4 -Credential 192.168.2.4\Administrator
 reg ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\EmbeddedMode\ProcessLauncher" /v AllowedExecutableFilesList /t REG_MULTI_SZ /d "c:\windows\system32\cmd.exe\0"
+
+https://developer.microsoft.com/en-us/windows/iot/docs/powershell

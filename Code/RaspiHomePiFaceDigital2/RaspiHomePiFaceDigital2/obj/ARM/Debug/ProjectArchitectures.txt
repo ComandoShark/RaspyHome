@@ -1,0 +1,1 @@
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomePiFaceDigital2\RaspiHomePiFaceDigital2\RaspiHomePiFaceDigital2.csproj;arm

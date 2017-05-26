@@ -233,22 +233,22 @@ namespace RaspiHomeSpeechNSynthetize
 
                     foreach (VoiceInformation vInfo in SpeechSynthesizer.AllVoices)
                     {
-                        if (vInfo.Language.Contains("fr"))
+                        if (vInfo.Language.Contains("en"))
                         {
                             synth.Voice = vInfo;
+                            break;
                         }
                         else
                             synth.Voice = vInfo;
                     }
 
-                    SpeechSynthesisStream synthStream = await synth.SynthesizeTextToStreamAsync("Hello world");
+                    SpeechSynthesisStream synthStream = await synth.SynthesizeTextToStreamAsync(information);
 
                     mediaElement.SetSource(synthStream, synthStream.ContentType);
                     mediaElement.Volume = 1;
                     mediaElement.Play();
 
-                    mediaElement.Stop();
-                    synthStream.Dispose();
+                    await Task.Delay(TimeSpan.FromSeconds(3));
                 }
             }
         }      

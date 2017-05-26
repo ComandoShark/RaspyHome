@@ -160,15 +160,10 @@ namespace RaspiHomeServer
             // Some info
             Console.WriteLine("Starting the {0} TCP Server on port {1}.", HOST_NAME, DEFAULT_PORT);
             Console.WriteLine();
-
-            IPHostEntry host = Dns.GetHostEntry("localhost");
+            
             IPAddress ipAddress = GetIPAdress();
             this.Listener = new TcpListener(GetIPAdress(), DEFAULT_PORT);
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, DEFAULT_PORT);
-
-            // Create a TCP/IP socket.  
-            //Socket listener = new Socket(AddressFamily.InterNetwork,
-            //    SocketType.Stream, ProtocolType.Tcp);
 
             this.Listener.Start();
             this.IsRunning = true;
@@ -284,6 +279,7 @@ namespace RaspiHomeServer
                         {
                             if (this.ClientsNames[name].ContainsValue(client))
                             {
+                                // Give information of the client disconnected 
                                 Console.WriteLine();
                                 Console.WriteLine("----------------------------------------");
                                 Console.WriteLine("Client disconnect from the server");
@@ -297,9 +293,13 @@ namespace RaspiHomeServer
                                         Console.WriteLine("Location : " + information.Location);
                                         Console.WriteLine("Ip client :" + information.IpClient);
                                         Console.Write("Component : ");
+                                        int cnt = 0; ;
                                         foreach (var componnent in information.Components)
-                                        {
-                                            Console.WriteLine(componnent.ToString());
+                                        {                                            
+                                            if(cnt > 0)
+                                                Console.Write("            ");
+                                            cnt++;
+                                            Console.WriteLine(componnent.ToString().Split('.').Last());
                                         }
                                         Console.WriteLine();
                                     }
@@ -388,9 +388,9 @@ namespace RaspiHomeServer
         }
 
         /// <summary>
-        /// 
+        /// Convert the message in bytes and write in the stream of the client
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message"> message to send </param>
         public void SendMessages(TcpClient clientToSend, string message)
         {
             // Encode the message
@@ -398,20 +398,7 @@ namespace RaspiHomeServer
             {
                 byte[] msgBuffer = Encoding.UTF8.GetBytes(message);
 
-                // Send the message to each client
-                //SocketAddress sa = clientToSend.Client.LocalEndPoint.Serialize();
-
-
-                //Console.WriteLine("Connected " + _socket.RemoteEndPoint);
-
-                //Stream stream = new NetworkStream(_socket);
-                //StreamWriter writer = new StreamWriter(stream);
-                //StreamReader reader = new StreamReader(stream);
-
-                //writer.AutoFlush = true;
-
-                //writer.Write(message);
-
+                // Delai between each messages
                 Thread.Sleep(200);
                 clientToSend.GetStream().Write(msgBuffer, 0, msgBuffer.Length);
                 Thread.Sleep(200);
@@ -425,7 +412,7 @@ namespace RaspiHomeServer
         /// <summary>
         /// Get the ip of the raspberry
         /// </summary>
-        /// <returns>return the IPv4 address 192.168.1.2</returns>
+        /// <returns> return the IPv4 address 192.168.1.2 </returns>
         private IPAddress GetIPAdress()
         {
             IPAddress result = null;
@@ -514,28 +501,6 @@ namespace RaspiHomeServer
             return client;
         }
         #endregion
-
-        /// <summary>
-        /// Filter the command receive from other client
-        /// </summary>
-        /// <param name="command"></param>
-        /// <returns>List of client whose values been changed</returns>
-        //private List<RaspberryClient> FilterTheCommand(string command)
-        //{
-        //    return this.CmdFilter.ApplyFilter(command, this.RpiClients);
-        //}
-
-        /// <summary>
-        /// Look for each client who ther value has changed and send to the client a refresh
-        /// </summary>
-        /// <param name="rpiClientWithNewValue"></param>
-        //private void UpdateRaspberryClientWithNewValue(List<RaspberryClient> rpiClientWithNewValue)
-        //{
-        //    foreach (RaspberryClient client in rpiClientWithNewValue)
-        //    {
-
-        //    }
-        //}
         #endregion
     }
 }

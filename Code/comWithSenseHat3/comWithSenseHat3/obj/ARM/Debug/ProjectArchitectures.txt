@@ -1,1 +1,0 @@
-C:\Users\Cyril\Desktop\RaspiHome\Code\comWithSenseHat3\comWithSenseHat3\comWithSenseHat3.csproj;arm

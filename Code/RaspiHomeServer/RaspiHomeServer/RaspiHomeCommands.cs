@@ -9,7 +9,7 @@ namespace RaspiHomeServer
     public class RaspiHomeCommands
     {
         #region Commands variable
-        private List<string> _raspiHomeObjectKnown = new List<string>()
+        private List<string> _raspiHomeComponentKnown = new List<string>()
         {
             "lumiere","lumieres",
             "store","stores",
@@ -80,12 +80,12 @@ namespace RaspiHomeServer
         {
             get
             {
-                return _raspiHomeObjectKnown;
+                return _raspiHomeComponentKnown;
             }
 
             set
             {
-                _raspiHomeObjectKnown = value;
+                _raspiHomeComponentKnown = value;
             }
         }
 

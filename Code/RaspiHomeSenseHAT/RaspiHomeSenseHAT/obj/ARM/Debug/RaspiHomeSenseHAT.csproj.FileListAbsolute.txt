@@ -193,3 +193,4 @@ C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\AR
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\resources.en-us.resfiles
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\resources.en-us.resfiles.intermediate
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\ProjectArchitectures.txt
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\obj\ARM\Debug\RaspiHomeSenseHAT.csprojResolveAssemblyReference.cache

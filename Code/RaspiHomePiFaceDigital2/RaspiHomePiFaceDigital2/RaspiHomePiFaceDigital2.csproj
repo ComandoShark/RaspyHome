@@ -98,7 +98,9 @@
     <Compile Include="CommunicationWithServer.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Light.cs" />
+    <Compile Include="MCP23S17.cs" />
     <Compile Include="ModelPiFaceDigital2.cs" />
+    <Compile Include="PiFaceDigital2.cs" />
     <Compile Include="Store.cs" />
     <Compile Include="ViewPiFaceDigital2.xaml.cs">
       <DependentUpon>ViewPiFaceDigital2.xaml</DependentUpon>

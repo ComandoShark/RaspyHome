@@ -10,8 +10,18 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
-                <TextBox x:ConnectionId='1' x:Name="tbxCommandToSend" Width="250" Text="Quel est la température du salon"/>
-                <Button x:ConnectionId='2' x:Name="btnSendCommand" Width="55" Content="Send" Margin="40,0,0,0"                             />
+                <TextBox x:ConnectionId='5' x:Name="tbxCommandToSend" Width="250" Text="Allume la lumière du salon"/>
+                <Button x:ConnectionId='6' x:Name="btnSendCommand" Width="55" Content="Send" Margin="40,0,0,0"                             />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+                <TextBox x:ConnectionId='3' x:Name="tbxCommandToSend2" Width="250" Text="Éteins la lumière du salon"/>
+                <Button x:ConnectionId='4' x:Name="btnSendCommand2" Width="55" Content="Send" Margin="40,0,0,0"                              />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+                <TextBox x:ConnectionId='1' x:Name="tbxCommandToSend3" Width="250" Text="Quel est la température du salon"/>
+                <Button x:ConnectionId='2' x:Name="btnSendCommand3" Width="55" Content="Send" Margin="40,0,0,0"                              />
             </StackPanel>
         </StackPanel>
     </Grid>

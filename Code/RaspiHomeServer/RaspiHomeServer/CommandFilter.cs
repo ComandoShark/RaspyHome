@@ -14,8 +14,6 @@ namespace RaspiHomeServer
         #region Variables
         private RaspiHomeCommands _rhCommands;
         private string _sentence = "";
-
-        private string[] typeValue = { "Boolean", "Double", "Int16", "Int32", "Int64" };
         #endregion
 
         #region Properties
@@ -62,76 +60,81 @@ namespace RaspiHomeServer
         /// <returns></returns>
         public List<TcpClient> ApplyFilter(string paramSentence, List<RaspberryClient> paramRaspberryClients, Dictionary<string,Dictionary<RaspberryClient,TcpClient>> paramClientsName)
         {
-            this.Sentence = RemoveDiacritics(paramSentence);
-
-            List<TcpClient> result = new List<TcpClient>();
-                        
-            string action = "";
-            string location = "";
-            string componentWithoutAction = this.GetIndependantComponentFromSentence(this.Sentence);
-            string component = this.GetComponentFromSentence(this.Sentence);
-
-            Type componentType = null;
-            string actionValue = "";
-
-            // Different usage of the order between an component with action and without one
-            // Writes values and send to the client the information or read values
-            if (component != "")
+            try
             {
-                action = this.GetActionFromSentence(this.Sentence);
-                actionValue = ReadValueOfSelectedComponent(action);
-                componentType = this.GetComponentType(component);
-            }
-            else
-            {
-                componentWithoutAction = GetIndependantComponentFromSentence(this.Sentence);
-                componentType = this.GetComponentType(componentWithoutAction);
-            }
+                this.Sentence = RemoveDiacritics(paramSentence);
 
-            // All clients
-            foreach (var rpiClient in paramRaspberryClients)
-            {
-                location = this.GetSentenceLocationOrRaspberryLocation(this.Sentence, rpiClient);
+                List<TcpClient> result = new List<TcpClient>();
 
-                // All clients at this location
-                if (rpiClient.Location.ToLower() == location.ToLower())
+                string action = "";
+                string location = "";
+                string componentWithoutAction = this.GetIndependantComponentFromSentence(this.Sentence);
+                string component = this.GetComponentFromSentence(this.Sentence);
+
+                Type componentType = null;
+                string actionValue = "";
+
+                // Different usage of the order between an component with action and without one
+                // Writes values and send to the client the information or read values
+                if (component != "")
                 {
-                    // All clients at this location with this component
-                    foreach (var item in rpiClient.Components)
-                        if (item.GetType() == componentType)
-                            if (action != "")
-                            // MET A JOUR LES VALEURS
-                            {
-                                this.WriteValue(item, action, item.GetType().GetProperty(actionValue));
-                                foreach (var name in paramClientsName.Keys)
-                                {
-                                    if (paramClientsName[name].ContainsKey(rpiClient))
-                                    {
-                                        result.Add(paramClientsName[name][rpiClient]);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                foreach (var name in paramClientsName.Keys)
-                                {
-                                    if (paramClientsName[name].ContainsKey(rpiClient))
-                                    {
-                                        result.Add(paramClientsName[name][rpiClient]);
-                                    }
-                                }
-                            }
-                                // ENVOIE UN MESSAGE D'ATTENTE DE RETOUR D'INFROMATIONS
-                                // RENVOIE AU RASPBERRY PARLEUT LES DONNEES A LIRE
-                                // CREATION DE LA REQUETTE RETOUR ICI
-                                // 
-                                //readvalues from the sensor REQUETTES AU CLIENT 
-                                //SendMessageToSensorRaspberry("")
-                                //break;
+                    action = this.GetActionFromSentence(this.Sentence);
+                    actionValue = ReadValueOfSelectedComponent(action);
+                    componentType = this.GetComponentType(component);
                 }
-            }
+                else
+                {
+                    componentWithoutAction = GetIndependantComponentFromSentence(this.Sentence);
+                    componentType = this.GetComponentType(componentWithoutAction);
+                }
 
-            return result;
+                // All clients
+                foreach (var rpiClient in paramRaspberryClients)
+                {
+                    location = this.GetSentenceLocationOrRaspberryLocation(this.Sentence, rpiClient);
+
+                    // All clients at this location
+                    if (rpiClient.Location.ToLower() == location.ToLower())
+                    {
+                        // All clients at this location with this component
+                        foreach (var itemType in rpiClient.Components)
+                        {
+                            if (itemType.GetType() == componentType)
+                            {
+                                if (action != "")
+                                // MET A JOUR LES VALEURS
+                                {
+                                    this.WriteValue(itemType, action, itemType.GetType().GetProperty(actionValue));
+                                    foreach (var name in paramClientsName.Keys)
+                                    {
+                                        if (paramClientsName[name].ContainsKey(rpiClient))
+                                        {
+                                            result.Add(paramClientsName[name][rpiClient]);
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    foreach (var name in paramClientsName.Keys)
+                                    {
+                                        if (paramClientsName[name].ContainsKey(rpiClient))
+                                        {
+                                            result.Add(paramClientsName[name][rpiClient]);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return result;
+            }
+            catch(Exception ex)
+            {
+                string errorCommandFilter = ex.Message;
+                return null;
+            }
         }
 
         /// <summary>
@@ -149,6 +152,7 @@ namespace RaspiHomeServer
                 if (this._rhCommands.RaspiHomeLocationKnown.Contains(word))
                 {
                     result = word;
+                    break;
                 }
             }
 
@@ -173,6 +177,7 @@ namespace RaspiHomeServer
                 if (this._rhCommands.RaspiHomeComponentKnown.Contains(word))
                 {
                     result = word;
+                    break;
                 }
             }
 
@@ -216,6 +221,7 @@ namespace RaspiHomeServer
                 if (this._rhCommands.RaspiHomeActionKnown.Contains(word))
                 {
                     result = word;
+                    break;
                 }
             }
 
@@ -244,6 +250,11 @@ namespace RaspiHomeServer
             return result;
         }
 
+        /// <summary>
+        /// Read properties value of classes
+        /// </summary>
+        /// <param name="actionName"> name used to change the good property </param>
+        /// <returns> return the name of the property to change the value </returns>
         private string ReadValueOfSelectedComponent(string actionName)
         {
             string result = "";

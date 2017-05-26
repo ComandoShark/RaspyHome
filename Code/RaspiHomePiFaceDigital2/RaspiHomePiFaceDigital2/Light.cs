@@ -10,12 +10,18 @@ namespace RaspiHomePiFaceDigital2
     {
         #region Fields
         #region Constant
+        private const byte DEFAULT_PORT = PiFaceDigital2.LED5;
+
+        private const byte OFF = MCP23S17.Off;
+        private const byte ON = MCP23S17.On;
         #endregion
 
         #region Variable
         private bool _isOn = false;
         private double _luxPercent = 0.0;
-        private int[] _colorARGB = { 255, 0, 0, 0 };
+        private int[] _colorARGB = { 255, 0, 0, 0 };   
+
+        private byte _pinCommunication = DEFAULT_PORT;
         #endregion
         #endregion
 
@@ -30,11 +36,16 @@ namespace RaspiHomePiFaceDigital2
             set
             {
                 _isOn = value;
-
                 if (value)
+                {
                     this.LuxPercent = 100.0;
+                    MCP23S17.WritePin(this.PinCommunication, ON);
+                }
                 else
+                {
                     this.LuxPercent = 0.0;
+                    MCP23S17.WritePin(this.PinCommunication, OFF);
+                }
             }
         }
 
@@ -68,27 +79,25 @@ namespace RaspiHomePiFaceDigital2
                 _colorARGB = value;
             }
         }
+
+        public byte PinCommunication
+        {
+            get
+            {
+                return _pinCommunication;
+            }
+
+            set
+            {
+                _pinCommunication = value;
+            }
+        }
         #endregion
 
         #region Constructor
         #endregion
 
         #region Methods
-        public string ToSend()
-        {
-            string result = "";
-
-            result += "IsOn=" + this.IsOn + ";" + "LuxPercent=" + this.LuxPercent + ";" + "ColorARGB=";
-
-            for (int i = 0; i < this.ColorARGB.Length-1; i++)
-            {
-                result += this.ColorARGB[i].ToString() + ",";
-            }
-
-            result += ";";
-
-            return result;
-        }
         #endregion
     }
 }
