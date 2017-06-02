@@ -40,6 +40,7 @@ namespace RaspiHomePiFaceDigital2
             "stopper","stop",
             "ouvrir","ouvre",
             "fermer","ferme",
+            "stopper","stop",
         };
 
         private Dictionary<string, string> _raspiLanguageTranslation = new Dictionary<string, string>()
@@ -54,6 +55,7 @@ namespace RaspiHomePiFaceDigital2
             { "eteins", new Dictionary<string, bool> { { "IsOn", false } } }, { "eteindre", new Dictionary<string, bool> { { "IsOn", false } } },
             { "monte", new Dictionary<string, bool> { { "IsUp", true } } }, { "monter", new Dictionary<string, bool> { { "IsUp", true } } },
             { "descends", new Dictionary<string, bool> { { "IsDown", true } } }, { "descendre", new Dictionary<string, bool> { { "IsDown", true } } },
+            { "stop",new Dictionary<string, bool> { {"IsStop",true } } },{"stopper",new Dictionary<string, bool> { {"IsStop",true } } },
         };
         #endregion
         #endregion
@@ -102,18 +104,26 @@ namespace RaspiHomePiFaceDigital2
         #region Constructors
         public ModelPiFaceDigital2(ViewPiFaceDigital2 paramView)
         {
+            // Communication like Model-View
             this.VPiFace = paramView;
 
+            // Initialize the components and add the components linked with the Raspberry
             this.Components = new List<Component>();
             this.Components.Add(new Light());
+            this.Components.Add(new Store());
 
+            // Initilize the PiFace Digital 2
             InitPiFace();
 
+            // Initialize the server communication
             this.ComWithServer = new CommunicationWithServer(this);
         }
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Initialize the PiFace Digital 2
+        /// </summary>
         private async void InitPiFace()
         {
             try
@@ -124,21 +134,17 @@ namespace RaspiHomePiFaceDigital2
                 MCP23S17.setPinMode(0x00FF); // 0x0000 = all outputs, 0xffff=all inputs, 0x00FF is PIFace Default
                 MCP23S17.pullupMode(0x00FF); // 0x0000 = no pullups, 0xffff=all pullups, 0x00FF is PIFace Default
                 MCP23S17.WriteWord(0x0000); // 0x0000 = no pullups, 0xffff=all pullups, 0x00FF is PIFace Default
-
-                //initTimer();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                //Text_Status.Text = "Exception: " + ex.Message;
-                //if (ex.InnerException != null)
-                //{
-                //    Text_Status.Text += "\nInner Exception: " + ex.InnerException.Message;
-                //}
-                //return;
             }
         }
 
+        /// <summary>
+        /// Set the value to be writed on the PiFace
+        /// </summary>
+        /// <param name="message"></param>
         public void SetValue(string message)
         {
             string sentence = this.RemoveDiacritics(message);

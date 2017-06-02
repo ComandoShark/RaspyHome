@@ -86,15 +86,24 @@ namespace RaspiHomeSenseHAT
         #region Constructors
         public ModelSenseHAT(ViewSenseHAT paramView)
         {
+            // Communication like Model-View
             this.VSenseHAT = paramView;
+
+            // Initilize the communication with the server
             this.ComWithServer = new CommunicationWithServer(this);
 
+            // Initilize the Sense HAT (don't need to be initialized before the communication start because it's only a sensor)
             InitializeSenseHat();
+
+            // Display the IP address of the Raspberry Pi
             this.VSenseHAT.IPRasp = this.ComWithServer.GetHostName().ToString();
         }
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Initialize the Sense HAT
+        /// </summary>
         public async void InitializeSenseHat()
         {
             this._senseHat = await SenseHatFactory.GetSenseHat();

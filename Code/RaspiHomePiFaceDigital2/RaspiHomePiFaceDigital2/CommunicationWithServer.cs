@@ -240,12 +240,18 @@ namespace RaspiHomePiFaceDigital2
             return IpAddress.Last();
         }
 
+
+        /// <summary>
+        /// Get component in the list of components
+        /// </summary>
+        /// <returns> return a usable string for the connection on the server</returns>
         private string GetComponent()
         {
             string result = "";
             int cnt = 0;
             foreach (var component in this.MPiFace.Components)
             {                
+                // Get the name of the class
                 result += component.ToString().Split('.').Last();
                 cnt++;
                 if (cnt < this.MPiFace.Components.Count)

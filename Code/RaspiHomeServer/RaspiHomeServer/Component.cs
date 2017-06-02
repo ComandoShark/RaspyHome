@@ -82,6 +82,7 @@ namespace RaspiHomeServer
         private bool _isDown = false;
         private bool _isOpen = false;
         private bool _isClose = false;
+        private bool _isStop = false;
         private double _percentUp = 0.0;
         private double _percentOpen = 0.0;
         #endregion
@@ -198,7 +199,20 @@ namespace RaspiHomeServer
                     _percentOpen = 0.0;
             }
         }
-        #endregion        
+
+        public bool IsStop
+        {
+            get
+            {
+                return _isStop;
+            }
+
+            set
+            {
+                _isStop = value;
+            }
+        }
+        #endregion
     }
     #endregion
 }

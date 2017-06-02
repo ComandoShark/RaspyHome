@@ -27,6 +27,7 @@ namespace RaspiHomeServer
             "stopper","stop",
             "ouvrir","ouvre",
             "fermer","ferme",
+            "stopper","stop",
         };
 
         private List<string> _raspiHomeActionWithoutObjectKnown = new List<string>()
@@ -72,6 +73,7 @@ namespace RaspiHomeServer
             { "eteins", new Dictionary<string, bool> { { "IsOn", false } } }, { "eteindre", new Dictionary<string, bool> { { "IsOn", false } } },
             { "monte", new Dictionary<string, bool> { { "IsUp", true } } }, { "monter", new Dictionary<string, bool> { { "IsUp", true } } },
             { "descends", new Dictionary<string, bool> { { "IsDown", true } } }, { "descendre", new Dictionary<string, bool> { { "IsDown", true } } },
+            { "stop",new Dictionary<string, bool> { {"IsStop",true } } },{"stopper",new Dictionary<string, bool> { {"IsStop",true } } },
         };
         #endregion
 

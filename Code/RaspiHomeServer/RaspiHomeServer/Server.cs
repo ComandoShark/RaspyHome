@@ -195,7 +195,10 @@ namespace RaspiHomeServer
         private void NewConnection()
         {
             bool clientIsAccepted = false;
+            // Creation of a new client at the connection
             TcpClient newClient = this.Listener.AcceptTcpClient();
+
+            // Get the stream of the new client
             NetworkStream netStream = newClient.GetStream();
 
             // Modify the default buffer sizes
@@ -212,19 +215,19 @@ namespace RaspiHomeServer
             Console.WriteLine();
 
             // Let them identify themselves
-            byte[] msgBuffer = new byte[_bufferSize];
-            int bytesRead = netStream.Read(msgBuffer, 0, msgBuffer.Length);
+            byte[] messageBuffer = new byte[_bufferSize];
+            int bytesRead = netStream.Read(messageBuffer, 0, messageBuffer.Length);
 
             if (bytesRead > 0)
             {
-                string msg = Encoding.UTF8.GetString(msgBuffer, 0, bytesRead);
+                string messageRead = Encoding.UTF8.GetString(messageBuffer, 0, bytesRead);
 
-                string messageConnection = msg.Split('@').Last().Split(':').Last();
+                string messageConnection = messageRead.Split('@').Last().Split(':').Last();
 
                 try
                 {
                     // Get the name of the client
-                    string name = msg.Split('@')[1];
+                    string name = messageRead.Split('@')[1];
 
                     if ((name != string.Empty))
                     {
@@ -233,7 +236,7 @@ namespace RaspiHomeServer
                         this.ClientsNames.Add(name, new Dictionary<RaspberryClient, TcpClient>() { { this.InitializeNewRaspberryClient(messageConnection), newClient } });
                         this.Clients.Add(newClient);
                         
-                        Console.WriteLine(msg);
+                        Console.WriteLine(messageRead);
                         // Tell the current players we have a new player
                         this.MessageQueue.Enqueue(String.Format("{0} has joined the server.", name));
                         Console.WriteLine();
@@ -327,20 +330,20 @@ namespace RaspiHomeServer
         {
             foreach (TcpClient client in this.Clients)
             {
-                int messageLength = client.Available;
+                // Get the message if there is one
+                int messageLength = client.Available;                
                 if (messageLength > 0)
-                {
-                    // Get the message if there is one
-                    byte[] msgBuffer = new byte[messageLength];
-                    client.GetStream().Read(msgBuffer, 0, msgBuffer.Length);
+                {                    
+                    byte[] messageBuffer = new byte[messageLength];
+                    client.GetStream().Read(messageBuffer, 0, messageBuffer.Length);
 
-                    // Attach a name to it and shove it into the queue
-                    string msg = String.Format("{0}", Encoding.UTF8.GetString(msgBuffer));
-                    string subject = msg.Split('@').Last().Split(':').First();
-                    string informationInReply = msg.Split('@').Last().Split(':').Last();
+                    // New message from the client
+                    string messageRead = String.Format(Encoding.UTF8.GetString(messageBuffer));
+                    string subject = messageRead.Split('@').Last().Split(':').First();
+                    string informationInReply = messageRead.Split('@').Last().Split(':').Last();
                     Console.WriteLine();
 
-                    switch (msg.Split('@').Last().Split(':').First())
+                    switch (subject)
                     {
                         case "Send":
                             Console.WriteLine("----------------------------------------");
@@ -364,7 +367,7 @@ namespace RaspiHomeServer
                             break;
                     }
 
-                    this.MessageQueue.Enqueue(msg);
+                    this.MessageQueue.Enqueue(messageRead);
                 }
             }
         }
@@ -430,10 +433,11 @@ namespace RaspiHomeServer
         /// <summary>
         /// Initialize a raspberry pi with the information read
         /// </summary>
-        /// <param name="rpiInformation"></param>
+        /// <param name="rpiInformation"> Format of the string "IPRasp={0};Location={1};Component={2}" to read</param>
+        /// <returns> return the new client with all information of him </returns>
         private RaspberryClient InitializeNewRaspberryClient(string rpiInformation)
-        {
-            // create an array of the actual string to get information
+        {            
+            // Create an array of the actual string to get information
             string[] rpiInformations = rpiInformation.Split(';');
             string rpiIPv4 = "";
             string rpiLocation = "";
@@ -449,10 +453,12 @@ namespace RaspiHomeServer
                         rpiIPv4 = information.Split('=').Last();
                         break;
                     // Get the second value of the array
-                    // Location of the actual Raspberry (where to find the raspberry with the algorythme)
+                    // Location of the actual Raspberry (where to find the Raspberry)
                     case "Location":
                         rpiLocation = information.Split('=').Last();
                         break;
+                    // Get the third value of the array
+                    // Component of the actual Raspberry (what's the component used by the Raspberry)
                     case "Component":
                         rpiComponent = information.Split('=').Last();
                         break;
@@ -461,7 +467,7 @@ namespace RaspiHomeServer
             Console.WriteLine(rpiIPv4);
             Console.WriteLine(rpiLocation);
 
-            // Create a client without component
+            // Create a client with IPv4, Default port, localisation and new list of component
             RaspberryClient client = new RaspberryClient(rpiIPv4, DEFAULT_PORT, rpiLocation, new List<Component>());
 
             try
@@ -469,18 +475,18 @@ namespace RaspiHomeServer
                 // Get all components of the Raspberry
                 string[] components = rpiComponent.Split('=').Last().Split(',');
 
-                // Get all class types of the project
+                // Get all class types in the project
                 Type[] types = Assembly.GetExecutingAssembly().GetTypes();
 
-                // check all components
+                // Check all components
                 foreach (var component in components)
                 {
-                    // check all class types
+                    // Check all class types
                     foreach (var type in types)
                     {
                         if (type.Name == component)
                         {
-                            // create a new component with the type result
+                            // Instance a new component with the type result
                             client.Components.Add((Component)Activator.CreateInstance(type));
                             break;
                         }
@@ -489,12 +495,12 @@ namespace RaspiHomeServer
                     Console.WriteLine(component);
                 }
             }
-            catch (Exception e)
+            catch (Exception e)  // Message unreadable by the program
             {
                 Console.WriteLine(e);
             }
 
-            // Add final client
+            // Add final client to the main list
             this.RpiClients.Add(client);
             Console.WriteLine();
 

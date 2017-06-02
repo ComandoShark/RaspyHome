@@ -10,7 +10,11 @@ namespace RaspiHomePiFaceDigital2
     {
         #region Fields
         #region Constant
-        private const byte DEFAULT_PORT = PiFaceDigital2.LED0;
+        private const byte OPEN = PiFaceDigital2.LED6;
+        private const byte CLOSE = PiFaceDigital2.LED5;        
+        private const byte UP = PiFaceDigital2.LED4;
+        private const byte DOWN = PiFaceDigital2.LED3;
+        private const byte ACMOTEUR = PiFaceDigital2.LED2;
 
         private const byte OFF = MCP23S17.Off;
         private const byte ON = MCP23S17.On;
@@ -21,13 +25,9 @@ namespace RaspiHomePiFaceDigital2
         private bool _isDown = false;
         private bool _isOpen = false;
         private bool _isClose = false;
+        private bool _isStop = false;
         private double _percentUp = 0.0;        
         private double _percentOpen = 0.0;
-
-        private byte _pinCommunicationUp = DEFAULT_PORT;
-        private byte _pinCommunicationDown = DEFAULT_PORT;
-        private byte _pinCommunicationOpen = DEFAULT_PORT;
-        private byte _pinCommunicationClose = DEFAULT_PORT;
         #endregion
         #endregion
 
@@ -46,8 +46,8 @@ namespace RaspiHomePiFaceDigital2
                 if (value)
                 {                    
                     this.IsDown = false;
-                    MCP23S17.WritePin(this.PinCommunicationDown, OFF);
-                    MCP23S17.WritePin(this.PinCommunicationUp, ON);
+                    MCP23S17.WritePin(DOWN, OFF);
+                    MCP23S17.WritePin(UP, ON);
                     this.PercentUp = 100.0;
                 }
             }
@@ -67,8 +67,8 @@ namespace RaspiHomePiFaceDigital2
                 if (value)
                 {
                     this.IsUp = false;
-                    MCP23S17.WritePin(this.PinCommunicationUp, OFF);
-                    MCP23S17.WritePin(this.PinCommunicationDown, ON);
+                    MCP23S17.WritePin(UP, OFF);
+                    MCP23S17.WritePin(DOWN, ON);
                     this.PercentUp = 100.0;
                 }
             }
@@ -88,8 +88,8 @@ namespace RaspiHomePiFaceDigital2
                 if (value)
                 {
                     this.IsClose = false;
-                    MCP23S17.WritePin(this.PinCommunicationClose, OFF);
-                    MCP23S17.WritePin(this.PinCommunicationOpen, ON);
+                    MCP23S17.WritePin(CLOSE, OFF);
+                    MCP23S17.WritePin(OPEN, ON);
                     this.PercentOpen = 100.0;
                 }
             }
@@ -109,9 +109,9 @@ namespace RaspiHomePiFaceDigital2
                 if (value)
                 {
                     this.IsOpen = false;
-                    MCP23S17.WritePin(this.PinCommunicationOpen, OFF);
-                    MCP23S17.WritePin(this.PinCommunicationClose, ON);                    
-                    this.PercentOpen = 100.0;
+                    MCP23S17.WritePin(OPEN, OFF);
+                    MCP23S17.WritePin(CLOSE, ON);                    
+                    this.PercentOpen = 100.0;                    
                 }
             }
         }
@@ -152,55 +152,25 @@ namespace RaspiHomePiFaceDigital2
             }
         }
 
-        public byte PinCommunicationDown
+        public bool IsStop
         {
             get
             {
-                return _pinCommunicationDown;
+                return _isStop;
             }
 
             set
             {
-                _pinCommunicationDown = value;
-            }
-        }
+                _isStop = value;
 
-        public byte PinCommunicationOpen
-        {
-            get
-            {
-                return _pinCommunicationOpen;
-            }
-
-            set
-            {
-                _pinCommunicationOpen = value;
-            }
-        }
-
-        public byte PinCommunicationClose
-        {
-            get
-            {
-                return _pinCommunicationClose;
-            }
-
-            set
-            {
-                _pinCommunicationClose = value;
-            }
-        }
-
-        public byte PinCommunicationUp
-        {
-            get
-            {
-                return _pinCommunicationUp;
-            }
-
-            set
-            {
-                _pinCommunicationUp = value;
+                if (value)
+                {
+                    MCP23S17.WritePin(UP, OFF);
+                    MCP23S17.WritePin(DOWN, OFF);
+                    MCP23S17.WritePin(OPEN, OFF);
+                    MCP23S17.WritePin(CLOSE, OFF);
+                    value = false;
+                }
             }
         }
         #endregion

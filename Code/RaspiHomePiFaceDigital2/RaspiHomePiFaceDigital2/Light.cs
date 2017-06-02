@@ -10,7 +10,8 @@ namespace RaspiHomePiFaceDigital2
     {
         #region Fields
         #region Constant
-        private const byte DEFAULT_PORT = PiFaceDigital2.LED5;
+        private const byte RELAI1 = PiFaceDigital2.RelayB;
+        private const byte RELAI2 = PiFaceDigital2.RelayA;
 
         private const byte OFF = MCP23S17.Off;
         private const byte ON = MCP23S17.On;
@@ -19,9 +20,8 @@ namespace RaspiHomePiFaceDigital2
         #region Variable
         private bool _isOn = false;
         private double _luxPercent = 0.0;
-        private int[] _colorARGB = { 255, 0, 0, 0 };   
-
-        private byte _pinCommunication = DEFAULT_PORT;
+        private int[] _colorARGB = { 255, 0, 0, 0 };
+        private byte _relaiToActivate = RELAI1;    
         #endregion
         #endregion
 
@@ -39,12 +39,12 @@ namespace RaspiHomePiFaceDigital2
                 if (value)
                 {
                     this.LuxPercent = 100.0;
-                    MCP23S17.WritePin(this.PinCommunication, ON);
+                    MCP23S17.WritePin(this._relaiToActivate, ON);
                 }
                 else
                 {
                     this.LuxPercent = 0.0;
-                    MCP23S17.WritePin(this.PinCommunication, OFF);
+                    MCP23S17.WritePin(this._relaiToActivate, OFF);
                 }
             }
         }
@@ -77,19 +77,6 @@ namespace RaspiHomePiFaceDigital2
             set
             {
                 _colorARGB = value;
-            }
-        }
-
-        public byte PinCommunication
-        {
-            get
-            {
-                return _pinCommunication;
-            }
-
-            set
-            {
-                _pinCommunication = value;
             }
         }
         #endregion

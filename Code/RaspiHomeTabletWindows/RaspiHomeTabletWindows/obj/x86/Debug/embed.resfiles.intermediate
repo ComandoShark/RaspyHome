@@ -1,0 +1,7 @@
+App.xbf
+Menu\MenuToolbar\ToolbarButtonView.xbf
+Menu\MenuView.xbf
+Modules\GlobalSetup\GlobalSetupView.xbf
+Modules\Home\HomeView.xbf
+Modules\Information\InformationView.xbf
+Modules\Setting\SettingView.xbf

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Windows.Media.SpeechRecognition;
+using Windows.Devices.Spi;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.Devices.Enumeration;
 
 namespace RaspiHomeSpeechNSynthetize
 {
@@ -20,6 +22,9 @@ namespace RaspiHomeSpeechNSynthetize
         private CommunicationWithServer _comToServer;
 
         private SpeechRecognizer _recoEngine = null;
+        private SpiDevice _mcp3202;
+
+
 
         //private Choices _commands = null;
         //private GrammarBuilder _grammarBuilder = null;
@@ -116,15 +121,55 @@ namespace RaspiHomeSpeechNSynthetize
         #region Constructor
         public Speecher()
         {
+            // Initialize the synthetizer
             this.RhSynt = new Synthetizer(this);
             this.RhCommands = new Commands();
+
+            // Initialize the communication with the server
             this.ComToServer = new CommunicationWithServer(this);
+
+            // Create the speech recognition object
             this._recoEngine = new SpeechRecognizer();
+
+            // Initialize the recognition
             InitializeSpeechRecognizer();
         }
         #endregion
 
         #region Methods
+        private async void InitSpi()
+        {
+            //using SPI0 on the Pi
+            var spiSettings = new SpiConnectionSettings(0);//for spi bus index 0
+            spiSettings.ClockFrequency = 3600000; //3.6 MHz 
+            spiSettings.Mode = SpiMode.Mode0;
+
+            string spiQuery = SpiDevice.GetDeviceSelector("SPI0");
+
+            var deviceInfo = await DeviceInformation.FindAllAsync(spiQuery);
+            if (deviceInfo != null && deviceInfo.Count > 0)
+            {
+                _mcp3202 = await SpiDevice.FromIdAsync(deviceInfo[0].Id, spiSettings);
+            }
+            else
+            {
+                string error = "SPI Device Not Found.";
+            }
+        }
+
+        private string ReadSpiData()
+        {
+            byte[] transmitBuffer = new byte[3] { 0x01, 0x80, 0 };
+            byte[] receiveBuffer = new byte[3];
+
+            string result = "";
+
+            _mcp3202.TransferFullDuplex(transmitBuffer, receiveBuffer);
+
+            return result = System.Text.Encoding.UTF8.GetString(receiveBuffer);
+        }
+
+
         /// <summary>
         /// Enable the speech, used when raspi is not talking
         /// </summary>

@@ -55,20 +55,24 @@ namespace RaspiHomeServer
         /// <summary>
         /// Receive the order and treat to find raspberrys with the order
         /// </summary>
-        /// <param name="paramSentence"></param>
-        /// <param name="paramRaspberryClients"></param>
+        /// <param name="paramSentence"> Sentence in entrence </param>
+        /// <param name="paramRaspberryClients"> List of clients informations </param>
+        /// <param name="paramClientsName"> Dictionnary of every clients registered </param>
         /// <returns></returns>
-        public List<TcpClient> ApplyFilter(string paramSentence, List<RaspberryClient> paramRaspberryClients, Dictionary<string,Dictionary<RaspberryClient,TcpClient>> paramClientsName)
+        public List<TcpClient> ApplyFilter(string paramSentence, List<RaspberryClient> paramRaspberryClients, Dictionary<string, Dictionary<RaspberryClient, TcpClient>> paramClientsName)
         {
             try
             {
+                // Remove characters
                 this.Sentence = RemoveDiacritics(paramSentence);
 
                 List<TcpClient> result = new List<TcpClient>();
 
                 string action = "";
                 string location = "";
-                string componentWithoutAction = this.GetIndependantComponentFromSentence(this.Sentence);
+                string componentWithoutAction = "";
+
+                // Get the component word in the sentence
                 string component = this.GetComponentFromSentence(this.Sentence);
 
                 Type componentType = null;
@@ -78,37 +82,45 @@ namespace RaspiHomeServer
                 // Writes values and send to the client the information or read values
                 if (component != "")
                 {
+                    // Get the action word with in the sentence
                     action = this.GetActionFromSentence(this.Sentence);
+                    // Get the property name with the action word
                     actionValue = ReadValueOfSelectedComponent(action);
+                    // Get the class type founded with the component name
                     componentType = this.GetComponentType(component);
                 }
                 else
                 {
+                    // Get the sensor component word in the sentence
                     componentWithoutAction = GetIndependantComponentFromSentence(this.Sentence);
+                    // Get the class type founded with the component name
                     componentType = this.GetComponentType(componentWithoutAction);
                 }
 
-                // All clients
+                // Check every clients
                 foreach (var rpiClient in paramRaspberryClients)
                 {
+                    // Get the location word in the sentence
                     location = this.GetSentenceLocationOrRaspberryLocation(this.Sentence, rpiClient);
 
-                    // All clients at this location
+                    // Check every clients at this location
                     if (rpiClient.Location.ToLower() == location.ToLower())
                     {
-                        // All clients at this location with this component
+                        // Check every clients at this location with this component
                         foreach (var itemType in rpiClient.Components)
                         {
+                            // Check if the type is the same
                             if (itemType.GetType() == componentType)
                             {
                                 if (action != "")
-                                // MET A JOUR LES VALEURS
                                 {
+                                    // Write the new value string informations
                                     this.WriteValue(itemType, action, itemType.GetType().GetProperty(actionValue));
                                     foreach (var name in paramClientsName.Keys)
                                     {
                                         if (paramClientsName[name].ContainsKey(rpiClient))
                                         {
+                                            // Add the TCPClient inside the dictionnay
                                             result.Add(paramClientsName[name][rpiClient]);
                                         }
                                     }
@@ -119,6 +131,7 @@ namespace RaspiHomeServer
                                     {
                                         if (paramClientsName[name].ContainsKey(rpiClient))
                                         {
+                                            // Add the TCPClient inside the dictionnay
                                             result.Add(paramClientsName[name][rpiClient]);
                                         }
                                     }
@@ -130,7 +143,7 @@ namespace RaspiHomeServer
 
                 return result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 string errorCommandFilter = ex.Message;
                 return null;

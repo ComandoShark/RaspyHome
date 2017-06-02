@@ -21,7 +21,7 @@ namespace RaspiHomePiFaceDigital2
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
     public sealed partial class ViewPiFaceDigital2 : Page
-    {        
+    {
         #region Fields
         #region Constants
         #endregion
@@ -43,7 +43,7 @@ namespace RaspiHomePiFaceDigital2
             {
                 _mPiFace = value;
             }
-        }       
+        }
         #endregion
 
         #region Constructors
@@ -51,11 +51,11 @@ namespace RaspiHomePiFaceDigital2
         {
             this.InitializeComponent();
 
-            this.MPiFace = new ModelPiFaceDigital2(this);            
-        }
+            this.MPiFace = new ModelPiFaceDigital2(this);     
+        }       
         #endregion
 
         #region Methods
-        #endregion
+        #endregion        
     }
 }
