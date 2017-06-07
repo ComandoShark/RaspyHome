@@ -17,9 +17,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace RaspiHomeTabletWindows.Modules.Home.Location.House
 {
-    public sealed partial class HouseView : UserControl
+    public sealed partial class RoomView : Page
     {
-        public HouseView()
+        public RoomView()
         {
             this.InitializeComponent();
         }

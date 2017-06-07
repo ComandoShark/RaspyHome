@@ -213,7 +213,14 @@ namespace RaspiHomeSpeechNSynthetize
 
         public void ReplyForSynthetize(string messageReply, string messageCommand)
         {
-            this.RhSynt.RaspiGiveInformation(this.RhSynt.SetProprelyInformations(messageReply, messageCommand));
+            if (messageReply == "ERROR_MESSAGE")
+            {
+                this.RhSynt.WrongCommand();
+            }
+            else
+            {
+                this.RhSynt.RaspiSayInformation(this.RhSynt.SetProprelyInformations(messageReply, messageCommand));             
+            }
             this.IsRaspiCalled = false;
 
             EnableSpeech();

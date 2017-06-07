@@ -132,7 +132,7 @@ namespace RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[22];
+            _typeNameTable = new string[30];
             _typeNameTable[0] = "Windows.UI.Color";
             _typeNameTable[1] = "System.ValueType";
             _typeNameTable[2] = "Object";
@@ -151,12 +151,20 @@ namespace RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo
             _typeNameTable[15] = "System.Collections.Generic.List`1<RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonData>";
             _typeNameTable[16] = "RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonData";
             _typeNameTable[17] = "System.Collections.Generic.List`1<RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonView>";
-            _typeNameTable[18] = "RaspiHomeTabletWindows.Modules.GlobalSetup.GlobalSetupView";
-            _typeNameTable[19] = "RaspiHomeTabletWindows.Modules.Home.HomeView";
-            _typeNameTable[20] = "RaspiHomeTabletWindows.Modules.Information.InformationView";
-            _typeNameTable[21] = "RaspiHomeTabletWindows.Modules.Setting.SettingView";
+            _typeNameTable[18] = "RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView";
+            _typeNameTable[19] = "RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonModel";
+            _typeNameTable[20] = "RaspiHomeTabletWindows.Modules.GlobalSetup.GlobalSetupView";
+            _typeNameTable[21] = "RaspiHomeTabletWindows.Modules.Home.HomeView";
+            _typeNameTable[22] = "RaspiHomeTabletWindows.Modules.Home.HomeModel";
+            _typeNameTable[23] = "System.Collections.Generic.List`1<RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData>";
+            _typeNameTable[24] = "RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData";
+            _typeNameTable[25] = "System.Collections.Generic.List`1<RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView>";
+            _typeNameTable[26] = "RaspiHomeTabletWindows.Modules.Home.Location.House.RoomView";
+            _typeNameTable[27] = "RaspiHomeTabletWindows.Modules.Home.Location.LivingRoom.RoomView";
+            _typeNameTable[28] = "RaspiHomeTabletWindows.Modules.Information.InformationView";
+            _typeNameTable[29] = "RaspiHomeTabletWindows.Modules.Setting.SettingView";
 
-            _typeTable = new global::System.Type[22];
+            _typeTable = new global::System.Type[30];
             _typeTable[0] = typeof(global::Windows.UI.Color);
             _typeTable[1] = typeof(global::System.ValueType);
             _typeTable[2] = typeof(global::System.Object);
@@ -175,10 +183,18 @@ namespace RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo
             _typeTable[15] = typeof(global::System.Collections.Generic.List<global::RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonData>);
             _typeTable[16] = typeof(global::RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonData);
             _typeTable[17] = typeof(global::System.Collections.Generic.List<global::RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonView>);
-            _typeTable[18] = typeof(global::RaspiHomeTabletWindows.Modules.GlobalSetup.GlobalSetupView);
-            _typeTable[19] = typeof(global::RaspiHomeTabletWindows.Modules.Home.HomeView);
-            _typeTable[20] = typeof(global::RaspiHomeTabletWindows.Modules.Information.InformationView);
-            _typeTable[21] = typeof(global::RaspiHomeTabletWindows.Modules.Setting.SettingView);
+            _typeTable[18] = typeof(global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView);
+            _typeTable[19] = typeof(global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonModel);
+            _typeTable[20] = typeof(global::RaspiHomeTabletWindows.Modules.GlobalSetup.GlobalSetupView);
+            _typeTable[21] = typeof(global::RaspiHomeTabletWindows.Modules.Home.HomeView);
+            _typeTable[22] = typeof(global::RaspiHomeTabletWindows.Modules.Home.HomeModel);
+            _typeTable[23] = typeof(global::System.Collections.Generic.List<global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData>);
+            _typeTable[24] = typeof(global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData);
+            _typeTable[25] = typeof(global::System.Collections.Generic.List<global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView>);
+            _typeTable[26] = typeof(global::RaspiHomeTabletWindows.Modules.Home.Location.House.RoomView);
+            _typeTable[27] = typeof(global::RaspiHomeTabletWindows.Modules.Home.Location.LivingRoom.RoomView);
+            _typeTable[28] = typeof(global::RaspiHomeTabletWindows.Modules.Information.InformationView);
+            _typeTable[29] = typeof(global::RaspiHomeTabletWindows.Modules.Setting.SettingView);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -218,10 +234,14 @@ namespace RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo
         private object Activate_14_List() { return new global::System.Collections.Generic.List<global::System.String>(); }
         private object Activate_15_List() { return new global::System.Collections.Generic.List<global::RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonData>(); }
         private object Activate_17_List() { return new global::System.Collections.Generic.List<global::RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonView>(); }
-        private object Activate_18_GlobalSetupView() { return new global::RaspiHomeTabletWindows.Modules.GlobalSetup.GlobalSetupView(); }
-        private object Activate_19_HomeView() { return new global::RaspiHomeTabletWindows.Modules.Home.HomeView(); }
-        private object Activate_20_InformationView() { return new global::RaspiHomeTabletWindows.Modules.Information.InformationView(); }
-        private object Activate_21_SettingView() { return new global::RaspiHomeTabletWindows.Modules.Setting.SettingView(); }
+        private object Activate_20_GlobalSetupView() { return new global::RaspiHomeTabletWindows.Modules.GlobalSetup.GlobalSetupView(); }
+        private object Activate_21_HomeView() { return new global::RaspiHomeTabletWindows.Modules.Home.HomeView(); }
+        private object Activate_23_List() { return new global::System.Collections.Generic.List<global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData>(); }
+        private object Activate_25_List() { return new global::System.Collections.Generic.List<global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView>(); }
+        private object Activate_26_RoomView() { return new global::RaspiHomeTabletWindows.Modules.Home.Location.House.RoomView(); }
+        private object Activate_27_RoomView() { return new global::RaspiHomeTabletWindows.Modules.Home.Location.LivingRoom.RoomView(); }
+        private object Activate_28_InformationView() { return new global::RaspiHomeTabletWindows.Modules.Information.InformationView(); }
+        private object Activate_29_SettingView() { return new global::RaspiHomeTabletWindows.Modules.Setting.SettingView(); }
         private void VectorAdd_14_List(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.String>)instance;
@@ -238,6 +258,18 @@ namespace RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo
         {
             var collection = (global::System.Collections.Generic.ICollection<global::RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonView>)instance;
             var newItem = (global::RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonView)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_23_List(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData>)instance;
+            var newItem = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_25_List(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView>)instance;
+            var newItem = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView)item;
             collection.Add(newItem);
         }
 
@@ -373,30 +405,98 @@ namespace RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 18:   //  RaspiHomeTabletWindows.Modules.GlobalSetup.GlobalSetupView
-                userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_18_GlobalSetupView;
+            case 18:   //  RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView
+                userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.AddMemberName("Model");
+                userType.AddMemberName("IsSelected");
+                userType.AddMemberName("IsPressed");
+                userType.AddMemberName("WhoseButtonClicked");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 19:   //  RaspiHomeTabletWindows.Modules.Home.HomeView
-                userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_19_HomeView;
+            case 19:   //  RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonModel
+                userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("RaspiHomeTabletWindows.PropertyChangedBase"));
+                userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 20:   //  RaspiHomeTabletWindows.Modules.Information.InformationView
+            case 20:   //  RaspiHomeTabletWindows.Modules.GlobalSetup.GlobalSetupView
                 userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_20_InformationView;
+                userType.Activator = Activate_20_GlobalSetupView;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 21:   //  RaspiHomeTabletWindows.Modules.Setting.SettingView
+            case 21:   //  RaspiHomeTabletWindows.Modules.Home.HomeView
                 userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_21_SettingView;
+                userType.Activator = Activate_21_HomeView;
+                userType.AddMemberName("Model");
+                userType.AddMemberName("PageWidth");
+                userType.AddMemberName("PageHeight");
+                userType.AddMemberName("FrameAlreadyChoose");
+                userType.AddMemberName("LstChoise");
+                userType.AddMemberName("LstToolbarButtonData");
+                userType.AddMemberName("LstToolbarButton");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 22:   //  RaspiHomeTabletWindows.Modules.Home.HomeModel
+                userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("RaspiHomeTabletWindows.PropertyChangedBase"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 23:   //  System.Collections.Generic.List`1<RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData>
+                userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.CollectionAdd = VectorAdd_23_List;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 24:   //  RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData
+                userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.AddMemberName("FrameChoose");
+                userType.AddMemberName("Description");
+                userType.AddMemberName("IsSelected");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 25:   //  System.Collections.Generic.List`1<RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView>
+                userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.CollectionAdd = VectorAdd_25_List;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 26:   //  RaspiHomeTabletWindows.Modules.Home.Location.House.RoomView
+                userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_26_RoomView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 27:   //  RaspiHomeTabletWindows.Modules.Home.Location.LivingRoom.RoomView
+                userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_27_RoomView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 28:   //  RaspiHomeTabletWindows.Modules.Information.InformationView
+                userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_28_InformationView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 29:   //  RaspiHomeTabletWindows.Modules.Setting.SettingView
+                userType = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_29_SettingView;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -615,6 +715,146 @@ namespace RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo
             var that = (global::RaspiHomeTabletWindows.Menu.MenuView)instance;
             that.LstToolbarButton = (global::System.Collections.Generic.List<global::RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonView>)Value;
         }
+        private object get_21_LocationButtonView_Model(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView)instance;
+            return that.Model;
+        }
+        private void set_21_LocationButtonView_Model(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView)instance;
+            that.Model = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonModel)Value;
+        }
+        private object get_22_LocationButtonView_IsSelected(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView)instance;
+            return that.IsSelected;
+        }
+        private void set_22_LocationButtonView_IsSelected(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView)instance;
+            that.IsSelected = (global::System.Boolean)Value;
+        }
+        private object get_23_LocationButtonView_IsPressed(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView)instance;
+            return that.IsPressed;
+        }
+        private void set_23_LocationButtonView_IsPressed(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView)instance;
+            that.IsPressed = (global::System.Boolean)Value;
+        }
+        private object get_24_LocationButtonView_WhoseButtonClicked(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView)instance;
+            return that.WhoseButtonClicked;
+        }
+        private void set_24_LocationButtonView_WhoseButtonClicked(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView)instance;
+            that.WhoseButtonClicked = (global::System.String)Value;
+        }
+        private object get_25_HomeView_Model(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            return that.Model;
+        }
+        private void set_25_HomeView_Model(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            that.Model = (global::RaspiHomeTabletWindows.Modules.Home.HomeModel)Value;
+        }
+        private object get_26_HomeView_PageWidth(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            return that.PageWidth;
+        }
+        private void set_26_HomeView_PageWidth(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            that.PageWidth = (global::System.Double)Value;
+        }
+        private object get_27_HomeView_PageHeight(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            return that.PageHeight;
+        }
+        private void set_27_HomeView_PageHeight(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            that.PageHeight = (global::System.Double)Value;
+        }
+        private object get_28_HomeView_FrameAlreadyChoose(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            return that.FrameAlreadyChoose;
+        }
+        private void set_28_HomeView_FrameAlreadyChoose(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            that.FrameAlreadyChoose = (global::System.String)Value;
+        }
+        private object get_29_HomeView_LstChoise(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            return that.LstChoise;
+        }
+        private void set_29_HomeView_LstChoise(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            that.LstChoise = (global::System.Collections.Generic.List<global::System.String>)Value;
+        }
+        private object get_30_HomeView_LstToolbarButtonData(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            return that.LstToolbarButtonData;
+        }
+        private void set_30_HomeView_LstToolbarButtonData(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            that.LstToolbarButtonData = (global::System.Collections.Generic.List<global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData>)Value;
+        }
+        private object get_31_LocationButtonData_FrameChoose(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData)instance;
+            return that.FrameChoose;
+        }
+        private void set_31_LocationButtonData_FrameChoose(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData)instance;
+            that.FrameChoose = (global::System.String)Value;
+        }
+        private object get_32_LocationButtonData_Description(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData)instance;
+            return that.Description;
+        }
+        private void set_32_LocationButtonData_Description(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData)instance;
+            that.Description = (global::System.String)Value;
+        }
+        private object get_33_LocationButtonData_IsSelected(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData)instance;
+            return that.IsSelected;
+        }
+        private void set_33_LocationButtonData_IsSelected(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData)instance;
+            that.IsSelected = (global::System.Boolean)Value;
+        }
+        private object get_34_HomeView_LstToolbarButton(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            return that.LstToolbarButton;
+        }
+        private void set_34_HomeView_LstToolbarButton(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.HomeView)instance;
+            that.LstToolbarButton = (global::System.Collections.Generic.List<global::RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView>)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -748,6 +988,90 @@ namespace RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo
                 xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "LstToolbarButton", "System.Collections.Generic.List`1<RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonView>");
                 xamlMember.Getter = get_20_MenuView_LstToolbarButton;
                 xamlMember.Setter = set_20_MenuView_LstToolbarButton;
+                break;
+            case "RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView.Model":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "Model", "RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonModel");
+                xamlMember.Getter = get_21_LocationButtonView_Model;
+                xamlMember.Setter = set_21_LocationButtonView_Model;
+                break;
+            case "RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView.IsSelected":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "IsSelected", "Boolean");
+                xamlMember.Getter = get_22_LocationButtonView_IsSelected;
+                xamlMember.Setter = set_22_LocationButtonView_IsSelected;
+                break;
+            case "RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView.IsPressed":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "IsPressed", "Boolean");
+                xamlMember.Getter = get_23_LocationButtonView_IsPressed;
+                xamlMember.Setter = set_23_LocationButtonView_IsPressed;
+                break;
+            case "RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView.WhoseButtonClicked":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "WhoseButtonClicked", "String");
+                xamlMember.Getter = get_24_LocationButtonView_WhoseButtonClicked;
+                xamlMember.Setter = set_24_LocationButtonView_WhoseButtonClicked;
+                break;
+            case "RaspiHomeTabletWindows.Modules.Home.HomeView.Model":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.HomeView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "Model", "RaspiHomeTabletWindows.Modules.Home.HomeModel");
+                xamlMember.Getter = get_25_HomeView_Model;
+                xamlMember.Setter = set_25_HomeView_Model;
+                break;
+            case "RaspiHomeTabletWindows.Modules.Home.HomeView.PageWidth":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.HomeView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "PageWidth", "Double");
+                xamlMember.Getter = get_26_HomeView_PageWidth;
+                xamlMember.Setter = set_26_HomeView_PageWidth;
+                break;
+            case "RaspiHomeTabletWindows.Modules.Home.HomeView.PageHeight":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.HomeView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "PageHeight", "Double");
+                xamlMember.Getter = get_27_HomeView_PageHeight;
+                xamlMember.Setter = set_27_HomeView_PageHeight;
+                break;
+            case "RaspiHomeTabletWindows.Modules.Home.HomeView.FrameAlreadyChoose":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.HomeView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "FrameAlreadyChoose", "String");
+                xamlMember.Getter = get_28_HomeView_FrameAlreadyChoose;
+                xamlMember.Setter = set_28_HomeView_FrameAlreadyChoose;
+                break;
+            case "RaspiHomeTabletWindows.Modules.Home.HomeView.LstChoise":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.HomeView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "LstChoise", "System.Collections.Generic.List`1<String>");
+                xamlMember.Getter = get_29_HomeView_LstChoise;
+                xamlMember.Setter = set_29_HomeView_LstChoise;
+                break;
+            case "RaspiHomeTabletWindows.Modules.Home.HomeView.LstToolbarButtonData":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.HomeView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "LstToolbarButtonData", "System.Collections.Generic.List`1<RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData>");
+                xamlMember.Getter = get_30_HomeView_LstToolbarButtonData;
+                xamlMember.Setter = set_30_HomeView_LstToolbarButtonData;
+                break;
+            case "RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData.FrameChoose":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "FrameChoose", "String");
+                xamlMember.Getter = get_31_LocationButtonData_FrameChoose;
+                xamlMember.Setter = set_31_LocationButtonData_FrameChoose;
+                break;
+            case "RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData.Description":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "Description", "String");
+                xamlMember.Getter = get_32_LocationButtonData_Description;
+                xamlMember.Setter = set_32_LocationButtonData_Description;
+                break;
+            case "RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData.IsSelected":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonData");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "IsSelected", "Boolean");
+                xamlMember.Getter = get_33_LocationButtonData_IsSelected;
+                xamlMember.Setter = set_33_LocationButtonData_IsSelected;
+                break;
+            case "RaspiHomeTabletWindows.Modules.Home.HomeView.LstToolbarButton":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.HomeView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "LstToolbarButton", "System.Collections.Generic.List`1<RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView>");
+                xamlMember.Getter = get_34_HomeView_LstToolbarButton;
+                xamlMember.Setter = set_34_HomeView_LstToolbarButton;
                 break;
             }
             return xamlMember;

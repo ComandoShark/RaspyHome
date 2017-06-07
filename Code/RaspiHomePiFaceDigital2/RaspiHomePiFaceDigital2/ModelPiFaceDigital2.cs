@@ -1,4 +1,18 @@
-﻿using System;
+﻿/*--------------------------------------------------*\
+ * Author    : Salvi Cyril
+ * Date      : 7th juny 2017
+ * Diploma   : RaspiHome
+ * Classroom : T.IS-E2B
+ * 
+ * Description:
+ *      RaspiHomePiFaceDigital2 is a program who use 
+ *   a PiFace Digital 2, it's an electronic card who 
+ *   can be use to plug electronic component. This 
+ *   program use the PiFace Digital 2 to activate 
+ *   light and store. 
+\*--------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -144,9 +158,10 @@ namespace RaspiHomePiFaceDigital2
         /// <summary>
         /// Set the value to be writed on the PiFace
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message"> message read from the server </param>
         public void SetValue(string message)
         {
+            // Initialize the message value
             string sentence = this.RemoveDiacritics(message);
             string action = this.GetActionFromSentence(sentence);
             string actionValue = this.ReadValueOfSelectedComponent(action);
@@ -165,8 +180,8 @@ namespace RaspiHomePiFaceDigital2
         /// <summary>
         /// Find location exist
         /// </summary>
-        /// <param name="action"></param>
-        /// <returns> the action linked to the action word </returns>
+        /// <param name="sentence"> sentence order</param>
+        /// <returns> return the action linked to the action word </returns>
         private string GetActionFromSentence(string sentence)
         {
             string result = "";
@@ -187,8 +202,8 @@ namespace RaspiHomePiFaceDigital2
         /// <summary>
         /// Get the componnent called
         /// </summary>
-        /// <param name="sentence"></param>
-        /// <returns></returns>
+        /// <param name="sentence"> sentence order </param>
+        /// <returns> return the component linked to the component word </returns>
         private string GetComponentFromSentence(string sentence)
         {
             string result = "";
@@ -251,9 +266,9 @@ namespace RaspiHomePiFaceDigital2
         /// <summary>
         /// Search the val to change
         /// </summary>
-        /// <param name="component"></param>
-        /// <param name="action"></param>
-        /// <param name="typeVariable"></param>
+        /// <param name="component"> the component to write value </param>
+        /// <param name="action"> the action (ON/OFF) </param>
+        /// <param name="typeVariable"> the property to change value </param>
         private void WriteValue(Component component, string action, PropertyInfo typeVariable)
         {
             switch (typeVariable.PropertyType.Name)
@@ -275,8 +290,8 @@ namespace RaspiHomePiFaceDigital2
         /// Stack Overflow solution to delete accents in strings
         /// http://stackoverflow.com/questions/249087/how-do-i-remove-diacritics-accents-from-a-string-in-net
         /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
+        /// <param name="sentence"> sentence with diacritics to remove </param>
+        /// <returns> same sentence without diacritics </returns>
         private string RemoveDiacritics(string sentence)
         {
             var normalizedString = sentence.Normalize(NormalizationForm.FormD);

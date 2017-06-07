@@ -8,6 +8,11 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock Text="Home"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="stkLocationButton" Orientation="Horizontal" Grid.Row="0"/>
+        <Frame x:Name="frmHome" Grid.Row="1"/>
     </Grid>
 </Page>

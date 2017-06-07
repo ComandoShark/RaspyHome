@@ -352,10 +352,17 @@ namespace RaspiHomeServer
                             Console.WriteLine(subject);
                             List<TcpClient> clientsToSend = this.CmdFilter.ApplyFilter(informationInReply, this.RpiClients, this.ClientsNames);
                             this.ClientRequest = client;
-
-                            foreach (TcpClient clientToSend in clientsToSend)
+                            try
                             {
-                                this.SendMessages(clientToSend, informationInReply);
+                                foreach (TcpClient clientToSend in clientsToSend)
+                                {
+                                    this.SendMessages(clientToSend, informationInReply);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                // Reply ERROR_MESSAGE to the client who send the command
+                                this.SendMessages(this.ClientRequest, "ERROR_MESSAGE");
                             }
 
                             break;

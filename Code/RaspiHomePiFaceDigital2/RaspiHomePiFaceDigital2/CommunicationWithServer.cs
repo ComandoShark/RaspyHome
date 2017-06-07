@@ -1,9 +1,20 @@
-﻿using System;
+﻿/*--------------------------------------------------*\
+ * Author    : Salvi Cyril
+ * Date      : 7th juny 2017
+ * Diploma   : RaspiHome
+ * Classroom : T.IS-E2B
+ * 
+ * Description:
+ *      RaspiHomePiFaceDigital2 is a program who use 
+ *   a PiFace Digital 2, it's an electronic card who 
+ *   can be use to plug electronic component. This 
+ *   program use the PiFace Digital 2 to activate 
+ *   light and store. 
+\*--------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Networking;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
@@ -14,20 +25,26 @@ namespace RaspiHomePiFaceDigital2
     {
         #region Fields
         #region Constants
+        // Default information to connect on the server
         private const int PORT = 8080;
-        private const string IPSERVER = "10.134.97.117";// "192.168.2.8";        
-        private const string FORMATSTRING = "IPRasp={0};Location={1};Component={2}";
+        //// Need to be changed fo each configuration
+        private const string IPSERVER = "10.134.97.117";// "192.168.2.8";  
+
+        // String format for connection of the client      
+        private const string FORMATSTRING = "Connection:IPRasp={0};Location={1};Component={2}";
         private const string COMMUNICATIONSEPARATOR = "@";
 
         // Important need to be changed if it's another room!
         private const string LOCATION = "Salon";
-        private const string COMPONENT = "Light";
         private const string RPINAME = "PiFace_" + LOCATION;
+
+        private const int MESSAGE_FULL_LENGHT = 512;
         #endregion      
 
         #region Variables
         private ModelPiFaceDigital2 _mPiFace;
 
+        // Connection's variable
         private StreamSocket _socket = new StreamSocket();
         private StreamSocketListener _listener = new StreamSocketListener();
         private List<StreamSocket> _connections = new List<StreamSocket>();
@@ -135,6 +152,7 @@ namespace RaspiHomePiFaceDigital2
             try
             {
                 this.Connecting = true;
+                // wait a confirmation from the server 
                 await this.Socket.ConnectAsync(new HostName(IPSERVER), PORT.ToString());
                 SendForInitialize();
                 this.Connecting = false;
@@ -185,7 +203,8 @@ namespace RaspiHomePiFaceDigital2
         /// </summary>
         private void SendForInitialize()
         {
-            SendMessage(this.Socket, string.Format(COMMUNICATIONSEPARATOR + RPINAME + COMMUNICATIONSEPARATOR + "Connection:" + FORMATSTRING, GetHostName(), LOCATION, GetComponent()));
+            // Message send: "@NAME@Connection:IPRASP=x.x.x.x;Location=y;Component=z,z"
+            SendMessage(this.Socket, string.Format(COMMUNICATIONSEPARATOR + RPINAME + COMMUNICATIONSEPARATOR + FORMATSTRING, GetHostName(), LOCATION, GetComponent()));
         }
 
         /// <summary>
@@ -199,10 +218,11 @@ namespace RaspiHomePiFaceDigital2
             var msglenght = dataReader.UnconsumedBufferLength;
             uint stringBytes = msglenght;
 
+
             try
             {
                 // Read modification in the stream       
-                stringBytes = await dataReader.LoadAsync(512);
+                stringBytes = await dataReader.LoadAsync(MESSAGE_FULL_LENGHT);
 
                 // read message
                 string msg = dataReader.ReadString(stringBytes);
@@ -221,6 +241,7 @@ namespace RaspiHomePiFaceDigital2
                     return;
             }
 
+            // Restart loop to wait data
             WaitForData(socket);
         }
 
@@ -240,7 +261,6 @@ namespace RaspiHomePiFaceDigital2
             return IpAddress.Last();
         }
 
-
         /// <summary>
         /// Get component in the list of components
         /// </summary>
@@ -254,6 +274,7 @@ namespace RaspiHomePiFaceDigital2
                 // Get the name of the class
                 result += component.ToString().Split('.').Last();
                 cnt++;
+                // Add the component separator for the string format
                 if (cnt < this.MPiFace.Components.Count)
                     result += ",";
 

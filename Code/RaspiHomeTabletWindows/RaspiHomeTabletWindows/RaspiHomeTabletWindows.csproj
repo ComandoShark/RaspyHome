@@ -104,15 +104,30 @@
     <Compile Include="Menu\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Menu\LocationButton\LocationButtonData.cs" />
+    <Compile Include="Menu\LocationButton\LocationButtonModel.cs" />
+    <Compile Include="Menu\LocationButton\LocationButtonView.xaml.cs">
+      <DependentUpon>LocationButtonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\GlobalSetup\GlobalSetupModel.cs" />
     <Compile Include="Modules\GlobalSetup\GlobalSetupView.xaml.cs">
       <DependentUpon>GlobalSetupView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Home\HomeModel.cs" />
     <Compile Include="Modules\Home\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Home\Location\House\RoomView.xaml.cs">
+      <DependentUpon>RoomView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Home\Location\LivingRoom\RoomView.xaml.cs">
+      <DependentUpon>RoomView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Information\InformationModel.cs" />
     <Compile Include="Modules\Information\InformationView.xaml.cs">
       <DependentUpon>InformationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Setting\SettingModel.cs" />
     <Compile Include="Modules\Setting\SettingView.xaml.cs">
       <DependentUpon>SettingView.xaml</DependentUpon>
     </Compile>
@@ -126,6 +141,7 @@
     <None Include="RaspiHomeTabletWindows_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icon\arrow.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -148,6 +164,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Menu\LocationButton\LocationButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Modules\GlobalSetup\GlobalSetupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +175,14 @@
     <Page Include="Modules\Home\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Home\Location\House\RoomView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Home\Location\LivingRoom\RoomView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Modules\Information\InformationView.xaml">
       <SubType>Designer</SubType>

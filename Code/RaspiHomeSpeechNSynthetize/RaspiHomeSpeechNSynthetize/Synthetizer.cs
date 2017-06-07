@@ -17,6 +17,8 @@ namespace RaspiHomeSpeechNSynthetize
         #region Constants
         private const string RASPI_NAME = "raspi";
         private const char SEPARATOR = ' ';
+        private const string LANGUAGE_SELECTION = "en";
+        private const double TIME_TO_WAIT = 3.0;
         #endregion
 
         #region Variable
@@ -132,7 +134,7 @@ namespace RaspiHomeSpeechNSynthetize
 
             if (raspiName == RASPI_NAME.ToLower())
             {
-                RaspiTalk(this.RhCommands.WhenCalling);
+                RaspiCalled(this.RhCommands.WhenCalling);
                 this.RhSpeech.IsRaspiCalled = true;
                 this.IsCalled = true;
             }
@@ -152,13 +154,68 @@ namespace RaspiHomeSpeechNSynthetize
         }
 
         /// <summary>
-        /// Allow the Raspi, to let her talk with list
+        /// Processus to choose the sentence to say
         /// </summary>
-        /// <param name="repertory"></param>
-        private async void RaspiTalk(List<string> repertory)
+        /// <param name="repertory"> List of sentence to say </param>
+        private void RaspiCalled(List<string> repertory)
         {
-            string sentence = repertory[_rnd.Next(0, repertory.Count - 1)];
-            await this._voice.SynthesizeTextToStreamAsync(sentence);
+            string messageToSay = repertory[_rnd.Next(0, repertory.Count - 1)];
+
+            this.RaspiTalk(messageToSay);
+        }
+
+        /// <summary>
+        /// Allow the raspi to let her talk
+        /// </summary>
+        /// <param name="messageToSay"> sentence to say </param>
+        private async void RaspiTalk(string messageToSay)
+        {
+            MediaElement mediaElement = new MediaElement();
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+
+            // Set the default language
+            foreach (VoiceInformation vInfo in SpeechSynthesizer.AllVoices)
+            {
+                if (vInfo.Language.Contains(LANGUAGE_SELECTION))
+                {
+                    synth.Voice = vInfo;
+                    break;
+                }
+                else
+                    synth.Voice = vInfo;
+            }
+
+            SpeechSynthesisStream synthStream = await synth.SynthesizeTextToStreamAsync(messageToSay);
+
+            mediaElement.SetSource(synthStream, synthStream.ContentType);
+            mediaElement.Volume = 1;
+            mediaElement.Play();
+
+            await Task.Delay(TimeSpan.FromSeconds(TIME_TO_WAIT));
+        }
+
+        /// <summary>
+        /// Called when there is any error
+        /// </summary>
+        public void WrongCommand()
+        {
+            // Reach the error resquest sentences to say
+            this.RaspiCalled(this.RhCommands.SpeecherRespondingRequestError);
+        }
+
+        /// <summary>
+        /// Allow the Raspi, to let her talk with list of information
+        /// </summary>
+        /// <param name="informationsToGive"></param>
+        public void RaspiSayInformation(List<string> informationsToGive)
+        {
+            foreach (string informationToSay in informationsToGive)
+            {
+                if (informationToSay != "")
+                {
+                    this.RaspiTalk(informationToSay);
+                }
+            }
         }
 
         /// <summary>
@@ -216,42 +273,7 @@ namespace RaspiHomeSpeechNSynthetize
             else
                 result.Add("");
             return result;
-        }
-
-        /// <summary>
-        /// Allow the Raspi, to let her talk with list of information
-        /// </summary>
-        /// <param name="informationsToGive"></param>
-        public async void RaspiGiveInformation(List<string> informationsToGive)
-        {
-            foreach (string information in informationsToGive)
-            {
-                if (information != "")
-                {
-                    MediaElement mediaElement = new MediaElement();
-                    SpeechSynthesizer synth = new SpeechSynthesizer();                   
-
-                    foreach (VoiceInformation vInfo in SpeechSynthesizer.AllVoices)
-                    {
-                        if (vInfo.Language.Contains("en"))
-                        {
-                            synth.Voice = vInfo;
-                            break;
-                        }
-                        else
-                            synth.Voice = vInfo;
-                    }
-
-                    SpeechSynthesisStream synthStream = await synth.SynthesizeTextToStreamAsync(information);
-
-                    mediaElement.SetSource(synthStream, synthStream.ContentType);
-                    mediaElement.Volume = 1;
-                    mediaElement.Play();
-
-                    await Task.Delay(TimeSpan.FromSeconds(3));
-                }
-            }
-        }      
+        }    
 
         /// <summary>
         /// Stack Overflow solution to delete accents in strings

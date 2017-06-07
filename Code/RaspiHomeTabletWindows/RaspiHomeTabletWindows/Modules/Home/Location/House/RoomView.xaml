@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="RaspiHomeTabletWindows.Modules.Home.Location.House.RoomView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RaspiHomeTabletWindows.Modules.Home.Location.House"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <RelativePanel x:Name="rpnlDisplay" Margin="10">
+        <!--LIGHT BUTTON-->
+        <Button x:Name="btnLightOnOff" Height="150" Width="150"  Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Image Source="ms-appx:///Icon/bulb.png"/>
+        </Button>
+
+        <Rectangle x:Name="rect1" Height="150" Width="10" RelativePanel.RightOf="btnLightOnOff"/>
+
+        <!--STORE BUTTON-->
+        <!--UP-->
+        <Button x:Name="btnStoreUp" RelativePanel.AlignRightWithPanel="True" Height="150" Width="150" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Image Source="ms-appx:///Icon/arrowUp.png"/>
+        </Button>
+
+        <Rectangle x:Name="rect2" Height="20" Width="150" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="btnStoreUp"/>
+
+        <!--DOWN-->
+        <Button x:Name="btnStoreDown" RelativePanel.RightOf="rect1" RelativePanel.Below="rect2" Height="150" Width="150" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Image Source="ms-appx:///Icon/arrowUp.png"/>
+        </Button>
+
+        <Rectangle x:Name="rect3" Height="50" Width="150" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="btnStoreDown"/>
+        
+        <!--OPEN-->
+        <Button x:Name="btnStoreOpen" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="rect3" Height="150" Width="150" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Image Source="ms-appx:///Icon/arrowUp.png"/>
+        </Button>
+
+        <Rectangle x:Name="rect4" Height="20" Width="150" RelativePanel.RightOf="rect1" RelativePanel.Below="btnStoreOpen"/>
+
+        <!--CLOSE-->
+        <Button x:Name="btnStoreClose" RelativePanel.RightOf="rect1" RelativePanel.Below="rect4" Height="150" Width="150" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Image Source="ms-appx:///Icon/arrowUp.png"/>
+        </Button>
+    </RelativePanel>
+</Page>

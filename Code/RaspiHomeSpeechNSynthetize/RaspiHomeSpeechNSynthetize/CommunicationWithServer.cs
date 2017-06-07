@@ -225,8 +225,8 @@ namespace RaspiHomeSpeechNSynthetize
         {
             DataReader dataReader = new DataReader(socket.InputStream);
             dataReader.InputStreamOptions = InputStreamOptions.Partial;
-            var msglenght = dataReader.UnconsumedBufferLength;
-            uint stringBytes = msglenght;
+            var messageLenght = dataReader.UnconsumedBufferLength;
+            uint stringBytes = messageLenght;
 
             try
             {
@@ -234,21 +234,21 @@ namespace RaspiHomeSpeechNSynthetize
                 stringBytes = await dataReader.LoadAsync(512);
 
                 // read message
-                string msg = dataReader.ReadString(stringBytes);
+                string messageRead = dataReader.ReadString(stringBytes);
 
                 // Send in return if the value exist
-                if (msg != "")
+                if (messageRead != "")
                 {
-                    this.Speecher.ReplyForSynthetize(msg, this.MessageCommand);
+                    this.Speecher.ReplyForSynthetize(messageRead, this.MessageCommand);
                 }
 
-                msg = "";
+                messageRead = "";
             }
             catch (Exception e)
             {
                 string output = e.Message;
 
-                if (msglenght < 1)
+                if (messageLenght < 1)
                     return;
             }
 

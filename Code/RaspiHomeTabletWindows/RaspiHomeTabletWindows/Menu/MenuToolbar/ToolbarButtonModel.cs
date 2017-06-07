@@ -123,9 +123,9 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
         #endregion
 
         #region Constructor 
-        public ToolbarButtonModel(ToolbarButtonView view)
+        public ToolbarButtonModel(ToolbarButtonView paramView)
         {
-            this.View = view;
+            this.View = paramView;
         }
         #endregion
 
