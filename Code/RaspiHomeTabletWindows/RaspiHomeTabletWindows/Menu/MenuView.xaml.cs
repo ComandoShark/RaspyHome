@@ -1,22 +1,27 @@
-﻿using RaspiHomeTabletWindows.Menu.MenuToolbar;
+﻿/*--------------------------------------------------*\
+ * Author    : Salvi Cyril
+ * Date      : 8th juny 2017
+ * Diploma   : RaspiHome
+ * Classroom : T.IS-E2B
+ * 
+ * Description:
+ *      RaspiHomeTabletWindows is a program 
+ *   compatible with the Windows tablet. It's a 
+ *   program that can be use as tactil graphic 
+ *   interface to order the component linked with 
+ *   the other Raspberry Pi.
+\*--------------------------------------------------*/
+
+using RaspiHomeTabletWindows.Menu.MenuToolbar;
 using RaspiHomeTabletWindows.Modules.GlobalSetup;
 using RaspiHomeTabletWindows.Modules.Home;
 using RaspiHomeTabletWindows.Modules.Information;
 using RaspiHomeTabletWindows.Modules.Setting;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -26,8 +31,6 @@ namespace RaspiHomeTabletWindows.Menu
     {
         #region Fields
         #region Constants
-        private const double DEFAULT_SIZE_W = 800;
-        private const double DEFAULT_SIZE_H = 600;
         #endregion
 
         #region Variables
@@ -35,15 +38,12 @@ namespace RaspiHomeTabletWindows.Menu
 
         private ToolbarButtonView _btnToolbarView = null;
 
-        private double _pageWidth = DEFAULT_SIZE_W;
-        private double _pageHeight = DEFAULT_SIZE_H;
-
         private string _frameAlreadyChoose = "";
         private Dictionary<string, Dictionary<string, string>> _buttonInformation = new Dictionary<string, Dictionary<string, string>>() {
-            { "Home", new Dictionary<string,string>() { { "Retourner à l'accueil" , ""} } },
-            { "Global setup", new Dictionary<string,string>() { { "Visualiser l'ensemble des modules", "" } } },
-            { "Information", new Dictionary<string,string>() { { "Regarder les information du système", "" } } },
-            { "Setting", new Dictionary<string,string>() { { "Parametrage de l'application", "" } } }
+            { "Home", new Dictionary<string,string>() { { "Retourner à l'accueil" , "Home.png" } } },
+            { "Global setup", new Dictionary<string,string>() { { "Visualiser l'ensemble des modules", "GlobalSetup.png" } } },
+            { "Information", new Dictionary<string,string>() { { "Regarder les information du système", "Information.png" } } },
+            { "Setting", new Dictionary<string,string>() { { "Parametrage de l'application", "Setting.png" } } }
         };
 
         private List<string> _listChoise = null;
@@ -64,32 +64,6 @@ namespace RaspiHomeTabletWindows.Menu
             set
             {
                 _model = value;
-            }
-        }
-
-        public double PageWidth
-        {
-            get
-            {
-                return _pageWidth;
-            }
-
-            set
-            {
-                _pageWidth = value;
-            }
-        }
-
-        public double PageHeight
-        {
-            get
-            {
-                return _pageHeight;
-            }
-
-            set
-            {
-                _pageHeight = value;
             }
         }
 
@@ -153,7 +127,7 @@ namespace RaspiHomeTabletWindows.Menu
 
             this.Loaded += UserControl_Loaded;
 
-            this.Model = new MenuModel(this);            
+            this.Model = new MenuModel(this);
 
             InitializeToolbarButton();
         }
@@ -174,11 +148,11 @@ namespace RaspiHomeTabletWindows.Menu
 
             switch (((ToolbarButtonView)sender).WhoseButtonClicked)
             {
-                case "Home":                    
+                case "Home":
                     this.frmMenu.Content = null;
                     this.frmMenu.Navigate(typeof(HomeView));
                     break;
-                case "Global setup":                    
+                case "Global setup":
                     this.frmMenu.Content = null;
                     this.frmMenu.Navigate(typeof(GlobalSetupView));
                     break;
@@ -188,7 +162,7 @@ namespace RaspiHomeTabletWindows.Menu
                     break;
                 case "Setting":
                     this.frmMenu.Content = null;
-                    this.frmMenu.Navigate(typeof(SettingView));                    
+                    this.frmMenu.Navigate(typeof(SettingView));
                     break;
             }
 
@@ -205,8 +179,8 @@ namespace RaspiHomeTabletWindows.Menu
 
             foreach (var keyInfo in this._buttonInformation.Keys)
             {
-                this.LstToolbarButtonData.Add(new ToolbarButtonData(keyInfo, "RaspiHomeTabletWindows", "Icon", 
-                    this._buttonInformation[keyInfo].Keys.FirstOrDefault(), 
+                this.LstToolbarButtonData.Add(new ToolbarButtonData(keyInfo,
+                    this._buttonInformation[keyInfo].Keys.FirstOrDefault(),
                     this._buttonInformation[keyInfo][this._buttonInformation[keyInfo].Keys.FirstOrDefault()]));
                 this.LstChoise.Add(keyInfo);
             }
@@ -220,7 +194,7 @@ namespace RaspiHomeTabletWindows.Menu
             this.LstToolbarButton.Clear();
             foreach (ToolbarButtonData t in this.LstToolbarButtonData)
             {
-                this._btnToolbarView = new ToolbarButtonView(t.FrameChoose, t.FolderProjectName, t.FolderIconName, t.Description, t.IconLink);
+                this._btnToolbarView = new ToolbarButtonView(t.FrameChoose, t.Description, t.IconLink);
                 this._btnToolbarView.Tag = t;
                 this._btnToolbarView._click += MenuToolbarButton_Click;
                 this.stkMenuToolbar.Children.Add(this._btnToolbarView);

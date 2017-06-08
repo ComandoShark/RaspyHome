@@ -1,18 +1,22 @@
-﻿using RaspiHomeTabletWindows.Menu.LocationButton;
+﻿/*--------------------------------------------------*\
+ * Author    : Salvi Cyril
+ * Date      : 8th juny 2017
+ * Diploma   : RaspiHome
+ * Classroom : T.IS-E2B
+ * 
+ * Description:
+ *      RaspiHomeTabletWindows is a program 
+ *   compatible with the Windows tablet. It's a 
+ *   program that can be use as tactil graphic 
+ *   interface to order the component linked with 
+ *   the other Raspberry Pi.
+\*--------------------------------------------------*/
+
+using RaspiHomeTabletWindows.Menu.LocationButton;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -23,8 +27,6 @@ namespace RaspiHomeTabletWindows.Modules.Home
 
         #region Fields
         #region Constants
-        private const double DEFAULT_SIZE_W = 800;
-        private const double DEFAULT_SIZE_H = 600;
         #endregion
 
         #region Varaibles
@@ -32,18 +34,19 @@ namespace RaspiHomeTabletWindows.Modules.Home
 
         private LocationButtonView _btnLocationButtonView = null;
 
-        private double _pageWidth = DEFAULT_SIZE_W;
-        private double _pageHeight = DEFAULT_SIZE_H;
-
         private string _frameAlreadyChoose = "";
         private List<string> _buttonInformation = new List<string>() {
-            "Maison", "Salon", "Cuisine"
+            "Maison", "Salon", "Cuisine",
         };
 
         private List<string> _listChoise = null;
 
         private List<LocationButtonData> _lstLocationButtonData = null;
         private List<LocationButtonView> _lstLocationButton = null;
+
+        private Windows.Storage.ApplicationDataContainer localSettings =
+    Windows.Storage.ApplicationData.Current.LocalSettings;
+
         #endregion
         #endregion
 
@@ -58,32 +61,6 @@ namespace RaspiHomeTabletWindows.Modules.Home
             set
             {
                 _model = value;
-            }
-        }
-
-        public double PageWidth
-        {
-            get
-            {
-                return _pageWidth;
-            }
-
-            set
-            {
-                _pageWidth = value;
-            }
-        }
-
-        public double PageHeight
-        {
-            get
-            {
-                return _pageHeight;
-            }
-
-            set
-            {
-                _pageHeight = value;
             }
         }
 
@@ -159,7 +136,6 @@ namespace RaspiHomeTabletWindows.Modules.Home
             UpdateMenuToolbar();
         }
 
-
         private void _btnToolbarView__click(object sender, EventArgs e)
         {
             foreach (var locationButton in this.LstToolbarButton)
@@ -167,24 +143,47 @@ namespace RaspiHomeTabletWindows.Modules.Home
                 locationButton.IsSelected = false;
             }
 
-            switch (((LocationButtonView)sender).WhoseButtonClicked)
+            string buttonClicked = ((LocationButtonView)sender).WhoseButtonClicked;
+            this.Model.SetButtonClicked(buttonClicked);
+
+            localSettings.Values["NameButtonClicked"] = buttonClicked;
+
+            var actualFrameChoose = localSettings.Values["NameButtonClicked"];
+
+            switch (buttonClicked)
             {
                 case "Maison":
+                    if ((actualFrameChoose.ToString() != "Maison") || (actualFrameChoose == null))
+                        localSettings.Values.Remove("NameButtonClicked");
+
+                    localSettings.Values["NameButtonClicked"] = buttonClicked;
                     this.frmHome.Content = null;
                     this.frmHome.Navigate(typeof(Location.House.RoomView));
                     break;
                 case "Salon":
+                    if ((actualFrameChoose.ToString() != "Salon") || (actualFrameChoose == null))
+                        localSettings.Values.Remove("NameButtonClicked");
+
+                    localSettings.Values["NameButtonClicked"] = buttonClicked;
                     this.frmHome.Content = null;
-                    this.frmHome.Navigate(typeof(Location.LivingRoom.RoomView));
+                    this.frmHome.Navigate(typeof(Location.OtherRoom.RoomView));
                     break;
-                //case "Cuisine":
-                //    this.frmHome.Content = null;
-                //    this.frmHome.Navigate(typeof());
-                //    break;
-                //case "Setting":
-                //    this.frmHome.Content = null;
-                //    this.frmHome.Navigate(typeof(SettingView));
-                //    break;
+                case "Cuisine":
+                    if ((actualFrameChoose.ToString() != "Cuisine") || (actualFrameChoose == null))
+                        localSettings.Values.Remove("NameButtonClicked");
+
+                    localSettings.Values["NameButtonClicked"] = buttonClicked;
+                    this.frmHome.Content = null;
+                    this.frmHome.Navigate(typeof(Location.OtherRoom.RoomView));
+                    break;
+                case "Bureau":
+                    if ((actualFrameChoose.ToString() != "Bureau") || (actualFrameChoose == null))
+                        localSettings.Values.Remove("NameButtonClicked");
+
+                    localSettings.Values["NameButtonClicked"] = buttonClicked;
+                    this.frmHome.Content = null;
+                    this.frmHome.Navigate(typeof(Location.OtherRoom.RoomView));
+                    break;
             }
 
             ((LocationButtonView)sender).IsSelected = true;

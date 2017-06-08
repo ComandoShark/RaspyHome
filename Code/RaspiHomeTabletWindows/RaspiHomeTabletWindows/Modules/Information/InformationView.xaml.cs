@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿/*--------------------------------------------------*\
+ * Author    : Salvi Cyril
+ * Date      : 8th juny 2017
+ * Diploma   : RaspiHome
+ * Classroom : T.IS-E2B
+ * 
+ * Description:
+ *      RaspiHomeTabletWindows is a program 
+ *   compatible with the Windows tablet. It's a 
+ *   program that can be use as tactil graphic 
+ *   interface to order the component linked with 
+ *   the other Raspberry Pi.
+\*--------------------------------------------------*/
+
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -19,9 +20,43 @@ namespace RaspiHomeTabletWindows.Modules.Information
 {
     public sealed partial class InformationView : Page
     {
+        #region Fields
+        #region Constants
+        #endregion
+
+        #region Varaibles
+        private InformationModel _model = null;
+        #endregion
+        #endregion
+
+        #region Properties
+        public InformationModel Model
+        {
+            get
+            {
+                return _model;
+            }
+
+            set
+            {
+                _model = value;
+            }
+        }
+        #endregion
+
+        #region Constructor
         public InformationView()
         {
             this.InitializeComponent();
+
+            this.Model = new InformationModel(this);
         }
+        #endregion
+
+        #region Events
+        #endregion
+
+        #region Methods
+        #endregion
     }
 }

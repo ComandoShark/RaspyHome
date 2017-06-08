@@ -134,6 +134,10 @@ namespace RaspiHomePiFaceDigital2
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
+        /// <param name="paramModel"></param>
         public CommunicationWithServer(ModelPiFaceDigital2 paramModel)
         {
             this.MPiFace = paramModel;
@@ -186,8 +190,8 @@ namespace RaspiHomePiFaceDigital2
         /// <summary>
         /// Send the message in input to output
         /// </summary>
-        /// <param name="socket"></param>
-        /// <param name="message"></param>
+        /// <param name="socket"> actual stream </param>
+        /// <param name="message"> message to send </param>
         private async void SendMessage(StreamSocket socket, string message)
         {
             DataWriter dataWriter = new DataWriter(socket.OutputStream);
@@ -229,7 +233,7 @@ namespace RaspiHomePiFaceDigital2
 
                 // Send in return if the value exist
                 if (msg != "")
-                {
+                {                    
                     this.MPiFace.SetValue(msg);
                 }
             }

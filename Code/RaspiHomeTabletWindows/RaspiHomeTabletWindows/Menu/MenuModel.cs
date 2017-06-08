@@ -1,8 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*--------------------------------------------------*\
+ * Author    : Salvi Cyril
+ * Date      : 8th juny 2017
+ * Diploma   : RaspiHome
+ * Classroom : T.IS-E2B
+ * 
+ * Description:
+ *      RaspiHomeTabletWindows is a program 
+ *   compatible with the Windows tablet. It's a 
+ *   program that can be use as tactil graphic 
+ *   interface to order the component linked with 
+ *   the other Raspberry Pi.
+\*--------------------------------------------------*/
 
 namespace RaspiHomeTabletWindows.Menu
 {
@@ -10,15 +18,15 @@ namespace RaspiHomeTabletWindows.Menu
     {
         #region Fields
         #region Constants
-        private const double DEFAULT_SIZE_W = 800;
-        private const double DEFAULT_SIZE_H = 600;
         #endregion
 
         #region Variables
         private MenuView _view = null;
 
-        private double _pageWidth = DEFAULT_SIZE_W;
-        private double _pageHeight = DEFAULT_SIZE_H;
+        private CommunicationWithServer _comWithServer = null;
+
+        // Use to store data in the cache
+        private Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         #endregion
         #endregion
 
@@ -36,31 +44,16 @@ namespace RaspiHomeTabletWindows.Menu
             }
         }
 
-        public double PageWidth
+        public CommunicationWithServer ComWithServer
         {
             get
             {
-                return _pageWidth;
+                return _comWithServer;
             }
 
             set
             {
-                _pageWidth = value;
-                //OnPropertyChanged("PageWidth");
-            }
-        }
-
-        public double PageHeight
-        {
-            get
-            {
-                return _pageHeight;
-            }
-
-            set
-            {
-                _pageHeight = value;
-                //OnPropertyChanged("PageHeight");
+                _comWithServer = value;
             }
         }
         #endregion
@@ -69,15 +62,12 @@ namespace RaspiHomeTabletWindows.Menu
         public MenuModel(MenuView paramView)
         {
             this.View = paramView;
+
+            this.ComWithServer = new CommunicationWithServer();
         }
         #endregion
 
         #region Methods
-        //public void SetWindowsSize(double actualWidth, double actualHeight)
-        //{
-        //    this.PageWidth = actualWidth;
-        //    this.PageHeight = actualHeight;
-        //}
         #endregion
     }
 }

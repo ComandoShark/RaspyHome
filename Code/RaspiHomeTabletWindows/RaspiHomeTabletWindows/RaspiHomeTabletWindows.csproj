@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CommunicationWithServer.cs" />
     <Compile Include="Menu\MenuModel.cs" />
     <Compile Include="Menu\MenuToolbar\ToolbarButtonData.cs" />
     <Compile Include="Menu\MenuToolbar\ToolbarButtonModel.cs" />
@@ -117,10 +118,12 @@
     <Compile Include="Modules\Home\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Home\Location\House\RoomModel.cs" />
     <Compile Include="Modules\Home\Location\House\RoomView.xaml.cs">
       <DependentUpon>RoomView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Home\Location\LivingRoom\RoomView.xaml.cs">
+    <Compile Include="Modules\Home\Location\OtherRoom\RoomModel.cs" />
+    <Compile Include="Modules\Home\Location\OtherRoom\RoomView.xaml.cs">
       <DependentUpon>RoomView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\Information\InformationModel.cs" />
@@ -142,6 +145,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon\arrow.png" />
+    <Content Include="Icon\arrowDown.png" />
+    <Content Include="Icon\arrowUp.png" />
+    <Content Include="Icon\bulb.png" />
+    <Content Include="Icon\bulbLighting.png" />
+    <Content Include="Icon\GlobalSetup.png" />
+    <Content Include="Icon\Home.png" />
+    <Content Include="Icon\Humidity.png" />
+    <Content Include="Icon\Information.png" />
+    <Content Include="Icon\pressure.png" />
+    <Content Include="Icon\Setting.png" />
+    <Content Include="Icon\Thermometer.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -180,7 +194,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modules\Home\Location\LivingRoom\RoomView.xaml">
+    <Page Include="Modules\Home\Location\OtherRoom\RoomView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -192,6 +206,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsIoT, Version=10.0.14393.0">
+      <Name>Windows IoT Extensions for the UWP</Name>
+    </SDKReference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

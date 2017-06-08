@@ -47,7 +47,7 @@ namespace RaspiHomeSpeechNSynthetize
 
         private List<string> _speecherRespondingEtatRequest = new List<string>()
         {
-            "Il fait "," degrés Celsius "," degrés Farad"," degrés Kelvin","Le taux d'humidité est de "," pourcent","La pression est actuellement de "," bars"
+            "Il fait "," degrés Celsius "," degrés Farad"," degrés Kelvin","Le taux d'humidité est de "," pourcent","La pression est actuellement de "," hecto Pascal"
         };
 
         private List<string> _raspiHomeActionWithoutObjectKnown = new List<string>()

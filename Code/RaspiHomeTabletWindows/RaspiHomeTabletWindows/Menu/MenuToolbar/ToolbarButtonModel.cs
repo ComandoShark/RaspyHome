@@ -1,9 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.UI.Xaml.Controls;
+﻿/*--------------------------------------------------*\
+ * Author    : Salvi Cyril
+ * Date      : 8th juny 2017
+ * Diploma   : RaspiHome
+ * Classroom : T.IS-E2B
+ * 
+ * Description:
+ *      RaspiHomeTabletWindows is a program 
+ *   compatible with the Windows tablet. It's a 
+ *   program that can be use as tactil graphic 
+ *   interface to order the component linked with 
+ *   the other Raspberry Pi.
+\*--------------------------------------------------*/
+
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace RaspiHomeTabletWindows.Menu.MenuToolbar
@@ -18,7 +26,6 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
         private ToolbarButtonView _view = null;
 
         private string _description = "";
-        private string _folderProjectName = "";
         private string _folderIconName = "";
         private string _iconLink = null;
         private BitmapImage imgSource = null;
@@ -50,20 +57,7 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
             set
             {
                 _description = value;
-            }
-        }
-
-        public string FolderProjectName
-        {
-            get
-            {
-                return _folderProjectName;
-            }
-
-            set
-            {
-                _folderProjectName = value;
-            }
+            }       
         }
 
         public string FolderIconName
@@ -133,15 +127,13 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
         #endregion
 
         #region Methods
-        public void SetInformation(string folderProjectName, string folderIconName, string description, string iconLink)
+        public void SetInformation(string description, string iconLink)
         {
-            this.FolderProjectName = folderProjectName;
-            this.FolderIconName = folderIconName;
             this.Description = description;
             this.IconLink = iconLink;
 
             if (iconLink != "")
-                this.IconPath = "pack://application:,,,/" + this.FolderProjectName + ";component/" + this.FolderIconName + "/" + _iconLink;
+                this.IconPath = "ms-appx:///Icon/" + _iconLink;
             else
                 this.IconPath = "";
 
@@ -153,13 +145,6 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
         private void ChangeIcon()
         {
             this.View.ChangeIcon(this.IconPath);
-        }
-
-        private void ShowToolInfo()
-        {
-            //_tt = new ToolTip();
-            //_tt.Content = this.Description;
-            //this.btnTool.ToolTip = _tt;
         }
         #endregion
     }

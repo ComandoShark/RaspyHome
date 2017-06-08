@@ -337,6 +337,18 @@
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\arrow.png">
       <PackagePath>Icon\arrow.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\arrowDown.png">
+      <PackagePath>Icon\arrowDown.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\arrowUp.png">
+      <PackagePath>Icon\arrowUp.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\bulb.png">
+      <PackagePath>Icon\bulb.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\bulbLighting.png">
+      <PackagePath>Icon\bulbLighting.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>

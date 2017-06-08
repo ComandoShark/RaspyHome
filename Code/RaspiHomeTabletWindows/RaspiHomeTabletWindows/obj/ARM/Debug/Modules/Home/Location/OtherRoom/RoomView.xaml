@@ -1,0 +1,71 @@
+﻿<Page
+    x:Class="RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.RoomView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel x:ConnectionId='1' x:Name="rpnlDisplay" Margin="10">
+        <!--LIGHT BUTTON-->
+        <Rectangle x:ConnectionId='2' x:Name="rectTextLight" Width="29"/>
+        <TextBlock x:ConnectionId='3' x:Name="tblLight" Text="Lumière" RelativePanel.RightOf="rectTextLight"  RelativePanel.AlignTopWithPanel="True" FontSize="26"/>
+        <Button x:ConnectionId='4' x:Name="btnLightOnOff" RelativePanel.Below="tblLight" Height="150" Width="150"  Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"                            >
+            <Image x:ConnectionId='27' x:Name="imgLightButton" Source="ms-appx:///Icon/bulb.png"/>
+        </Button>
+
+        <!--STATE OF THE ROOM-->
+        <!--HUMIDITY-->
+        <Rectangle x:ConnectionId='5' x:Name="rectHumid" RelativePanel.AlignBottomWithPanel="True" Height="34"/>
+        <Rectangle x:ConnectionId='6' x:Name="rectInformation" RelativePanel.Above="rectHumid" Width="75"/>
+        <Image x:ConnectionId='7' x:Name="imgHumidity" Visibility="Collapsed" Source="ms-appx:///Icon/Humidity.png " RelativePanel.AlignLeftWithPanel="True" RelativePanel.Above="rectHumid" Height="75"/>
+
+        <!--TEMPERATURE-->
+        <Rectangle x:ConnectionId='8' x:Name="rectThermo" RelativePanel.Above="imgHumidity" Height="34"/>
+        <Image x:ConnectionId='9' x:Name="imgThermometer" Visibility="Collapsed" Source="ms-appx:///Icon/Thermometer.png " RelativePanel.AlignHorizontalCenterWith="imgHumidity" RelativePanel.Above="rectThermo" Height="75"/>
+
+        <Rectangle x:ConnectionId='10' x:Name="rectPressure" RelativePanel.Above="rectHumid" Width="250"/>
+        <Rectangle x:ConnectionId='11' x:Name="rectInformation2" RelativePanel.Above="rectHumid" Width="350"/>
+        
+        <!--PRESSURE-->        
+        <Image x:ConnectionId='12' x:Name="imgBarometer" Visibility="Collapsed" Source="ms-appx:///Icon/Pressure.png " RelativePanel.RightOf="rectPressure" RelativePanel.AlignVerticalCenterWith="imgThermometer" Height="65"/>
+
+        <TextBlock x:ConnectionId='13' x:Name="tblTemperature" RelativePanel.RightOf="rectInformation"  RelativePanel.AlignVerticalCenterWith="imgThermometer" FontSize="26"/>
+        <TextBlock x:ConnectionId='14' x:Name="tblHumidity" RelativePanel.RightOf="rectInformation" RelativePanel.AlignVerticalCenterWith="imgHumidity" FontSize="26"/>
+        <TextBlock x:ConnectionId='15' x:Name="tblPressure" RelativePanel.RightOf="rectInformation2" RelativePanel.AlignVerticalCenterWith="imgBarometer" FontSize="26"/>
+
+
+
+        <!--STORE BUTTON-->
+        <!--UP-->
+        <Rectangle x:ConnectionId='16' x:Name="rectTextStore" Width="33" RelativePanel.AlignRightWithPanel="True"/>
+        <TextBlock x:ConnectionId='17' x:Name="tblUp" Text="Monter" RelativePanel.LeftOf="rectTextStore"  RelativePanel.AlignTopWithPanel="True" FontSize="26"/>
+        <Button x:ConnectionId='18' x:Name="btnStoreUp" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="tblUp" Height="150" Width="150" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"                         >
+            <Image Source="ms-appx:///Icon/arrowUp.png"/>
+        </Button>
+
+        <Rectangle x:ConnectionId='19' x:Name="rectUpDo" Height="20" Width="150" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="btnStoreUp"/>
+
+        <!--DOWN-->
+        <Button x:ConnectionId='20' x:Name="btnStoreDown" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="rectUpDo" Height="150" Width="150" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"                           >
+            <Image Source="ms-appx:///Icon/arrowDown.png"/>
+        </Button>
+        <TextBlock x:ConnectionId='21' x:Name="tblDown" Text="Descendre" RelativePanel.AlignHorizontalCenterWith="tblUp" RelativePanel.Below="btnStoreDown" FontSize="26"/>
+
+        <!--OPEN-->
+        <TextBlock x:ConnectionId='22' x:Name="tblOpen" Text="Ouvrir" RelativePanel.AlignHorizontalCenterWith="tblUp" RelativePanel.Above="btnStoreOpen" FontSize="26"/>
+        <Button x:ConnectionId='23' x:Name="btnStoreOpen" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="rectOpCl" Height="150" Width="150" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"                           >
+            <Image Source="ms-appx:///Icon/arrowUp.png"/>
+        </Button>
+
+        <Rectangle x:ConnectionId='24' x:Name="rectOpCl" Height="20" Width="150" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="btnStoreClose"/>
+
+        <!--CLOSE-->
+        <Button x:ConnectionId='25' x:Name="btnStoreClose" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="tblClose" Height="150" Width="150" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"                            >
+            <Image Source="ms-appx:///Icon/arrowDown.png"/>
+        </Button>
+        <TextBlock x:ConnectionId='26' x:Name="tblClose" Text="Fermer" RelativePanel.AlignHorizontalCenterWith="tblUp"  RelativePanel.AlignBottomWithPanel="True" FontSize="26"/>
+    </RelativePanel>
+</Page>
+

@@ -1,13 +1,23 @@
-﻿using System;
+﻿/*--------------------------------------------------*\
+ * Author    : Salvi Cyril
+ * Date      : 7th juny 2017
+ * Diploma   : RaspiHome
+ * Classroom : T.IS-E2B
+ * 
+ * Description:
+ *      RaspiHomeServer is a server TCP. It's the m
+ *      ain program, where all command pass before 
+ *      to be reply to the good client. 
+\*--------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace RaspiHomeServer
 {
@@ -214,48 +224,52 @@ namespace RaspiHomeServer
             Console.WriteLine("{0} Handling a new client from {1}.", Environment.NewLine, endPoint);
             Console.WriteLine();
 
-            // Let them identify themselves
-            byte[] messageBuffer = new byte[_bufferSize];
-            int bytesRead = netStream.Read(messageBuffer, 0, messageBuffer.Length);
-
-            if (bytesRead > 0)
+            try
             {
-                string messageRead = Encoding.UTF8.GetString(messageBuffer, 0, bytesRead);
+                // Let them identify themselves
+                byte[] messageBuffer = new byte[_bufferSize];
+                int bytesRead = netStream.Read(messageBuffer, 0, messageBuffer.Length);
 
-                string messageConnection = messageRead.Split('@').Last().Split(':').Last();
-
-                try
+                if (bytesRead > 0)
                 {
-                    // Get the name of the client
-                    string name = messageRead.Split('@')[1];
+                    string messageRead = Encoding.UTF8.GetString(messageBuffer, 0, bytesRead);
 
-                    if ((name != string.Empty))
+                    string messageConnection = messageRead.Split('@').Last().Split(':').Last();
+
+                    try
                     {
-                        // Add the player
-                        clientIsAccepted = true;
-                        this.ClientsNames.Add(name, new Dictionary<RaspberryClient, TcpClient>() { { this.InitializeNewRaspberryClient(messageConnection), newClient } });
-                        this.Clients.Add(newClient);
-                        
-                        Console.WriteLine(messageRead);
-                        // Tell the current players we have a new player
-                        this.MessageQueue.Enqueue(String.Format("{0} has joined the server.", name));
-                        Console.WriteLine();
-                        Console.WriteLine("----------------------------------------");
-                    }
-                }
-                catch (Exception)
-                {
-                    // Wasn't either a viewer or messenger, clean up anyways.
-                    Console.WriteLine("Client wasn't able to connect.", endPoint);
-                    Console.WriteLine("----------------------------------------");
-                    Console.WriteLine();
-                    CleanupClient(newClient);
-                }
+                        // Get the name of the client
+                        string name = messageRead.Split('@')[1];
 
-                // Clear the client if he doesn't meet our requirements
-                if (!clientIsAccepted)
-                    newClient.Close();
+                        if ((name != string.Empty))
+                        {
+                            // Add the player
+                            clientIsAccepted = true;
+                            this.ClientsNames.Add(name, new Dictionary<RaspberryClient, TcpClient>() { { this.InitializeNewRaspberryClient(messageConnection), newClient } });
+                            this.Clients.Add(newClient);
+
+                            Console.WriteLine(messageRead);
+                            // Tell the current players we have a new player
+                            this.MessageQueue.Enqueue(String.Format("{0} has joined the server.", name));
+                            Console.WriteLine();
+                            Console.WriteLine("----------------------------------------");
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        // Wasn't either a viewer or messenger, clean up anyways.
+                        Console.WriteLine("Client wasn't able to connect.", endPoint);
+                        Console.WriteLine("----------------------------------------");
+                        Console.WriteLine();
+                        CleanupClient(newClient);
+                    }
+
+                    // Clear the client if he doesn't meet our requirements
+                    if (!clientIsAccepted)
+                        newClient.Close();
+                }
             }
+            catch (Exception) { }
         }
 
         private void CleanupClient(TcpClient client)
@@ -371,6 +385,10 @@ namespace RaspiHomeServer
                             Console.WriteLine(subject);
                             this.SendMessages(this.ClientRequest, informationInReply);
                             Console.WriteLine("----------------------------------------");
+                            break;
+
+                        case "Disconnect":
+                            this.CheckForDisconnects();                        
                             break;
                     }
 

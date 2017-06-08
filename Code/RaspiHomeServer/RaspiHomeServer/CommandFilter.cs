@@ -1,11 +1,22 @@
-﻿using System;
+﻿/*--------------------------------------------------*\
+ * Author    : Salvi Cyril
+ * Date      : 7th juny 2017
+ * Diploma   : RaspiHome
+ * Classroom : T.IS-E2B
+ * 
+ * Description:
+ *      RaspiHomeServer is a server TCP. It's the m
+ *      ain program, where all command pass before 
+ *      to be reply to the good client. 
+\*--------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RaspiHomeServer
 {

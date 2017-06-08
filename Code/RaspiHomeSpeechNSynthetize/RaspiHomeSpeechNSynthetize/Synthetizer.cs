@@ -252,19 +252,25 @@ namespace RaspiHomeSpeechNSynthetize
                         case "TEMP":
                             if (temp)
                             {
-                                result.Add(this.RhCommands.SpeecherRespondingEtatRequest[0] + information.Split('=').Last() + this.RhCommands.SpeecherRespondingEtatRequest[1]);
+                                result.Add(this.RhCommands.SpeecherRespondingEtatRequest[0] + 
+                                    information.Split('=').Last() + 
+                                    this.RhCommands.SpeecherRespondingEtatRequest[1]);
                             }
                             break;
                         case "HUMI":
                             if (humi)
                             {
-                                result.Add(this.RhCommands.SpeecherRespondingEtatRequest[4] + information.Split('=').Last() + this.RhCommands.SpeecherRespondingEtatRequest[5]);
+                                result.Add(this.RhCommands.SpeecherRespondingEtatRequest[4] + 
+                                    information.Split('=').Last() + 
+                                    this.RhCommands.SpeecherRespondingEtatRequest[5]);
                             }
                             break;
                         case "PRES":
                             if (pres)
                             {
-                                result.Add(this.RhCommands.SpeecherRespondingEtatRequest[6] + information.Split('=').Last() + this.RhCommands.SpeecherRespondingEtatRequest[7]);
+                                result.Add(this.RhCommands.SpeecherRespondingEtatRequest[6] + 
+                                    information.Split('=').Last() + 
+                                    this.RhCommands.SpeecherRespondingEtatRequest[7]);
                             }
                             break;
                     }

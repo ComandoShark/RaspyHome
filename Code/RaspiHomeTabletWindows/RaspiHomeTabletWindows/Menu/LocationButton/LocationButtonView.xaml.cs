@@ -1,17 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿/*--------------------------------------------------*\
+ * Author    : Salvi Cyril
+ * Date      : 8th juny 2017
+ * Diploma   : RaspiHome
+ * Classroom : T.IS-E2B
+ * 
+ * Description:
+ *      RaspiHomeTabletWindows is a program 
+ *   compatible with the Windows tablet. It's a 
+ *   program that can be use as tactil graphic 
+ *   interface to order the component linked with 
+ *   the other Raspberry Pi.
+\*--------------------------------------------------*/
+
+using System;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -66,12 +71,14 @@ namespace RaspiHomeTabletWindows.Menu.LocationButton
                 if (value)
                 {
                     btnButtonLocation.BorderThickness = new Thickness(3);
-                    //btnButtonLocation.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 73, 130, 5));
+                    btnButtonLocation.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 73, 130, 5));
+                    tblLocationName.Foreground = new SolidColorBrush(Color.FromArgb(255, 73, 130, 5));
                 }
                 else
                 {
                     btnButtonLocation.BorderThickness = new Thickness(1);
-                    //btnButtonLocation.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 76, 74, 75));
+                    btnButtonLocation.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 76, 74, 75));
+                    tblLocationName.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
                 }
             }
         }
@@ -113,6 +120,8 @@ namespace RaspiHomeTabletWindows.Menu.LocationButton
             this.WhoseButtonClicked = frameChoose;
 
             SetInformation(description);
+
+            this.tblLocationName.Text = description;
         }
         #endregion
 

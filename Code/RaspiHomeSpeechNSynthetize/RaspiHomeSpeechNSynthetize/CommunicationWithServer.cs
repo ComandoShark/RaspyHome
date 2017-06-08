@@ -20,8 +20,11 @@ namespace RaspiHomeSpeechNSynthetize
     {
         #region Fields
         #region Constants
+        // Default information to connect on the server
         private const int PORT = 8080;
-        private const string IPSERVER = "10.134.97.117";// "192.168.2.8";        
+        //// Need to be changed fo each configuration
+        private const string IPSERVER = "10.134.97.117";// "192.168.2.8";   
+             
         private const string FORMATSTRING = "IPRasp={0};Location={1};Component={2}";
         private const string COMMUNICATIONSEPARATOR = "@";
 
@@ -29,6 +32,8 @@ namespace RaspiHomeSpeechNSynthetize
         private const string LOCATION = "Salon";
         private const string COMPONENT = "Microphone";
         private const string RPINAME = "Microphone_" + LOCATION;// "192.168.2.8";
+
+        private const int MESSAGE_FULL_LENGHT = 512;
         #endregion      
 
         #region Variables
@@ -138,6 +143,10 @@ namespace RaspiHomeSpeechNSynthetize
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
+        /// <param name="paramModel"></param>
         public CommunicationWithServer(Speecher paramModel)
         {
             this.Speecher = paramModel;

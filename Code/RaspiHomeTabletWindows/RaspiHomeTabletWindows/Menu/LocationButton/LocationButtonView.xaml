@@ -6,9 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="35" d:DesignWidth="150">
+    d:DesignHeight="50" d:DesignWidth="150">
 
-    <Button x:Name="btnButtonLocation" Height="35" Width="120" Margin="0,0,30,0" Background="{StaticResource DefaultBackgroundColor}" Click="btnButtonLocation_Click">
-        <TextBlock Text="{Binding Path=LocationName}"/>
+    <Button x:Name="btnButtonLocation" Height="50" Width="120" Margin="10,0,20,0" Background="{StaticResource DefaultBackgroundColor}" Click="btnButtonLocation_Click">
+        <TextBlock x:Name="tblLocationName" Text="{Binding Path=LocationName}" Foreground="White" FontSize="28"/>
     </Button>
 </UserControl>

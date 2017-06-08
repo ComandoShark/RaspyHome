@@ -1,8 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*--------------------------------------------------*\
+ * Author    : Salvi Cyril
+ * Date      : 8th juny 2017
+ * Diploma   : RaspiHome
+ * Classroom : T.IS-E2B
+ * 
+ * Description:
+ *      RaspiHomeTabletWindows is a program 
+ *   compatible with the Windows tablet. It's a 
+ *   program that can be use as tactil graphic 
+ *   interface to order the component linked with 
+ *   the other Raspberry Pi.
+\*--------------------------------------------------*/
 
 namespace RaspiHomeTabletWindows.Menu.MenuToolbar
 {
@@ -10,8 +18,6 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
     {
         #region Variables
         private string _frameChoose;
-        private string _folderProjectName;
-        private string _folderIconName;
         private string _description;
         private string _iconLink;
         private bool _isSelected = false;
@@ -28,32 +34,6 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
             set
             {
                 _frameChoose = value;
-            }
-        }
-
-        public string FolderProjectName
-        {
-            get
-            {
-                return _folderProjectName;
-            }
-
-            set
-            {
-                _folderProjectName = value;
-            }
-        }
-
-        public string FolderIconName
-        {
-            get
-            {
-                return _folderIconName;
-            }
-
-            set
-            {
-                _folderIconName = value;
             }
         }
 
@@ -99,11 +79,9 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
         #endregion
 
         #region Constructor 
-        public ToolbarButtonData(string frameChoose, string folderProjectName, string folderIconName, string description, string iconLink)
+        public ToolbarButtonData(string frameChoose, string description, string iconLink)
         {
             this.FrameChoose = frameChoose;
-            this.FolderProjectName = folderProjectName;
-            this.FolderIconName = folderIconName;
             this.Description = description;
             this.IconLink = iconLink;
         }

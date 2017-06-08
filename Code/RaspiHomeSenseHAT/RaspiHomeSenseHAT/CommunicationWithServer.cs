@@ -1,16 +1,22 @@
-﻿using System;
+﻿/*--------------------------------------------------*\
+ * Author    : Salvi Cyril
+ * Date      : 7th juny 2017
+ * Diploma   : RaspiHome
+ * Classroom : T.IS-E2B
+ * 
+ * Description:
+ *      RaspiHomeSenseHAT is a program who use a 
+ *   Sense HAT, it's an electronic card who can be 
+ *   mesured value with sensor. This program use 
+ *   the Sense HAT to mesure the temperature, the 
+ *   humidity and the pressure. 
+\*--------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Core;
 using Windows.Networking;
-using Windows.Networking.Connectivity;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
 
@@ -20,8 +26,12 @@ namespace RaspiHomeSenseHAT
     {
         #region Fields
         #region Constants
+        // Default information to connect on the server
         private const int PORT = 8080;
-        private const string IPSERVER = "10.134.97.117";// "192.168.2.8";        
+        //// Need to be changed fo each configuration
+        private const string IPSERVER = "10.134.97.117";// "192.168.2.8";     
+
+        // String format for connection of the client      
         private const string FORMATSTRING = "IPRasp={0};Location={1};Component={2}";
         private const string COMMUNICATIONSEPARATOR = "@";
 
@@ -29,6 +39,8 @@ namespace RaspiHomeSenseHAT
         private const string LOCATION = "Salon";
         private const string COMPONENT = "Sensor";
         private const string RPINAME = "SenseHAT_" + LOCATION;
+
+        private const int MESSAGE_FULL_LENGHT = 512;
         #endregion      
 
         #region Variables
@@ -123,6 +135,10 @@ namespace RaspiHomeSenseHAT
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
+        /// <param name="paramModel"></param>
         public CommunicationWithServer(ModelSenseHAT paramModel)
         {
             this.MSenseHAT = paramModel;
@@ -173,10 +189,10 @@ namespace RaspiHomeSenseHAT
         /// <summary>
         /// Send the message in input to output
         /// </summary>
-        /// <param name="socket"></param>
-        /// <param name="message"></param>
+        /// <param name="socket"> actual stream </param>
+        /// <param name="message"> message to send </param>
         private async void SendMessage(StreamSocket socket, string message)
-        {
+        {           
             DataWriter dataWriter = new DataWriter(socket.OutputStream);
             var len = dataWriter.MeasureString(message); // Gets the UTF-8 string length.
             dataWriter.WriteInt32((int)len);
@@ -190,6 +206,7 @@ namespace RaspiHomeSenseHAT
         /// </summary>
         private void SendForInitialize()
         {
+            // Message send: "@NAME@Connection:IPRASP=x.x.x.x;Location=y;Component=z,z"
             SendMessage(this.Socket, string.Format(COMMUNICATIONSEPARATOR + RPINAME + COMMUNICATIONSEPARATOR + "Connection:" + FORMATSTRING, GetHostName(), LOCATION, COMPONENT));
         }
 
@@ -198,6 +215,7 @@ namespace RaspiHomeSenseHAT
         /// </summary>
         public void ReplyValues()
         {
+            // Message receive : "@Reply:TEMP=x;HUMI=y;PRES=z"
             SendMessage(this.Socket, COMMUNICATIONSEPARATOR + "Reply:" + this.MSenseHAT.SendValues());
         }
 
@@ -207,6 +225,7 @@ namespace RaspiHomeSenseHAT
         /// <param name="socket"></param>
         private async void WaitForData(StreamSocket socket)
         {
+            await Task.Delay(TimeSpan.FromMilliseconds(200));
             DataReader dataReader = new DataReader(socket.InputStream);
             dataReader.InputStreamOptions = InputStreamOptions.Partial;
             var msglenght = dataReader.UnconsumedBufferLength;
@@ -215,7 +234,7 @@ namespace RaspiHomeSenseHAT
             try
             {        
                 // Read modification in the stream       
-                stringBytes = await dataReader.LoadAsync(512);               
+                stringBytes = await dataReader.LoadAsync(MESSAGE_FULL_LENGHT);               
                 
                 // read message
                 string msg = dataReader.ReadString(stringBytes);
@@ -223,6 +242,7 @@ namespace RaspiHomeSenseHAT
                 // Send in return if the value exist
                 if (msg != "")
                 {
+                    await Task.Delay(TimeSpan.FromMilliseconds(200));
                     ReplyValues();
                 }
             }
