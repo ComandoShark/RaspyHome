@@ -48,6 +48,9 @@ namespace RaspiHomePiFaceDigital2
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Construcor: Initializer
+        /// </summary>
         public ViewPiFaceDigital2()
         {
             this.InitializeComponent();

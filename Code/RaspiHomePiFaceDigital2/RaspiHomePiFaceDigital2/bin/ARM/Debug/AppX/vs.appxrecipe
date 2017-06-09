@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomePiFaceDigital2\RaspiHomePiFaceDigital2\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-08T19:19:08.106</Modified>
+      <Modified>2017-06-09T08:02:41.689</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomePiFaceDigital2\RaspiHomePiFaceDigital2\bin\ARM\Debug\RaspiHomePiFaceDigital2.exe">
       <PackagePath>entrypoint\RaspiHomePiFaceDigital2.exe</PackagePath>
-      <Modified>2017-06-08T19:19:07.618</Modified>
+      <Modified>2017-06-09T08:02:40.155</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -497,11 +497,11 @@
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomePiFaceDigital2\RaspiHomePiFaceDigital2\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-01T14:23:51.665</Modified>
+      <Modified>2017-06-09T08:02:41.122</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomePiFaceDigital2\RaspiHomePiFaceDigital2\bin\ARM\Debug\Core\RaspiHomePiFaceDigital2.exe">
       <PackagePath>RaspiHomePiFaceDigital2.exe</PackagePath>
-      <Modified>2017-06-08T19:19:08.094</Modified>
+      <Modified>2017-06-09T08:02:41.675</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

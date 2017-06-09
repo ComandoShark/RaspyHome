@@ -111,6 +111,9 @@ namespace RaspiHomeTabletWindows.Menu.LocationButton
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public LocationButtonView(string frameChoose, string description)
         {
             this.InitializeComponent();
@@ -126,6 +129,11 @@ namespace RaspiHomeTabletWindows.Menu.LocationButton
         #endregion
 
         #region Events
+        /// <summary>
+        /// Event on the button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnButtonLocation_Click(object sender, RoutedEventArgs e)
         {
             if (this._click != null)
@@ -135,6 +143,10 @@ namespace RaspiHomeTabletWindows.Menu.LocationButton
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Set the Text of the button
+        /// </summary>
+        /// <param name="description"></param>
         private void SetInformation(string description)
         {
             this.Model.SetInformation(description);

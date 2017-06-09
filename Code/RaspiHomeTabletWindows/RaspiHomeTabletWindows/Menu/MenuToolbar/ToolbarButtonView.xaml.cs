@@ -109,6 +109,9 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public ToolbarButtonView(string frameChoose, string description, string iconLink)
         {
             InitializeComponent();
@@ -122,6 +125,11 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
         #endregion
 
         #region Events
+        /// <summary>
+        /// Event on the button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnToolbar_Click(object sender, RoutedEventArgs e)
         {
             if (this._click != null)
@@ -131,11 +139,20 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Set information of the button on the toolbar
+        /// </summary>
+        /// <param name="description"></param>
+        /// <param name="iconLink"></param>
         private void SetInformation(string description, string iconLink)
         {
             this.Model.SetInformation(description, iconLink);
         }
 
+        /// <summary>
+        /// Change the Icon of the button on the toolbar
+        /// </summary>
+        /// <param name="iconPath"></param>
         public void ChangeIcon(string iconPath)
         {
             if (iconPath != "")

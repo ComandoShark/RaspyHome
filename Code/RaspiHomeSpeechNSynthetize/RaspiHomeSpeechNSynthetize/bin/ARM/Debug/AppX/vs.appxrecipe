@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-08T19:19:30.184</Modified>
+      <Modified>2017-06-09T07:35:26.569</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\bin\ARM\Debug\RaspiHomeSpeechNSynthetize.exe">
       <PackagePath>entrypoint\RaspiHomeSpeechNSynthetize.exe</PackagePath>
-      <Modified>2017-06-08T19:19:29.862</Modified>
+      <Modified>2017-06-09T07:35:25.807</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -488,7 +488,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\bin\ARM\Debug\RaspiHomeSpeechNSynthetize.xr.xml">
       <PackagePath>RaspiHomeSpeechNSynthetize.xr.xml</PackagePath>
-      <Modified>2017-06-01T15:02:27.777</Modified>
+      <Modified>2017-06-09T07:26:22.925</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -497,11 +497,11 @@
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-01T15:02:29.612</Modified>
+      <Modified>2017-06-09T07:35:26.429</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSpeechNSynthetize\RaspiHomeSpeechNSynthetize\bin\ARM\Debug\Core\RaspiHomeSpeechNSynthetize.exe">
       <PackagePath>RaspiHomeSpeechNSynthetize.exe</PackagePath>
-      <Modified>2017-06-08T19:19:30.171</Modified>
+      <Modified>2017-06-09T07:35:26.558</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

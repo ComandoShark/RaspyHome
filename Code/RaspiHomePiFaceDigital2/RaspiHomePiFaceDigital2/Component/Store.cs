@@ -13,8 +13,6 @@
 \*--------------------------------------------------*/
 
 using System;
-using System.Reflection;
-using System.Threading.Tasks;
 using Windows.UI.Xaml;
 
 namespace RaspiHomePiFaceDigital2
@@ -51,11 +49,6 @@ namespace RaspiHomePiFaceDigital2
         private bool _isStop = false;
 
         private int _counterStopped = 0;
-        private bool _commandFinished = false;
-
-        // For future update (add level open)
-        private double _percentUp = 0.0;
-        private double _percentOpen = 0.0;
         #endregion
         #endregion
 
@@ -71,7 +64,7 @@ namespace RaspiHomePiFaceDigital2
             {
                 _isUp = value;
 
-                if (value && this.CounterStopped < MAX_LEVEL)// && !this.CommandFinished)
+                if (value && this.CounterStopped < MAX_LEVEL)
                 {
                     this.SetLevel("IsUp");
                 }
@@ -89,7 +82,7 @@ namespace RaspiHomePiFaceDigital2
             {
                 _isDown = value;
 
-                if (value && this.CounterStopped > MIN_LEVEL)// && !this.CommandFinished)
+                if (value && this.CounterStopped > MIN_LEVEL)
                 {
                     this.SetLevel("IsDown");
                 }
@@ -130,23 +123,26 @@ namespace RaspiHomePiFaceDigital2
                     this.SetLevel("IsClose");
                 }
             }
-        }
+        }                      
 
-        public double PercentUp
+        public bool IsStop
         {
             get
             {
-                return _percentUp;
+                return _isStop;
             }
 
             set
             {
-                _percentUp = value;
+                _isStop = value;
 
-                if (value >= 100.0)
-                    _percentUp = 100.0;
-                if (value <= 0.0)
-                    _percentUp = 0.0;
+                if (value)
+                {
+                    this._dTimerUp.Stop();
+                    this._dTimerDown.Stop();
+                    SetLevel("IsStop");
+                    this.IsStop = false;
+                }
             }
         }
 
@@ -161,6 +157,7 @@ namespace RaspiHomePiFaceDigital2
             {
                 _counterStopped = value;
 
+                // Store manager
                 if (value == MAX_LEVEL)
                 {
                     this._dTimerUp.Stop();
@@ -175,68 +172,16 @@ namespace RaspiHomePiFaceDigital2
                 }
             }
         }
-
-        public bool CommandFinished
-        {
-            get
-            {
-                return _commandFinished;
-            }
-
-            set
-            {
-                _commandFinished = value;
-            }
-        }
-
-        public double PercentOpen
-        {
-            get
-            {
-                return _percentOpen;
-            }
-
-            set
-            {
-                _percentOpen = value;
-
-                if (value >= 100.0)
-                    _percentOpen = 100.0;
-                if (value <= 0.0)
-                    _percentOpen = 0.0;
-            }
-        }
-
-        public bool IsStop
-        {
-            get
-            {
-                return _isStop;
-            }
-
-            set
-            {
-                _isStop = value;
-
-                if (value)// && !this.CommandFinished)
-                {
-                    this._dTimerUp.Stop();
-                    this._dTimerDown.Stop();
-                    SetLevel("IsStop");
-                    this.IsStop = false;
-                }
-            }
-        }
         #endregion
 
         #region Constructor
         public Store()
         {
-            _dTimerUp.Interval = new TimeSpan(10);
-            _dTimerUp.Tick += _dTimerUp_Tick;
+            this._dTimerUp.Interval = new TimeSpan(10);
+            this._dTimerUp.Tick += _dTimerUp_Tick;
 
-            _dTimerDown.Interval = new TimeSpan(10);
-            _dTimerDown.Tick += _dTimerDown_Tick;
+            this._dTimerDown.Interval = new TimeSpan(10);
+            this._dTimerDown.Tick += _dTimerDown_Tick;
         }
 
         private void _dTimerUp_Tick(object sender, object e)
@@ -261,6 +206,7 @@ namespace RaspiHomePiFaceDigital2
             {
                 case "IsUp":
                     this.IsDown = false;
+
                     MCP23S17.WritePin(DOWN, OFF);
                     MCP23S17.WritePin(UP, ON);
 
@@ -268,6 +214,7 @@ namespace RaspiHomePiFaceDigital2
                     break;
                 case "IsDown":
                     this.IsUp = false;
+
                     MCP23S17.WritePin(UP, OFF);
                     MCP23S17.WritePin(DOWN, ON);
 
@@ -275,11 +222,13 @@ namespace RaspiHomePiFaceDigital2
                     break;
                 case "IsOpen":
                     this.IsClose = false;
+
                     MCP23S17.WritePin(CLOSE, OFF);
                     MCP23S17.WritePin(OPEN, ON);
                     break;
                 case "IsClose":
                     this.IsOpen = false;
+
                     MCP23S17.WritePin(OPEN, OFF);
                     MCP23S17.WritePin(CLOSE, ON);
                     break;
@@ -288,6 +237,7 @@ namespace RaspiHomePiFaceDigital2
                     this.IsDown = false;
                     this.IsOpen = false;
                     this.IsClose = false;
+
                     MCP23S17.WritePin(UP, OFF);
                     MCP23S17.WritePin(DOWN, OFF);
                     MCP23S17.WritePin(OPEN, OFF);
@@ -298,14 +248,14 @@ namespace RaspiHomePiFaceDigital2
 
         private void SetLevelUp()
         {
-            _dTimerDown.Stop();
-            _dTimerUp.Start();            
+            this._dTimerDown.Stop();
+            this._dTimerUp.Start();            
         }
 
         private void SetLevelDown()
         {
-            _dTimerUp.Stop();
-            _dTimerDown.Start();
+            this._dTimerUp.Stop();
+            this._dTimerDown.Start();
         }
         #endregion
     }

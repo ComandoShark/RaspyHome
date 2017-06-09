@@ -31,7 +31,7 @@ namespace RaspiHomeServer
             "allumer","allume",
             "eteindre","eteins",
             "monter","monte",
-            "descendre","descend",
+            "descendre","descends",
             "stopper","stop",
             "ouvrir","ouvre",
             "fermer","ferme",

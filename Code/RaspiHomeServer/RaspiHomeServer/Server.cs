@@ -25,7 +25,9 @@ namespace RaspiHomeServer
     {
         #region Fields
         #region Constants
+        // Default port communication
         const int DEFAULT_PORT = 8080;
+        // Name of the actual computer (where the server is started)
         private const string HOST_NAME = "DESKTOP-UL17MK6";
         #endregion
 
@@ -153,6 +155,9 @@ namespace RaspiHomeServer
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public Server()
         {
             this.RpiClients = new List<RaspberryClient>();
@@ -165,6 +170,9 @@ namespace RaspiHomeServer
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Start the listening of the server
+        /// </summary>
         private void StartListening()
         {
             // Some info
@@ -201,7 +209,9 @@ namespace RaspiHomeServer
             this.Listener.Stop();
         }
 
-
+        /// <summary>
+        /// Add new client when there is a new connection
+        /// </summary>
         private void NewConnection()
         {
             bool clientIsAccepted = false;
@@ -272,6 +282,10 @@ namespace RaspiHomeServer
             catch (Exception) { }
         }
 
+        /// <summary>
+        /// Clean actual client
+        /// </summary>
+        /// <param name="client"></param>
         private void CleanupClient(TcpClient client)
         {
             // Clean the sent TcpClient
@@ -280,7 +294,7 @@ namespace RaspiHomeServer
         }
 
         /// <summary>
-        /// 
+        /// Check for clients if someone is disconnected
         /// </summary>
         private void CheckForDisconnects()
         {
@@ -338,7 +352,7 @@ namespace RaspiHomeServer
         }
 
         /// <summary>
-        /// 
+        /// Check if there is a nre message from clients
         /// </summary>
         private void CheckForNewMessages()
         {
@@ -398,7 +412,7 @@ namespace RaspiHomeServer
         }
 
         /// <summary>
-        /// Disconnect client frome the server when they leave
+        /// Disconnect client from the server when they leave
         /// </summary>
         /// <param name="client"></param>
         /// <returns></returns>

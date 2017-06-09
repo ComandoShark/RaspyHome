@@ -30,10 +30,13 @@ namespace RaspiHomeSenseHAT
         private ViewSenseHAT _vSenseHAT;
         private CommunicationWithServer _comWithServer;
 
+        // Sense HAT librairy
         private ISenseHat _senseHat;
         private ISenseHatDisplay _senseHatDisplay;
         SenseHatData _data;
-        private Color _uiColor = Color.FromArgb(255, 0, 0, 0);
+
+        // Set default color matrix to OFF
+        private Color _uiColor = Color.FromArgb(0, 0, 0, 0);
 
         private string _message = "";
         #endregion
@@ -94,6 +97,10 @@ namespace RaspiHomeSenseHAT
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
+        /// <param name="paramView"></param>
         public ModelSenseHAT(ViewSenseHAT paramView)
         {
             // Communication like Model-View
@@ -123,9 +130,11 @@ namespace RaspiHomeSenseHAT
             InitializeTimer();
         }
 
+        /// <summary>
+        /// Initialize the timer
+        /// </summary>
         private void InitializeTimer()
-        {            
-            //initialize the timer
+        {                        
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += Timer_Tick;
             timer.Interval = TimeSpan.FromSeconds(TICK);
@@ -137,6 +146,9 @@ namespace RaspiHomeSenseHAT
             SetValue();
         }
 
+        /// <summary>
+        /// Set the value get with sensor
+        /// </summary>
         public void SetValue()
         {
             this._senseHat.Sensors.HumiditySensor.Update();
@@ -153,6 +165,10 @@ namespace RaspiHomeSenseHAT
             this.VSenseHAT.Pressure = this.Data.Pressure.ToString();
         }
 
+        /// <summary>
+        /// Send the values with a special format: "TEMP=x;HUMI=y;PRES=z"
+        /// </summary>
+        /// <returns></returns>
         public string SendValues()
         {
             return "TEMP=" + Math.Round((decimal)this.Data.Temperature) + ";" + "HUMI=" + Math.Round((decimal)this.Data.Humidity) + ";" + "PRES=" + Math.Round((decimal)this.Data.Pressure);

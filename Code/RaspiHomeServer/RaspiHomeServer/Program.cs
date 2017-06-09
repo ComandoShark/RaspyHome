@@ -16,6 +16,7 @@ namespace RaspiHomeServer
     {
         static void Main(string[] args)
         {
+            // Start the server
             Server srv = new Server();
         }
     }

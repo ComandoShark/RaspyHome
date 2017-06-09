@@ -65,6 +65,9 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public RoomModel(RoomView paramView)
         {
             this.View = paramView;
@@ -93,6 +96,9 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
         #endregion
 
         #region Events
+        /// <summary>
+        /// Initialize at the start (check if the sense hat exist)
+        /// </summary>
         private void InitializeState()
         {
             // Update state room     
@@ -106,6 +112,11 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Save value to be send
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="component"></param>
         public void SendMessage(string action, string component)
         {
             var locationName = localSettings.Values["NameButtonClicked"];
@@ -114,6 +125,9 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
                 localSettings.Values["SendMessageToServer"] = action + " " + component + " " + locationName;            
         }
 
+        /// <summary>
+        /// Update state values on the view
+        /// </summary>
         private async void UpDateView()
         {
             await Task.Delay(TimeSpan.FromMilliseconds(200));

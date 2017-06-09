@@ -30,11 +30,7 @@ namespace RaspiHomePiFaceDigital2
         #region Variable
         private bool _isOn = false;
         private bool _isOnA = false;
-        private bool _isOnB = false;
-
-        // For future update (add color on light)
-        private double _luxPercent = 0.0;
-        private int[] _colorARGB = { 255, 0, 0, 0 };
+        private bool _isOnB = false;        
         #endregion
         #endregion
 
@@ -66,12 +62,12 @@ namespace RaspiHomePiFaceDigital2
                 _isOnA = value;
                 if (value)
                 {
-                    this.LuxPercent = 100.0;
+                    // Turn ON the light
                     MCP23S17.WritePin(RELAIA, ON);
                 }
                 else
                 {
-                    this.LuxPercent = 0.0;
+                    // Turn OFF the light
                     MCP23S17.WritePin(RELAIA, OFF);
                 }
             }
@@ -89,47 +85,16 @@ namespace RaspiHomePiFaceDigital2
                 _isOnB = value;
                 if (value)
                 {
-                    this.LuxPercent = 100.0;
+                    // Turn ON the light
                     MCP23S17.WritePin(RELAIB, ON);
                 }
                 else
-                {
-                    this.LuxPercent = 0.0;
+                {                 
+                    // Turn OFF the light
                     MCP23S17.WritePin(RELAIB, OFF);
                 }
             }
-        }
-
-        public double LuxPercent
-        {
-            get
-            {
-                return _luxPercent;
-            }
-
-            set
-            {
-                _luxPercent = value;
-
-                if (value >= 100.0)
-                    _luxPercent = 100.0;
-                if (value <= 0.0)
-                    _luxPercent = 0.0;
-            }
-        }
-
-        public int[] ColorARGB
-        {
-            get
-            {
-                return _colorARGB;
-            }
-
-            set
-            {
-                _colorARGB = value;
-            }
-        }
+        }        
         #endregion
 
         #region Constructor

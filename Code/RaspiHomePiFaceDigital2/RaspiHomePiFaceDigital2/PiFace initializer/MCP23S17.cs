@@ -72,7 +72,7 @@ namespace RaspiHomePiFaceDigital2
         private static byte[] writeBuffer4 = new byte[4];//register, then 16 bit value
 
         private static SpiDevice SpiGPIO;
-        public static async Task InitSPI()
+        public static async Task InitilizeSPI()
         {
             try
             {
@@ -93,7 +93,7 @@ namespace RaspiHomePiFaceDigital2
             }
         }
 
-        public static void InitMCP23S17()
+        public static void InitializeMCP23S17()
         {
             WriteRegister8(IOCONA, HAEN);                   // enable the hardware address incase there is more than one chip
             WriteRegister16(IODIRA, PinMode);                // Set the default or current pin mode
@@ -151,7 +151,7 @@ namespace RaspiHomePiFaceDigital2
             }
             WriteRegister16(IODIRA, PinMode);                // Call the generic word writer with start register and the mode cache
         }
-        public static void setPinMode(UInt16 mode)
+        public static void SetPinMode(UInt16 mode)
         {
             WriteRegister16(IODIRA, mode);
             PinMode = mode;
@@ -172,7 +172,7 @@ namespace RaspiHomePiFaceDigital2
             }
             WriteRegister16(GPPUA, PullUpMode);
         }
-        public static void pullupMode(UInt16 mode)
+        public static void PullupMode(UInt16 mode)
         {
             WriteRegister16(GPPUA, mode);
             PullUpMode = mode;

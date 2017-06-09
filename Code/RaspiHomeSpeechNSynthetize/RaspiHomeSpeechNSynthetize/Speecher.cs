@@ -119,6 +119,9 @@ namespace RaspiHomeSpeechNSynthetize
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initialize
+        /// </summary>
         public Speecher()
         {
             // Initialize the synthetizer
@@ -137,7 +140,10 @@ namespace RaspiHomeSpeechNSynthetize
         #endregion
 
         #region Methods
-        private async void InitSpi()
+        /// <summary>
+        /// Initialze the Spi communication
+        /// </summary>
+        private async void InitializeSpi()
         {
             //using SPI0 on the Pi
             var spiSettings = new SpiConnectionSettings(0);//for spi bus index 0
@@ -151,12 +157,12 @@ namespace RaspiHomeSpeechNSynthetize
             {
                 _mcp3202 = await SpiDevice.FromIdAsync(deviceInfo[0].Id, spiSettings);
             }
-            else
-            {
-                string error = "SPI Device Not Found.";
-            }
         }
 
+        /// <summary>
+        /// Read digital input with SPI
+        /// </summary>
+        /// <returns></returns>
         private string ReadSpiData()
         {
             byte[] transmitBuffer = new byte[3] { 0x01, 0x80, 0 };
@@ -171,7 +177,7 @@ namespace RaspiHomeSpeechNSynthetize
 
 
         /// <summary>
-        /// Enable the speech, used when raspi is not talking
+        /// (obsolete on UWP) Enable the speech, used when raspi is not talking
         /// </summary>
         public void EnableSpeech()
         {
@@ -179,12 +185,11 @@ namespace RaspiHomeSpeechNSynthetize
         }
 
         /// <summary>
-        /// Disable the speech, used when raspi is talking
+        /// (obsolete on UWP) Disable the speech, used when raspi is talking 
         /// </summary>
         public void DisableSpeech()
         {
            // this._recoEngine.RecognizeAsyncStop();
-           //this._recoEngine.
         }
 
         /// <summary>
@@ -201,7 +206,7 @@ namespace RaspiHomeSpeechNSynthetize
         }
 
         /// <summary>
-        /// used to send the command after raspi called
+        /// Used to send the command after raspi called
         /// </summary>
         /// <param name="brutCommand"></param>
         public void SendBrutCommand(string brutCommand)
@@ -211,6 +216,11 @@ namespace RaspiHomeSpeechNSynthetize
             this.ComToServer.SendCommandToServer(brutCommand);                        
         }
 
+        /// <summary>
+        /// Reply message to the sender (reply message error if command unknow)
+        /// </summary>
+        /// <param name="messageReply"></param>
+        /// <param name="messageCommand"></param>
         public void ReplyForSynthetize(string messageReply, string messageCommand)
         {
             if (messageReply == "ERROR_MESSAGE")
@@ -226,122 +236,12 @@ namespace RaspiHomeSpeechNSynthetize
             EnableSpeech();
         }
         /// <summary>
-        /// Set the configuration of the speecher
+        /// (obsolete on UWP) Set the configuration of the speecher
         /// </summary>
         private void InitializeSpeechRecognizer()
         {
-            this._raspiCommands = new Commands();
 
-            // Call raspi grammar            
-            //this._grammarBuilder = new GrammarBuilder();
-            ////this._grammarBuilder.Culture = new System.Globalization.CultureInfo("fr-FR");
-            //this._grammarBuilder.Append("raspi");
-            ////this._grammarBuilder.Append(new Choices(this._raspiCommands.RaspiHomeActionKnown.ToArray()));
-            ////this._grammarBuilder.Append(new Choices(this._raspiCommands.RaspiHomeActionWithoutObjectKnown.ToArray()));
-            ////this._grammarBuilder.Append(new Choices(this._raspiCommands.RaspiHomeObjectKnown.ToArray()));
-            ////this._grammarBuilder.Append(new Choices(this._raspiCommands.RaspiHomeLocationKnown.ToArray()));
-            ////this._grammarBuilder.Append(new Choices(this._raspiCommands.RaspiHomeCommandUselessConnecter.ToArray()));
-            //this._grammar = new Grammar(this._grammarBuilder);
-
-            ////Action grammar
-            //this._commandsAction = new Choices();
-            //this._commandsAction.Add(this._raspiCommands.RaspiHomeActionKnown.ToArray());
-            //this._grammarBuilderAction = new GrammarBuilder();
-            //this._grammarBuilderAction.Culture = new System.Globalization.CultureInfo("fr-FR");
-            //this._grammarBuilderAction.Append(this._commandsAction);
-            //this._grammarAction = new Grammar(this._grammarBuilderAction);
-
-            //// Action without object grammar
-            //this._commandsActionNoObject = new Choices();
-            //this._commandsActionNoObject.Add(this._raspiCommands.RaspiHomeActionWithoutObjectKnown.ToArray());
-            //this._grammarBuilderActionNoObject = new GrammarBuilder();
-            //this._grammarBuilderActionNoObject.Culture = new System.Globalization.CultureInfo("fr-FR");
-            //this._grammarBuilderActionNoObject.Append(this._commandsActionNoObject);
-            //this._grammarActionNoObject = new Grammar(this._grammarBuilderActionNoObject);
-
-            //// Object grammar
-            //this._commandsObject = new Choices();
-            //this._commandsObject.Add(this._raspiCommands.RaspiHomeObjectKnown.ToArray());
-            //this._grammarBuilderObject = new GrammarBuilder();
-            //this._grammarBuilderObject.Culture = new System.Globalization.CultureInfo("fr-FR");
-            //this._grammarBuilderObject.Append(this._commandsObject);
-            //this._grammarObject = new Grammar(this._grammarBuilderObject);
-
-            //// Location grammar
-            //this._commandsLocation = new Choices();
-            //this._commandsLocation.Add(this._raspiCommands.RaspiHomeLocationKnown.ToArray());
-            //this._grammarBuilderLocation = new GrammarBuilder();
-            //this._grammarBuilderLocation.Culture = new System.Globalization.CultureInfo("fr-FR");
-            //this._grammarBuilderLocation.Append(this._commandsLocation);
-            //this._grammarLocation = new Grammar(this._grammarBuilderLocation);
-
-            //// Useless word grammar
-            //this._commandsUselessWord = new Choices();
-            //this._commandsUselessWord.Add(this._raspiCommands.RaspiHomeLocationKnown.ToArray());
-            //this._grammarBuilderUselessWord = new GrammarBuilder();
-            //this._grammarBuilderUselessWord.Culture = new System.Globalization.CultureInfo("fr-FR");
-            //this._grammarBuilderUselessWord.Append(this._commandsUselessWord);
-            //this._grammarUselessWord = new Grammar(this._grammarBuilderUselessWord);
-
-            //// Sentence grammar            
-            //this._commandsSentence = new Choices();
-            //this._commandsSentence.Add(this._raspiCommands.RaspiHomeGrammarCommand.ToArray());
-            //this._grammarBuilderSentence = new GrammarBuilder();
-            //this._grammarBuilderSentence.Culture = new System.Globalization.CultureInfo("fr-FR");
-            //this._grammarBuilderSentence.Append(this._commandsSentence);
-            //this._grammarSentence = new Grammar(this._grammarBuilderSentence);
-
-            //// Create the command dictation grammar.
-            //this._commandDictationGrammar = new DictationGrammar("grammar:dictation");
-            //this._commandDictationGrammar.Name = "command dictation";
-            //this._commandDictationGrammar.Enabled = true;
-
-            //// Create a default dictation grammar.
-            //this._defaultDictationGrammar = new DictationGrammar();
-            //this._defaultDictationGrammar.Name = "default dictation";
-            //this._defaultDictationGrammar.Enabled = true;
-
-            //// Create the spelling dictation grammar.
-            //this._spellingDictationGrammar = new DictationGrammar("grammar:dictation#spelling");
-            //this._spellingDictationGrammar.Name = "spelling dictation";
-            //this._spellingDictationGrammar.Enabled = true;
-
-            //// Add grammar to the engine
-            //this._recoEngine.LoadGrammarAsync(new Grammar(this._grammarBuilder));
-            //this._recoEngine.LoadGrammarAsync(this._grammarAction);
-            //this._recoEngine.LoadGrammarAsync(this._grammarActionNoObject);
-            //this._recoEngine.LoadGrammarAsync(this._grammarObject);
-            //this._recoEngine.LoadGrammarAsync(this._grammarLocation);
-            //this._recoEngine.LoadGrammarAsync(this._grammarUselessWord);
-            ////this._recoEngine.LoadGrammarAsync(this._grammarSentence);
-            //this._recoEngine.LoadGrammar(new DictationGrammar());
-            ////this._recoEngine.LoadGrammarAsync(this._commandDictationGrammar);
-            ////this._recoEngine.LoadGrammarAsync(this._defaultDictationGrammar);
-            ////this._recoEngine.LoadGrammarAsync(this._spellingDictationGrammar);
-
-            //this._recoEngine.SpeechRecognized += recoEngine_SpeechRecognized;
-            //this._recoEngine.SetInputToDefaultAudioDevice();
-
-            EnableSpeech();
         }
-
-        /// <summary>
-        /// Event of speech recognition
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void recoEngine_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
-        //{
-        //    if (!this.IsRaspiCalled)
-        //    {
-        //        if (e.Result.Text == "raspi")
-        //            CallRaspi(e.Result.Text);
-        //    }
-        //    else
-        //        //SendBrutCommand(e.Result.Text);
-
-        //        SendBrutCommand("allume la lumière");
-        //}
         #endregion
     }
 }

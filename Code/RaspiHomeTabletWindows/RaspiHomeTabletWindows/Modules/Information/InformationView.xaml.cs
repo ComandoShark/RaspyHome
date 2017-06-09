@@ -45,6 +45,9 @@ namespace RaspiHomeTabletWindows.Modules.Information
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public InformationView()
         {
             this.InitializeComponent();

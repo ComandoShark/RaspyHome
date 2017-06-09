@@ -19,7 +19,6 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RaspiHomePiFaceDigital2
 {
@@ -50,7 +49,7 @@ namespace RaspiHomePiFaceDigital2
             "allumer","allume",
             "eteindre","eteins",
             "monter","monte",
-            "descendre","descend",
+            "descendre","descends",
             "stopper","stop",
             "ouvrir","ouvre",
             "fermer","ferme",
@@ -116,6 +115,10 @@ namespace RaspiHomePiFaceDigital2
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
+        /// <param name="paramView"></param>
         public ModelPiFaceDigital2(ViewPiFaceDigital2 paramView)
         {
             // Communication like Model-View
@@ -127,7 +130,7 @@ namespace RaspiHomePiFaceDigital2
             this.Components.Add(new Store());
 
             // Initilize the PiFace Digital 2
-            InitPiFace();
+            InitializePiFace();
 
             // Initialize the server communication
             this.ComWithServer = new CommunicationWithServer(this);
@@ -138,15 +141,15 @@ namespace RaspiHomePiFaceDigital2
         /// <summary>
         /// Initialize the PiFace Digital 2
         /// </summary>
-        private async void InitPiFace()
+        private async void InitializePiFace()
         {
             try
             {
-                await MCP23S17.InitSPI();
+                await MCP23S17.InitilizeSPI();
 
-                MCP23S17.InitMCP23S17();
-                MCP23S17.setPinMode(0x00FF); // 0x0000 = all outputs, 0xffff=all inputs, 0x00FF is PIFace Default
-                MCP23S17.pullupMode(0x00FF); // 0x0000 = no pullups, 0xffff=all pullups, 0x00FF is PIFace Default
+                MCP23S17.InitializeMCP23S17();
+                MCP23S17.SetPinMode(0x00FF); // 0x0000 = all outputs, 0xffff=all inputs, 0x00FF is PIFace Default
+                MCP23S17.PullupMode(0x00FF); // 0x0000 = no pullups, 0xffff=all pullups, 0x00FF is PIFace Default
                 MCP23S17.WriteWord(0x0000); // 0x0000 = no pullups, 0xffff=all pullups, 0x00FF is PIFace Default
             }
             catch (Exception ex)

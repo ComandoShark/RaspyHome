@@ -36,29 +36,53 @@ namespace RaspiHomeSpeechNSynthetize
         #endregion
 
         #region Event
-        private void btnSendCommand_Click(object sender, RoutedEventArgs e)
+        private void btnLightCommand1_Click(object sender, RoutedEventArgs e)
         {
-            if (this.tbxCommandToSend.Text != "")
-                this._speecher.SendBrutCommand(this.tbxCommandToSend.Text);
+            if (this.tbxLightCommand1.Text != "")
+                this._speecher.SendBrutCommand(this.tbxLightCommand1.Text);
             else
-                this._speecher.SendBrutCommand("Allume lumiere salon");
-        }
-        #endregion
-
-        private void btnSendCommand2_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.tbxCommandToSend.Text != "")
-                this._speecher.SendBrutCommand(this.tbxCommandToSend2.Text);
-            else
-                this._speecher.SendBrutCommand("Eteins lumiere salon");
+                this._speecher.SendBrutCommand("Allumer lumiere");
         }
 
-        private void btnSendCommand3_Click(object sender, RoutedEventArgs e)
+        private void btnLightCommand2_Click(object sender, RoutedEventArgs e)
         {
-            if (this.tbxCommandToSend.Text != "")
-                this._speecher.SendBrutCommand(this.tbxCommandToSend3.Text);
+            if (this.tbxLightCommand2.Text != "")
+                this._speecher.SendBrutCommand(this.tbxLightCommand2.Text);
+            else
+                this._speecher.SendBrutCommand("Eteindre lumiere");
+        }
+
+        private void btnState_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.tbxState.Text != "")
+                this._speecher.SendBrutCommand(this.tbxState.Text);
             else
                 this._speecher.SendBrutCommand("Temperature du salon");
         }
+
+        private void btnStore1_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.tbxStore1.Text != "")
+                this._speecher.SendBrutCommand(this.tbxStore1.Text);
+            else
+                this._speecher.SendBrutCommand("Monter store");
+        }
+
+        private void btnStore2_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.tbxStore2.Text != "")
+                this._speecher.SendBrutCommand(this.tbxStore2.Text);
+            else
+                this._speecher.SendBrutCommand("Descendre store");
+        }
+
+        private void btnStore3_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.tbxStore3.Text != "")
+                this._speecher.SendBrutCommand(this.tbxStore3.Text);
+            else
+                this._speecher.SendBrutCommand("Stopper store");
+        }
+        #endregion
     }
 }

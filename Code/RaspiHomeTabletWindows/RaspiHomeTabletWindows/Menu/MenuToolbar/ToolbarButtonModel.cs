@@ -28,8 +28,7 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
         private string _description = "";
         private string _folderIconName = "";
         private string _iconLink = null;
-        private BitmapImage imgSource = null;
-        private string _toolTipMessage;        
+        private BitmapImage imgSource = null; 
         #endregion
         #endregion
 
@@ -100,23 +99,12 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
                 imgSource = value;
             }
         }
-
-        public string ToolTipMessage
-        {
-            get
-            {
-                return _toolTipMessage;
-            }
-
-            set
-            {
-                _toolTipMessage = value;
-                OnPropertyChanged("ToolTipMessage");
-            }
-        }
         #endregion
 
         #region Constructor 
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public ToolbarButtonModel(ToolbarButtonView paramView)
         {
             this.View = paramView;
@@ -127,6 +115,11 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Set informations for the button
+        /// </summary>
+        /// <param name="description"></param>
+        /// <param name="iconLink"></param>
         public void SetInformation(string description, string iconLink)
         {
             this.Description = description;
@@ -138,10 +131,11 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
                 this.IconPath = "";
 
             ChangeIcon();
-
-            this.ToolTipMessage = this.Description;
         }
 
+        /// <summary>
+        /// Change the icon of the button
+        /// </summary>
         private void ChangeIcon()
         {
             this.View.ChangeIcon(this.IconPath);

@@ -79,6 +79,9 @@ namespace RaspiHomeTabletWindows.Menu.MenuToolbar
         #endregion
 
         #region Constructor 
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public ToolbarButtonData(string frameChoose, string description, string iconLink)
         {
             this.FrameChoose = frameChoose;

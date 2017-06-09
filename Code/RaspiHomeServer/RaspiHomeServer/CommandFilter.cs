@@ -56,6 +56,9 @@ namespace RaspiHomeServer
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public CommandFilter()
         {
             this.RhCommands = new RaspiHomeCommands();

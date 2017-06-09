@@ -65,12 +65,16 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.House
 
                 if (value)
                 {
+                    // Send message to save
                     this.Model.SendMessage("allumer", "lumiere");
+                    //Change the picture
                     this.imgLightButton.Source = new BitmapImage(new Uri("ms-appx:///Icon/bulbLighting.png"));
                 }
                 else
                 {
+                    // Send message to save
                     this.Model.SendMessage("eteindre", "lumiere");
+                    // Change the picture
                     this.imgLightButton.Source = new BitmapImage(new Uri("ms-appx:///Icon/bulb.png"));
                 }
             }
@@ -130,6 +134,9 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.House
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public RoomView()
         {
             this.InitializeComponent();
@@ -174,7 +181,6 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.House
             this.IsClose = true;
             this.Model.SendMessage("fermer", "store");
         }
-        ///
         #endregion
 
         #region Methods

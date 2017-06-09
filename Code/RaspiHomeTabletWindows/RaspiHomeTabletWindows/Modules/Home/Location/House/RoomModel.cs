@@ -43,6 +43,9 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.House
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public RoomModel(RoomView paramView)
         {
             this.View = paramView;
@@ -50,6 +53,11 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.House
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Save message to be send
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="component"></param>
         public void SendMessage(string action, string component)
         {
             localSettings.Values["SendMessageToServer"] = action + " " + component;

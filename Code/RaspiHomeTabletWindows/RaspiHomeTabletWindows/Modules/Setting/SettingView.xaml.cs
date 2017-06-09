@@ -45,6 +45,9 @@ namespace RaspiHomeTabletWindows.Modules.Setting
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public SettingView()
         {
             this.InitializeComponent();

@@ -37,10 +37,13 @@ namespace RaspiHomeTabletWindows.Modules.Home
             {
                 _view = value;
             }
-        }        
+        }
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public HomeModel(HomeView paramView)
         {
             this.View = paramView;
@@ -48,10 +51,6 @@ namespace RaspiHomeTabletWindows.Modules.Home
         #endregion
 
         #region Methods
-        public void SetButtonClicked(string name)
-        {
-            //this.NameButtonClicked = name;
-        }
         #endregion
     }
 }

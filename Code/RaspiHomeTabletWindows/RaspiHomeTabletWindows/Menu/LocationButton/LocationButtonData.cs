@@ -71,6 +71,9 @@ namespace RaspiHomeTabletWindows.Menu.LocationButton
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public LocationButtonData(string frameChoose, string description)
         {
             this.FrameChoose = frameChoose;

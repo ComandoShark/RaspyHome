@@ -8,6 +8,6 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock Text="Setting"/>
+        <Image Source="ms-appx:///Icon/Setting.png" />
     </Grid>
 </Page>

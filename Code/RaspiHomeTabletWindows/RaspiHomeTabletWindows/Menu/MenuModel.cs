@@ -59,6 +59,9 @@ namespace RaspiHomeTabletWindows.Menu
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public MenuModel(MenuView paramView)
         {
             this.View = paramView;

@@ -114,12 +114,16 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
 
                 if (value)
                 {
+                    // Send message to save
                     this.Model.SendMessage("allumer", "lumiere");
+                    // Change the picture
                     this.imgLightButton.Source = new BitmapImage(new Uri("ms-appx:///Icon/bulbLighting.png"));
                 }
                 else
                 {
+                    // Save message to save
                     this.Model.SendMessage("eteindre", "lumiere");
+                    // Change the picture
                     this.imgLightButton.Source = new BitmapImage(new Uri("ms-appx:///Icon/bulb.png"));
                 }
             }
@@ -179,6 +183,9 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public RoomView()
         {
             this.InitializeComponent();
@@ -195,7 +202,6 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
         {
             this.IsOn = !this.IsOn;
         }
-        ///
 
         /// <summary>
         /// Store control
@@ -223,10 +229,12 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
             this.IsClose = true;
             this.Model.SendMessage("fermer", "store");
         }
-        ///
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Set to visible the state values if exist
+        /// </summary>
         public void EnableDisplayState()
         {
             this.imgThermometer.Visibility = Visibility.Visible;

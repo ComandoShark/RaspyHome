@@ -54,6 +54,9 @@ namespace RaspiHomeSenseHAT
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public ViewSenseHAT()
         {
             this.InitializeComponent();

@@ -121,6 +121,9 @@ namespace RaspiHomeTabletWindows.Menu
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public MenuView()
         {
             this.InitializeComponent();

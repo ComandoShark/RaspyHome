@@ -72,6 +72,9 @@ namespace RaspiHomeTabletWindows.Menu.LocationButton
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public LocationButtonModel(LocationButtonView paramView)
         {
             this.View = paramView;
@@ -79,6 +82,10 @@ namespace RaspiHomeTabletWindows.Menu.LocationButton
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Set information name
+        /// </summary>
+        /// <param name="description"></param>
         public void SetInformation(string description)
         {
             this.LocationName = description;

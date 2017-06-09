@@ -105,6 +105,9 @@ namespace RaspiHomeSpeechNSynthetize
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initialize
+        /// </summary>
         public Synthetizer(Speecher paramSpeecher)
         {
             this.RhSpeech = paramSpeecher;
@@ -115,7 +118,10 @@ namespace RaspiHomeSpeechNSynthetize
         }
         #endregion
 
-        #region Methods
+        #region Methods        
+        /// <summary>
+        /// Raspberry processus, wait calling to start communication with server
+        /// </summary>
         private void RaspiProcessus()
         {
             if (this.IsCalled)
@@ -221,8 +227,6 @@ namespace RaspiHomeSpeechNSynthetize
         /// <summary>
         /// Set information to sythetize
         /// </summary>
-        /// <param name="messageReply"></param>
-        /// <returns></returns>
         public List<string> SetProprelyInformations(string messageReply, string messageCommand)
         {
             List<string> result = new List<string>();

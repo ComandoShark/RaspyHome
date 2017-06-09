@@ -45,6 +45,9 @@ namespace RaspiHomeTabletWindows.Modules.GlobalSetup
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public GlobalSetupView()
         {
             this.InitializeComponent();

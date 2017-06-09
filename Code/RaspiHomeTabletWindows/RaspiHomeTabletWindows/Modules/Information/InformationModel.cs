@@ -41,6 +41,9 @@ namespace RaspiHomeTabletWindows.Modules.Information
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public InformationModel(InformationView paramView)
         {
             this.View = paramView;

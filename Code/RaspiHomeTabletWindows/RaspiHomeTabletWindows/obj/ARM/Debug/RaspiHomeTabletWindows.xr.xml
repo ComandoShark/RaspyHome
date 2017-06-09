@@ -102,12 +102,15 @@
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Orientation" />
     </RootType>
-    <RootType FullName="RaspiHomeTabletWindows.Menu.MenuView" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
-      <RootProperty Name="Foreground" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Foreground" />
     </RootType>
+    <RootType FullName="RaspiHomeTabletWindows.Menu.MenuView" />
     <RootType FullName="RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView" />
     <RootType FullName="RaspiHomeTabletWindows.Modules.GlobalSetup.GlobalSetupView" />
     <RootType FullName="RaspiHomeTabletWindows.Modules.Home.HomeView" />

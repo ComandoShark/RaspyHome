@@ -44,8 +44,7 @@ namespace RaspiHomeTabletWindows.Modules.Home
         private List<LocationButtonData> _lstLocationButtonData = null;
         private List<LocationButtonView> _lstLocationButton = null;
 
-        private Windows.Storage.ApplicationDataContainer localSettings =
-    Windows.Storage.ApplicationData.Current.LocalSettings;
+        private Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         #endregion
         #endregion
@@ -118,6 +117,9 @@ namespace RaspiHomeTabletWindows.Modules.Home
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public HomeView()
         {
             this.InitializeComponent();
@@ -136,6 +138,11 @@ namespace RaspiHomeTabletWindows.Modules.Home
             UpdateMenuToolbar();
         }
 
+        /// <summary>
+        /// Check the button clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _btnToolbarView__click(object sender, EventArgs e)
         {
             foreach (var locationButton in this.LstToolbarButton)
@@ -191,7 +198,9 @@ namespace RaspiHomeTabletWindows.Modules.Home
         #endregion
 
         #region Methods
-
+        /// <summary>
+        /// Initialize the button on the toolbar
+        /// </summary>
         private void InitializeLocationButton()
         {
             this.LstToolbarButtonData = new List<LocationButtonData>();
@@ -205,11 +214,11 @@ namespace RaspiHomeTabletWindows.Modules.Home
             }
         }
 
-
+        /// <summary>
+        /// Update the toolbar item
+        /// </summary>
         private void UpdateMenuToolbar()
         {
-            //foreach (ToolbarButtonView t in this.stkMenuToolbar.Children)
-            //    t._click -= MenuToolbarButton_Click;
             this.stkLocationButton.Children.Clear();
             this.LstToolbarButton.Clear();
             foreach (LocationButtonData t in this.LstToolbarButtonData)

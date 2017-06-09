@@ -89,11 +89,11 @@ namespace RaspiHomeServer
         #endregion
 
         #region Constructor
-
-
+        /// <summary>
+        /// Constructor: Initializer
+        /// </summary>
         public RaspberryClient(string paramIP, int paramPort, string paramLocation, List<Component> paramLstComponent)
         {
-            InitializeRaspberry(new IPEndPoint(IPAddress.Parse(paramIP), paramPort));
             this.IpClient = IPAddress.Parse(paramIP);
             this.PortServer = paramPort;
             this.Location = paramLocation;
@@ -102,10 +102,6 @@ namespace RaspiHomeServer
         #endregion
 
         #region Methods
-        private void InitializeRaspberry(IPEndPoint ipNport)
-        {
-            
-        }
         #endregion
     }
 }

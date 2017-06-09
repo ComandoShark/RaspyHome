@@ -233,7 +233,7 @@ namespace RaspiHomePiFaceDigital2
 
                 // Send in return if the value exist
                 if (msg != "")
-                {                    
+                {
                     this.MPiFace.SetValue(msg);
                 }
             }
