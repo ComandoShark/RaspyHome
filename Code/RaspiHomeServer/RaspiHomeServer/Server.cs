@@ -178,7 +178,7 @@ namespace RaspiHomeServer
             // Some info
             Console.WriteLine("Starting the {0} TCP Server on port {1}.", HOST_NAME, DEFAULT_PORT);
             Console.WriteLine();
-            
+
             IPAddress ipAddress = GetIPAdress();
             this.Listener = new TcpListener(GetIPAdress(), DEFAULT_PORT);
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, DEFAULT_PORT);
@@ -292,7 +292,7 @@ namespace RaspiHomeServer
             client.GetStream().Close();
             client.Close();
         }
-
+      
         /// <summary>
         /// Check for clients if someone is disconnected
         /// </summary>
@@ -326,8 +326,8 @@ namespace RaspiHomeServer
                                         Console.Write("Component : ");
                                         int cnt = 0; ;
                                         foreach (var componnent in information.Components)
-                                        {                                            
-                                            if(cnt > 0)
+                                        {
+                                            if (cnt > 0)
                                                 Console.Write("            ");
                                             cnt++;
                                             Console.WriteLine(componnent.ToString().Split('.').Last());
@@ -343,10 +343,7 @@ namespace RaspiHomeServer
                             }
                         }
                     }
-                    catch (Exception)
-                    {
-                    }
-                    //this.MessageQueue.Enqueue(String.Format("{0}{1} has left the game", Environment.NewLine, name));
+                    catch (Exception) { }
                 }
             }
         }
@@ -359,9 +356,9 @@ namespace RaspiHomeServer
             foreach (TcpClient client in this.Clients)
             {
                 // Get the message if there is one
-                int messageLength = client.Available;                
+                int messageLength = client.Available;
                 if (messageLength > 0)
-                {                    
+                {
                     byte[] messageBuffer = new byte[messageLength];
                     client.GetStream().Read(messageBuffer, 0, messageBuffer.Length);
 
@@ -392,17 +389,13 @@ namespace RaspiHomeServer
                                 // Reply ERROR_MESSAGE to the client who send the command
                                 this.SendMessages(this.ClientRequest, "ERROR_MESSAGE");
                             }
-
+                            Console.WriteLine("----------------------------------------");
                             break;
 
                         case "Reply":
                             Console.WriteLine(subject);
                             this.SendMessages(this.ClientRequest, informationInReply);
                             Console.WriteLine("----------------------------------------");
-                            break;
-
-                        case "Disconnect":
-                            this.CheckForDisconnects();                        
                             break;
                     }
 
@@ -475,7 +468,7 @@ namespace RaspiHomeServer
         /// <param name="rpiInformation"> Format of the string "IPRasp={0};Location={1};Component={2}" to read</param>
         /// <returns> return the new client with all information of him </returns>
         private RaspberryClient InitializeNewRaspberryClient(string rpiInformation)
-        {            
+        {
             // Create an array of the actual string to get information
             string[] rpiInformations = rpiInformation.Split(';');
             string rpiIPv4 = "";

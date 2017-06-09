@@ -9,9 +9,9 @@
 
     <RelativePanel x:Name="rpnlDisplay" Margin="10">
         <!--LIGHT BUTTON-->
-        <Rectangle x:Name="rectTextLight" Width="29"/>
+        <Rectangle x:Name="rectTextLight" Width="17"/>
         <TextBlock x:Name="tblLight" Text="Lumière" RelativePanel.RightOf="rectTextLight"  RelativePanel.AlignTopWithPanel="True" FontSize="26"/>
-        <Button x:Name="btnLightOnOff" RelativePanel.Below="tblLight" Height="150" Width="150"  Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnLightOnOff_Click">
+        <Button x:Name="btnLightOnOff" RelativePanel.Below="tblLight" Height="120" Width="120"  Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnLightOnOff_Click">
             <Image x:Name="imgLightButton" Source="ms-appx:///Icon/bulb.png"/>
         </Button>
 
@@ -39,30 +39,30 @@
 
         <!--STORE BUTTON-->
         <!--UP-->
-        <Rectangle x:Name="rectTextStore" Width="33" RelativePanel.AlignRightWithPanel="True"/>
-        <TextBlock x:Name="tblUp" Text="Monter" RelativePanel.LeftOf="rectTextStore"  RelativePanel.AlignTopWithPanel="True" FontSize="26"/>
-        <Button x:Name="btnStoreUp" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="tblUp" Height="150" Width="150" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnStoreUp_Click">
+        <Rectangle x:Name="rect2" Width="20" RelativePanel.AlignRightWithPanel="True"/>
+        <TextBlock x:Name="tblUp" Text="Monter" RelativePanel.LeftOf="rect2"  RelativePanel.AlignTopWithPanel="True" FontSize="26"/>
+        <Button x:Name="btnStoreUp" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="tblUp" Height="120" Width="120" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnStoreUp_Click">
             <Image Source="ms-appx:///Icon/arrowUp.png"/>
         </Button>
 
-        <Rectangle x:Name="rectUpDo" Height="20" Width="150" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="btnStoreUp"/>
+        <Rectangle x:Name="rect3" Height="20" Width="120" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="btnStoreUp"/>
 
         <!--DOWN-->
-        <Button x:Name="btnStoreDown" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="rectUpDo" Height="150" Width="150" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnStoreDown_Click">
+        <Button x:Name="btnStoreDown" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="rect3" Height="120" Width="120" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnStoreDown_Click">
             <Image Source="ms-appx:///Icon/arrowDown.png"/>
         </Button>
         <TextBlock x:Name="tblDown" Text="Descendre" RelativePanel.AlignHorizontalCenterWith="tblUp" RelativePanel.Below="btnStoreDown" FontSize="26"/>
 
         <!--OPEN-->
         <TextBlock x:Name="tblOpen" Text="Ouvrir" RelativePanel.AlignHorizontalCenterWith="tblUp" RelativePanel.Above="btnStoreOpen" FontSize="26"/>
-        <Button x:Name="btnStoreOpen" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="rectOpCl" Height="150" Width="150" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnStoreOpen_Click">
+        <Button x:Name="btnStoreOpen" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="rect4" Height="120" Width="120" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnStoreOpen_Click">
             <Image Source="ms-appx:///Icon/arrowUp.png"/>
         </Button>
 
-        <Rectangle x:Name="rectOpCl" Height="20" Width="150" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="btnStoreClose"/>
+        <Rectangle x:Name="rect4" Height="20" Width="150" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="btnStoreClose"/>
 
         <!--CLOSE-->
-        <Button x:Name="btnStoreClose" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="tblClose" Height="150" Width="150" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnStoreClose_Click">
+        <Button x:Name="btnStoreClose" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="tblClose" Height="120" Width="120" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnStoreClose_Click">
             <Image Source="ms-appx:///Icon/arrowDown.png"/>
         </Button>
         <TextBlock x:Name="tblClose" Text="Fermer" RelativePanel.AlignHorizontalCenterWith="tblUp"  RelativePanel.AlignBottomWithPanel="True" FontSize="26"/>

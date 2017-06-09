@@ -349,6 +349,27 @@
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\bulbLighting.png">
       <PackagePath>Icon\bulbLighting.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\GlobalSetup.png">
+      <PackagePath>Icon\GlobalSetup.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\Home.png">
+      <PackagePath>Icon\Home.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\Humidity.png">
+      <PackagePath>Icon\Humidity.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\Information.png">
+      <PackagePath>Icon\Information.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\pressure.png">
+      <PackagePath>Icon\pressure.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\Setting.png">
+      <PackagePath>Icon\Setting.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\Thermometer.png">
+      <PackagePath>Icon\Thermometer.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>

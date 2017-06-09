@@ -64,8 +64,10 @@ namespace RaspiHomeTabletWindows.Menu
         /// </summary>
         public MenuModel(MenuView paramView)
         {
+            // Communication like Model-View
             this.View = paramView;
 
+            // Initialize communication with server
             this.ComWithServer = new CommunicationWithServer();
         }
         #endregion

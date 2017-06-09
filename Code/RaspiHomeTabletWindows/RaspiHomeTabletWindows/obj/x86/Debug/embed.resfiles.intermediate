@@ -5,6 +5,6 @@ Menu\MenuView.xbf
 Modules\GlobalSetup\GlobalSetupView.xbf
 Modules\Home\HomeView.xbf
 Modules\Home\Location\House\RoomView.xbf
-Modules\Home\Location\LivingRoom\RoomView.xbf
+Modules\Home\Location\OtherRoom\RoomView.xbf
 Modules\Information\InformationView.xbf
 Modules\Setting\SettingView.xbf

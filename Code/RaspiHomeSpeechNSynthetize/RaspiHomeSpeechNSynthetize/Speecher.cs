@@ -19,7 +19,7 @@ namespace RaspiHomeSpeechNSynthetize
         #region Variable
         private Synthetizer _rhSynt;
         private Commands _rhCommands;
-        private CommunicationWithServer _comToServer;
+        private CommunicationWithServer _comWithServer;
 
         private SpeechRecognizer _recoEngine = null;
         private SpiDevice _mcp3202;
@@ -91,16 +91,16 @@ namespace RaspiHomeSpeechNSynthetize
             }
         }
 
-        public CommunicationWithServer ComToServer
+        public CommunicationWithServer ComWithServer
         {
             get
             {
-                return _comToServer;
+                return _comWithServer;
             }
 
             set
             {
-                _comToServer = value;
+                _comWithServer = value;
             }
         }
 
@@ -129,7 +129,7 @@ namespace RaspiHomeSpeechNSynthetize
             this.RhCommands = new Commands();
 
             // Initialize the communication with the server
-            this.ComToServer = new CommunicationWithServer(this);
+            this.ComWithServer = new CommunicationWithServer(this);
 
             // Create the speech recognition object
             this._recoEngine = new SpeechRecognizer();
@@ -213,7 +213,7 @@ namespace RaspiHomeSpeechNSynthetize
         {
             DisableSpeech();
 
-            this.ComToServer.SendCommandToServer(brutCommand);                        
+            this.ComWithServer.SendCommandToServer(brutCommand);                        
         }
 
         /// <summary>

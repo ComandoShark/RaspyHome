@@ -67,7 +67,10 @@
       <RootProperty Name="ElementName" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
       <RootProperty Name="Source" />
+      <RootProperty Name="Visibility" />
     </RootType>
     <RootType FullName="RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonView" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
@@ -92,19 +95,22 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
       <RootProperty Name="Fill" />
-      <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame" />
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Orientation" />
     </RootType>
-    <RootType FullName="RaspiHomeTabletWindows.Menu.MenuView" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
-      <RootProperty Name="Foreground" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Foreground" />
     </RootType>
+    <RootType FullName="RaspiHomeTabletWindows.Menu.MenuView" />
     <RootType FullName="RaspiHomeTabletWindows.Menu.LocationButton.LocationButtonView" />
     <RootType FullName="RaspiHomeTabletWindows.Modules.GlobalSetup.GlobalSetupView" />
     <RootType FullName="RaspiHomeTabletWindows.Modules.Home.HomeView" />
@@ -113,17 +119,27 @@
       <RootProperty Name="Children" />
       <RootMethod Name="GetRightOf" />
       <RootMethod Name="SetRightOf" />
-      <RootMethod Name="GetAlignRightWithPanel" />
-      <RootMethod Name="SetAlignRightWithPanel" />
+      <RootMethod Name="GetAlignTopWithPanel" />
+      <RootMethod Name="SetAlignTopWithPanel" />
       <RootMethod Name="GetBelow" />
       <RootMethod Name="SetBelow" />
+      <RootMethod Name="GetAlignRightWithPanel" />
+      <RootMethod Name="SetAlignRightWithPanel" />
+      <RootMethod Name="GetLeftOf" />
+      <RootMethod Name="SetLeftOf" />
+      <RootMethod Name="GetAlignHorizontalCenterWith" />
+      <RootMethod Name="SetAlignHorizontalCenterWith" />
       <RootMethod Name="GetAbove" />
       <RootMethod Name="SetAbove" />
       <RootMethod Name="GetAlignBottomWithPanel" />
       <RootMethod Name="SetAlignBottomWithPanel" />
+      <RootMethod Name="GetAlignLeftWithPanel" />
+      <RootMethod Name="SetAlignLeftWithPanel" />
+      <RootMethod Name="GetAlignVerticalCenterWith" />
+      <RootMethod Name="SetAlignVerticalCenterWith" />
     </RootType>
     <RootType FullName="RaspiHomeTabletWindows.Modules.Home.Location.House.RoomView" />
-    <RootType FullName="RaspiHomeTabletWindows.Modules.Home.Location.LivingRoom.RoomView" />
+    <RootType FullName="RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.RoomView" />
     <RootType FullName="RaspiHomeTabletWindows.Modules.Information.InformationView" />
     <RootType FullName="RaspiHomeTabletWindows.Modules.Setting.SettingView" />
   </Roots.RootTypes>

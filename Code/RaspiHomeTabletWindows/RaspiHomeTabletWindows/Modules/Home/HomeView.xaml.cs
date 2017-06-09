@@ -151,7 +151,6 @@ namespace RaspiHomeTabletWindows.Modules.Home
             }
 
             string buttonClicked = ((LocationButtonView)sender).WhoseButtonClicked;
-            this.Model.SetButtonClicked(buttonClicked);
 
             localSettings.Values["NameButtonClicked"] = buttonClicked;
 

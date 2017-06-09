@@ -1,2 +1,0 @@
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTablette\RaspiHomeTablette\bin\Debug\RaspiHomeTablette.exe.config
-C:\Users\Cyril\Desktop\RaspiHome\RaspiHomeTablette\RaspiHomeTablette\bin\Debug\RaspiHomeTablette.exe.config

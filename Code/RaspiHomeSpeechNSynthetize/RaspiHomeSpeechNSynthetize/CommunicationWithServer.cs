@@ -240,7 +240,7 @@ namespace RaspiHomeSpeechNSynthetize
             try
             {
                 // Read modification in the stream       
-                stringBytes = await dataReader.LoadAsync(512);
+                stringBytes = await dataReader.LoadAsync(MESSAGE_FULL_LENGHT);
 
                 // read message
                 string messageRead = dataReader.ReadString(stringBytes);
@@ -253,13 +253,7 @@ namespace RaspiHomeSpeechNSynthetize
 
                 messageRead = "";
             }
-            catch (Exception e)
-            {
-                string output = e.Message;
-
-                if (messageLenght < 1)
-                    return;
-            }
+            catch (Exception ) { }
 
             WaitForData(socket);
         }

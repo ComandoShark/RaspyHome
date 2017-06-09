@@ -343,9 +343,6 @@
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\RaspiHomeGrammar.xml">
-      <PackagePath>RaspiHomeGrammar.xml</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeSenseHAT\RaspiHomeSenseHAT\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>

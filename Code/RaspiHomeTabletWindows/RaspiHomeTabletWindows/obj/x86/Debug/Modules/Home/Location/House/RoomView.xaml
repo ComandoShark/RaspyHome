@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="RaspiHomeTabletWindows.Modules.Home.Location.House.RoomView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RaspiHomeTabletWindows.Modules.Home.Location.House"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel x:ConnectionId='1' x:Name="rpnlDisplay" Margin="10">
+        <!--LIGHT BUTTON-->
+        <Rectangle x:ConnectionId='2' x:Name="rect1" Width="17"/>
+        <TextBlock x:ConnectionId='3' x:Name="tblLight" Text="Lumière" RelativePanel.RightOf="rect1"  RelativePanel.AlignTopWithPanel="True" FontSize="26"/>
+        <Button x:ConnectionId='4' x:Name="btnLightOnOff" RelativePanel.Below="tblLight" Height="120" Width="120"  Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"                            >
+            <Image x:ConnectionId='16' x:Name="imgLightButton" Source="ms-appx:///Icon/bulb.png"/>
+        </Button>
+
+        <!--STORE BUTTON-->
+        <!--UP-->
+        <Rectangle x:ConnectionId='5' x:Name="rect2" Width="20" RelativePanel.AlignRightWithPanel="True"/>
+        <TextBlock x:ConnectionId='6' x:Name="tblUp" Text="Monter" RelativePanel.LeftOf="rect2"  RelativePanel.AlignTopWithPanel="True" FontSize="26"/>
+        <Button x:ConnectionId='7' x:Name="btnStoreUp" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="tblUp" Height="120" Width="120" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"                         >
+            <Image Source="ms-appx:///Icon/arrowUp.png"/>
+        </Button>
+
+        <Rectangle x:ConnectionId='8' x:Name="rect3" Height="20" Width="120" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="btnStoreUp"/>
+
+        <!--DOWN-->
+        <Button x:ConnectionId='9' x:Name="btnStoreDown" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="rect3" Height="120" Width="120" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"                           >
+            <Image Source="ms-appx:///Icon/arrowDown.png"/>
+        </Button>
+        <TextBlock x:ConnectionId='10' x:Name="tblDown" Text="Descendre" RelativePanel.AlignHorizontalCenterWith="tblUp" RelativePanel.Below="btnStoreDown" FontSize="26"/>
+
+        <!--OPEN-->
+        <TextBlock x:ConnectionId='11' x:Name="tblOpen" Text="Ouvrir" RelativePanel.AlignHorizontalCenterWith="tblUp" RelativePanel.Above="btnStoreOpen" FontSize="26"/>
+        <Button x:ConnectionId='12' x:Name="btnStoreOpen" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="rect4" Height="120" Width="120" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"                           >
+            <Image Source="ms-appx:///Icon/arrowUp.png"/>
+        </Button>
+
+        <Rectangle x:ConnectionId='13' x:Name="rect4" Height="20" Width="150" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="btnStoreClose"/>
+
+        <!--CLOSE-->
+        <Button x:ConnectionId='14' x:Name="btnStoreClose" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="tblClose" Height="120" Width="120" Background="{StaticResource DefaultBackgroundColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"                            >
+            <Image Source="ms-appx:///Icon/arrowDown.png"/>
+        </Button>
+        <TextBlock x:ConnectionId='15' x:Name="tblClose" Text="Fermer" RelativePanel.AlignHorizontalCenterWith="tblUp"  RelativePanel.AlignBottomWithPanel="True" FontSize="26"/>
+    </RelativePanel>
+</Page>
+

@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>725292AD32BF5E3C056C6E7D850497E2BB65F708C1CD20ACF0D3B4CA84663954</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>B5B4471413F94B1243BB4C4AF39F483FBF5EF90249F032A0703AC92FB8017C2F</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>01ea4e54-6b90-4ff9-8382-80aa2229e77b_1.0.0.0_x86__5gp5ddayzekgc</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>01ea4e54-6b90-4ff9-8382-80aa2229e77b_5gp5ddayzekgc!App</RegisteredUserModeAppID>
     <RegisteredPackageID>01ea4e54-6b90-4ff9-8382-80aa2229e77b</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-08T07:35:37.368</Modified>
+      <Modified>2017-06-09T14:54:04.612</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\x86\Debug\RaspiHomeTabletWindows.exe">
       <PackagePath>entrypoint\RaspiHomeTabletWindows.exe</PackagePath>
-      <Modified>2017-06-08T07:35:36.676</Modified>
+      <Modified>2017-06-09T14:54:04.286</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -468,6 +468,34 @@
       <PackagePath>Icon\bulbLighting.png</PackagePath>
       <Modified>2017-06-08T07:24:59.112</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\GlobalSetup.png">
+      <PackagePath>Icon\GlobalSetup.png</PackagePath>
+      <Modified>2017-06-08T09:46:16.354</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\Home.png">
+      <PackagePath>Icon\Home.png</PackagePath>
+      <Modified>2017-06-08T09:45:17.594</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\Humidity.png">
+      <PackagePath>Icon\Humidity.png</PackagePath>
+      <Modified>2017-06-08T17:59:30.244</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\Information.png">
+      <PackagePath>Icon\Information.png</PackagePath>
+      <Modified>2017-06-08T09:48:30.907</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\pressure.png">
+      <PackagePath>Icon\pressure.png</PackagePath>
+      <Modified>2017-06-08T17:59:30.240</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\Setting.png">
+      <PackagePath>Icon\Setting.png</PackagePath>
+      <Modified>2017-06-08T09:50:22.082</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Icon\Thermometer.png">
+      <PackagePath>Icon\Thermometer.png</PackagePath>
+      <Modified>2017-06-08T08:43:02.469</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2015-09-20T15:30:08.000</Modified>
@@ -508,7 +536,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\x86\Debug\RaspiHomeTabletWindows.xr.xml">
       <PackagePath>RaspiHomeTabletWindows.xr.xml</PackagePath>
-      <Modified>2017-06-08T07:34:03.691</Modified>
+      <Modified>2017-06-09T14:13:52.450</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -517,11 +545,11 @@
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-08T07:35:37.156</Modified>
+      <Modified>2017-06-09T14:52:17.435</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\x86\Debug\Core\RaspiHomeTabletWindows.exe">
       <PackagePath>RaspiHomeTabletWindows.exe</PackagePath>
-      <Modified>2017-06-08T07:35:37.361</Modified>
+      <Modified>2017-06-09T14:54:04.605</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

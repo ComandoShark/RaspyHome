@@ -12,7 +12,7 @@
     </UserControl.Resources>
 
     <Button x:ConnectionId='1' x:Name="btnToolbar" Height="150" Margin="10,0,20,0" Style="{StaticResource styleRoundButton}" Background="Gray" ToolTipService.ToolTip="{Binding Path=ToolTipMessage}" Width="{Binding Height, ElementName=btnToolbar}"                         >
-        <Image x:ConnectionId='2' x:Name="imgMenuToolbarButton"/>
+        <Image x:ConnectionId='2' x:Name="imgMenuToolbarButton" Height="100" Width="100"/>
     </Button>
 </UserControl>
 

@@ -45,13 +45,13 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
         private global::Windows.UI.Xaml.Controls.TextBlock tblPressure; 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
-        private global::Windows.UI.Xaml.Shapes.Rectangle rectTextStore; 
+        private global::Windows.UI.Xaml.Shapes.Rectangle rect2; 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
         private global::Windows.UI.Xaml.Controls.TextBlock tblUp; 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
         private global::Windows.UI.Xaml.Controls.Button btnStoreUp; 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
-        private global::Windows.UI.Xaml.Shapes.Rectangle rectUpDo; 
+        private global::Windows.UI.Xaml.Shapes.Rectangle rect3; 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
         private global::Windows.UI.Xaml.Controls.Button btnStoreDown; 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
@@ -61,7 +61,7 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
         private global::Windows.UI.Xaml.Controls.Button btnStoreOpen; 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
-        private global::Windows.UI.Xaml.Shapes.Rectangle rectOpCl; 
+        private global::Windows.UI.Xaml.Shapes.Rectangle rect4; 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
         private global::Windows.UI.Xaml.Controls.Button btnStoreClose; 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
