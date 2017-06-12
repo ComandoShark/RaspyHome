@@ -1,0 +1,304 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:mcp3202
+LIBS:sound_sensor
+LIBS:raspberrypi3_connecter
+LIBS:jack_3
+LIBS:pam8302a
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCP3202 U?
+U 1 1 592BCD37
+P 4100 1550
+F 0 "U?" H 3500 1850 60  0000 C CNN
+F 1 "MCP3202" H 2850 1850 60  0000 C CNN
+F 2 "" H 3300 3050 60  0001 C CNN
+F 3 "" H 3300 3050 60  0001 C CNN
+	1    4100 1550
+	-1   0    0    1   
+$EndComp
+$Comp
+L Sound_Sensor U?
+U 1 1 592BD18A
+P 7100 2750
+F 0 "U?" H 8500 3000 60  0000 C CNN
+F 1 "Sound_Sensor" H 8250 3600 60  0000 C CNN
+F 2 "" H 7850 3350 60  0001 C CNN
+F 3 "" H 7850 3350 60  0001 C CNN
+	1    7100 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L RaspberryPi3_Connecter J?
+U 1 1 592BE1D5
+P 300 7050
+F 0 "J?" H 3200 8250 60  0000 C CNN
+F 1 "RaspberryPi3_Connecter" H 2450 11500 60  0000 C CNN
+F 2 "" H 300 7050 60  0001 C CNN
+F 3 "" H 300 7050 60  0001 C CNN
+	1    300  7050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6950 2350 7450 2350
+Wire Wire Line
+	6950 2200 7450 2200
+Text Label 6950 2350 0    60   ~ 0
+GND
+Wire Wire Line
+	5750 2200 5850 2200
+Wire Wire Line
+	5850 2200 5850 2050
+Wire Wire Line
+	5750 2050 6100 2050
+Wire Wire Line
+	6500 2350 5750 2350
+Wire Wire Line
+	6500 2050 6500 2350
+Connection ~ 5850 2050
+Text Label 5950 2050 0    60   ~ 0
+GND
+Wire Wire Line
+	4450 2050 800  2050
+Wire Wire Line
+	800  2050 800  4150
+Wire Wire Line
+	4450 2200 950  2200
+Wire Wire Line
+	950  2200 950  4300
+Wire Wire Line
+	4450 2350 1100 2350
+Wire Wire Line
+	1100 2350 1100 4450
+Wire Wire Line
+	800  4150 1350 4150
+Wire Wire Line
+	950  4300 1350 4300
+Wire Wire Line
+	1100 4450 1350 4450
+Wire Wire Line
+	3500 2800 3850 2800
+Text Label 3550 2800 0    60   ~ 0
+VCC_5V
+Wire Wire Line
+	3500 3100 3850 3100
+Text Label 3700 3100 0    60   ~ 0
+GND
+Wire Wire Line
+	5750 2500 5850 2500
+Wire Wire Line
+	5850 2500 5850 4450
+Wire Wire Line
+	5850 4450 3500 4450
+Wire Wire Line
+	1250 2800 1350 2800
+Wire Wire Line
+	7450 2050 6500 2050
+Text Label 6950 2200 0    60   ~ 0
+VCC_3.3V
+Wire Wire Line
+	1250 2800 1250 2600
+Wire Wire Line
+	1250 2600 1650 2600
+Text Label 1250 2600 0    60   ~ 0
+VCC_3.3V
+Wire Wire Line
+	4050 2500 4450 2500
+Text Label 4050 2500 0    60   ~ 0
+VCC_3.3V
+$Comp
+L Jack_3.5_Connecter J?
+U 1 1 592BF21A
+P 6400 4300
+F 0 "J?" H 8100 4450 60  0000 C CNN
+F 1 "Jack_3.5_Connecter" H 7700 5350 60  0000 C CNN
+F 2 "" H 6400 4300 60  0001 C CNN
+F 3 "" H 6400 4300 60  0001 C CNN
+	1    6400 4300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6850 4000 6600 4000
+Wire Wire Line
+	7000 5250 6600 5250
+Wire Wire Line
+	7000 5400 6600 5400
+Wire Wire Line
+	6850 3400 6500 3400
+Text Label 6500 3400 0    60   ~ 0
+GND
+Text Label 6600 5250 0    60   ~ 0
+VCC_3.3V
+Text Label 6600 5400 0    60   ~ 0
+GND
+$Comp
+L PAM8302A U?
+U 1 1 592BFA47
+P 6450 5650
+F 0 "U?" H 8100 5750 60  0000 C CNN
+F 1 "PAM8302A" H 7900 6650 60  0000 C CNN
+F 2 "" H 6450 5650 60  0001 C CNN
+F 3 "" H 6450 5650 60  0001 C CNN
+	1    6450 5650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 4000 6600 4500
+Wire Wire Line
+	6600 4500 8500 4500
+Wire Wire Line
+	8600 4950 8350 4950
+Wire Wire Line
+	6700 4300 6700 3550
+Wire Wire Line
+	6700 3550 6850 3550
+Wire Wire Line
+	6850 3700 6750 3700
+Wire Wire Line
+	6750 3400 6750 3850
+Connection ~ 6750 3400
+Wire Wire Line
+	6750 3850 6850 3850
+Connection ~ 6750 3700
+$Comp
+L CONN_01X03 J?
+U 1 1 592BFD67
+P 8950 4650
+F 0 "J?" H 8950 4850 50  0000 C CNN
+F 1 "CONN_01X03" V 9050 4650 50  0000 C CNN
+F 2 "" H 8950 4650 50  0001 C CNN
+F 3 "" H 8950 4650 50  0001 C CNN
+	1    8950 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X03 J?
+U 1 1 592BFDDC
+P 8950 5550
+F 0 "J?" H 8950 5750 50  0000 C CNN
+F 1 "CONN_01X03" V 9050 5550 50  0000 C CNN
+F 2 "" H 8950 5550 50  0001 C CNN
+F 3 "" H 8950 5550 50  0001 C CNN
+	1    8950 5550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8600 4650 8600 4950
+Wire Wire Line
+	8500 5550 8750 5550
+Wire Wire Line
+	8500 4500 8500 5100
+Wire Wire Line
+	8600 4650 8750 4650
+Wire Wire Line
+	8750 4550 8600 4550
+Wire Wire Line
+	8600 4550 8600 4300
+Wire Wire Line
+	8600 4300 6700 4300
+$Comp
+L CONN_01X01 J?
+U 1 1 592C03F8
+P 9300 5050
+F 0 "J?" H 9300 5150 50  0000 C CNN
+F 1 "CONN_01X01" V 9400 5050 50  0000 C CNN
+F 2 "" H 9300 5050 50  0001 C CNN
+F 3 "" H 9300 5050 50  0001 C CNN
+	1    9300 5050
+	1    0    0    1   
+$EndComp
+$Comp
+L CONN_01X01 J?
+U 1 1 592C0455
+P 9300 5900
+F 0 "J?" H 9300 6000 50  0000 C CNN
+F 1 "CONN_01X01" V 9400 5900 50  0000 C CNN
+F 2 "" H 9300 5900 50  0001 C CNN
+F 3 "" H 9300 5900 50  0001 C CNN
+	1    9300 5900
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	8600 5900 9100 5900
+Wire Wire Line
+	8600 5900 8600 5650
+Wire Wire Line
+	8600 5650 8750 5650
+Wire Wire Line
+	8500 5250 8500 5550
+Wire Wire Line
+	8500 5250 8350 5250
+Wire Wire Line
+	8750 5450 8600 5450
+Wire Wire Line
+	8600 5450 8600 5100
+Wire Wire Line
+	8600 5100 8500 5100
+Wire Wire Line
+	9100 5050 8700 5050
+Wire Wire Line
+	8700 5050 8700 4750
+Wire Wire Line
+	8700 4750 8750 4750
+$Comp
+L CONN_01X02 J?
+U 1 1 592C0C88
+P 6300 4850
+F 0 "J?" H 6300 5000 50  0000 C CNN
+F 1 "CONN_01X02" V 6400 4850 50  0000 C CNN
+F 2 "" H 6300 4850 50  0001 C CNN
+F 3 "" H 6300 4850 50  0001 C CNN
+	1    6300 4850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6500 4800 7000 4800
+Wire Wire Line
+	7000 4950 6650 4950
+Wire Wire Line
+	6650 4950 6650 4900
+Wire Wire Line
+	6650 4900 6500 4900
+NoConn ~ 7000 5100
+$EndSCHEMATC
