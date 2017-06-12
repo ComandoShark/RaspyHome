@@ -164,7 +164,7 @@ namespace RaspiHomeTabletWindows.Modules.Home
 
                     localSettings.Values["NameButtonClicked"] = buttonClicked;
                     this.frmHome.Content = null;
-                    this.frmHome.Navigate(typeof(Location.House.RoomView));
+                    this.frmHome.Navigate(typeof(Location.House.MainRoomView));
                     break;
                 case "Salon":
                     if ((actualFrameChoose.ToString() != "Salon") || (actualFrameChoose == null))
@@ -172,7 +172,7 @@ namespace RaspiHomeTabletWindows.Modules.Home
 
                     localSettings.Values["NameButtonClicked"] = buttonClicked;
                     this.frmHome.Content = null;
-                    this.frmHome.Navigate(typeof(Location.OtherRoom.RoomView));
+                    this.frmHome.Navigate(typeof(Location.OtherRoom.OtherRoomView));
                     break;
                 case "Cuisine":
                     if ((actualFrameChoose.ToString() != "Cuisine") || (actualFrameChoose == null))
@@ -180,7 +180,7 @@ namespace RaspiHomeTabletWindows.Modules.Home
 
                     localSettings.Values["NameButtonClicked"] = buttonClicked;
                     this.frmHome.Content = null;
-                    this.frmHome.Navigate(typeof(Location.OtherRoom.RoomView));
+                    this.frmHome.Navigate(typeof(Location.OtherRoom.OtherRoomView));
                     break;
                 case "Bureau":
                     if ((actualFrameChoose.ToString() != "Bureau") || (actualFrameChoose == null))
@@ -188,7 +188,7 @@ namespace RaspiHomeTabletWindows.Modules.Home
 
                     localSettings.Values["NameButtonClicked"] = buttonClicked;
                     this.frmHome.Content = null;
-                    this.frmHome.Navigate(typeof(Location.OtherRoom.RoomView));
+                    this.frmHome.Navigate(typeof(Location.OtherRoom.OtherRoomView));
                     break;
             }
 

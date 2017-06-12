@@ -23,7 +23,6 @@ namespace RaspiHomeSenseHAT
     {
         #region Fields
         #region Constants        
-        private const int TICK = 1;
         #endregion
 
         #region Variables
@@ -33,12 +32,10 @@ namespace RaspiHomeSenseHAT
         // Sense HAT librairy
         private ISenseHat _senseHat;
         private ISenseHatDisplay _senseHatDisplay;
-        SenseHatData _data;
+        private SenseHatData _data;
 
         // Set default color matrix to OFF
         private Color _uiColor = Color.FromArgb(0, 0, 0, 0);
-
-        private string _message = "";
         #endregion
         #endregion
 
@@ -81,19 +78,6 @@ namespace RaspiHomeSenseHAT
                 _comWithServer = value;
             }
         }
-
-        public string Message
-        {
-            get
-            {
-                return _message;
-            }
-
-            set
-            {
-                _message = value;
-            }
-        }
         #endregion
 
         #region Constructors
@@ -106,14 +90,11 @@ namespace RaspiHomeSenseHAT
             // Communication like Model-View
             this.VSenseHAT = paramView;
 
-            // Initilize the communication with the server
-            this.ComWithServer = new CommunicationWithServer(this);
-
             // Initilize the Sense HAT (don't need to be initialized before the communication start because it's only a sensor)
             InitializeSenseHat();
 
-            // Display the IP address of the Raspberry Pi
-            this.VSenseHAT.IPRasp = this.ComWithServer.GetHostName().ToString();
+            // Initilize the communication with the server
+            this.ComWithServer = new CommunicationWithServer(this);                       
         }
         #endregion
 
@@ -127,22 +108,6 @@ namespace RaspiHomeSenseHAT
             this._senseHatDisplay = this._senseHat.Display;
             this._senseHatDisplay.Fill(_uiColor);
 
-            InitializeTimer();
-        }
-
-        /// <summary>
-        /// Initialize the timer
-        /// </summary>
-        private void InitializeTimer()
-        {                        
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Tick += Timer_Tick;
-            timer.Interval = TimeSpan.FromSeconds(TICK);
-            timer.Start();
-        }
-
-        private void Timer_Tick(object sender, object e)
-        {
             SetValue();
         }
 
@@ -151,26 +116,28 @@ namespace RaspiHomeSenseHAT
         /// </summary>
         public void SetValue()
         {
+            // Update values
             this._senseHat.Sensors.HumiditySensor.Update();
             this._senseHat.Sensors.PressureSensor.Update();
             this._senseHatDisplay.Update();
 
+            // Set values
             this.Data = new SenseHatData();
             this.Data.Temperature = this._senseHat.Sensors.Temperature;
             this.Data.Humidity = this._senseHat.Sensors.Humidity;
             this.Data.Pressure = this._senseHat.Sensors.Pressure;
-
-            this.VSenseHAT.Temperature = this.Data.Temperature.ToString();
-            this.VSenseHAT.Humidity = this.Data.Humidity.ToString();
-            this.VSenseHAT.Pressure = this.Data.Pressure.ToString();
         }
 
         /// <summary>
-        /// Send the values with a special format: "TEMP=x;HUMI=y;PRES=z"
+        /// Send the values with a special format:"TEMP=x;HUMI=y;PRES=z"
+        /// /// Values are rounded
         /// </summary>
         /// <returns></returns>
         public string SendValues()
         {
+            // Update values of sensors
+            SetValue();
+
             return "TEMP=" + Math.Round((decimal)this.Data.Temperature) + ";" + "HUMI=" + Math.Round((decimal)this.Data.Humidity) + ";" + "PRES=" + Math.Round((decimal)this.Data.Pressure);
         }
         #endregion

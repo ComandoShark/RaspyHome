@@ -138,8 +138,8 @@
       <RootMethod Name="GetAlignVerticalCenterWith" />
       <RootMethod Name="SetAlignVerticalCenterWith" />
     </RootType>
-    <RootType FullName="RaspiHomeTabletWindows.Modules.Home.Location.House.RoomView" />
-    <RootType FullName="RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.RoomView" />
+    <RootType FullName="RaspiHomeTabletWindows.Modules.Home.Location.House.MainRoomView" />
+    <RootType FullName="RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView" />
     <RootType FullName="RaspiHomeTabletWindows.Modules.Information.InformationView" />
     <RootType FullName="RaspiHomeTabletWindows.Modules.Setting.SettingView" />
   </Roots.RootTypes>

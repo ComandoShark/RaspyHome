@@ -56,12 +56,14 @@ namespace RaspiHomePiFaceDigital2
             "stopper","stop",
         };
 
+        // Word translation
         private Dictionary<string, string> _raspiLanguageTranslation = new Dictionary<string, string>()
         {
             { "lumiere","Light"}, { "lumieres","Light"},
             { "store","Store"}, { "stores","Store"},
         };
 
+        // KEY=[ACTION NAME], VALUE[KEY=[PROPERTY NAME], VALUE=[VALUE TO SET THEPROPERTY]]
         private Dictionary<string, Dictionary<string, bool>> _raspiBooleanCommandTranslation = new Dictionary<string, Dictionary<string, bool>>()
         {
             { "allume", new Dictionary<string, bool> { { "IsOn", true } } }, { "allumer", new Dictionary<string, bool> { { "IsOn", true } } },
@@ -161,11 +163,11 @@ namespace RaspiHomePiFaceDigital2
         /// <summary>
         /// Set the value to be writed on the PiFace
         /// </summary>
-        /// <param name="message"> message read from the server </param>
-        public void SetValue(string message)
+        /// <param name="messageRead"> message read from the server </param>
+        public void SetValue(string messageRead)
         {
             // Initialize the message value
-            string sentence = this.RemoveDiacritics(message);
+            string sentence = this.RemoveDiacritics(messageRead);
             string action = this.GetActionFromSentence(sentence);
             string actionValue = this.ReadValueOfSelectedComponent(action);
             string component = this.GetComponentFromSentence(sentence);

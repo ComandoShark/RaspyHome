@@ -13,6 +13,7 @@
 \*--------------------------------------------------*/
 
 using System;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 
 namespace RaspiHomePiFaceDigital2
@@ -21,12 +22,9 @@ namespace RaspiHomePiFaceDigital2
     {
         #region Fields
         #region Constant
-        // PiFace output
-        private const byte OPEN = PiFaceDigital2.LED6;
-        private const byte CLOSE = PiFaceDigital2.LED5;
+        // PiFace output for motor
         private const byte UP = PiFaceDigital2.LED4;
         private const byte DOWN = PiFaceDigital2.LED3;
-        private const byte ACTIVEMOTEUR = PiFaceDigital2.LED2;
 
         // PiFace State
         private const byte OFF = MCP23S17.Off;
@@ -36,11 +34,15 @@ namespace RaspiHomePiFaceDigital2
         private const int MAX_LEVEL = 200; // Time span total = 19seconds (raspberry latency)
         // Min value for store (totaly close)
         private const int MIN_LEVEL = 0;
+
+        // Tick for timer
+        private const int TICKS = 10;
+        private const int TICK_SECOND = 1;
         #endregion
 
         #region Variable
-        DispatcherTimer _dTimerUp = new DispatcherTimer();
-        DispatcherTimer _dTimerDown = new DispatcherTimer();
+        private DispatcherTimer _dTimerUp = new DispatcherTimer();
+        private DispatcherTimer _dTimerDown = new DispatcherTimer();
 
         private bool _isUp = false;
         private bool _isDown = false;
@@ -64,6 +66,7 @@ namespace RaspiHomePiFaceDigital2
             {
                 _isUp = value;
 
+                // Maximum level
                 if (value && this.CounterStopped < MAX_LEVEL)
                 {
                     this.SetLevel("IsUp");
@@ -82,6 +85,7 @@ namespace RaspiHomePiFaceDigital2
             {
                 _isDown = value;
 
+                // Minimum level
                 if (value && this.CounterStopped > MIN_LEVEL)
                 {
                     this.SetLevel("IsDown");
@@ -123,7 +127,7 @@ namespace RaspiHomePiFaceDigital2
                     this.SetLevel("IsClose");
                 }
             }
-        }                      
+        }
 
         public bool IsStop
         {
@@ -136,6 +140,7 @@ namespace RaspiHomePiFaceDigital2
             {
                 _isStop = value;
 
+                // Stop everything
                 if (value)
                 {
                     this._dTimerUp.Stop();
@@ -177,10 +182,10 @@ namespace RaspiHomePiFaceDigital2
         #region Constructor
         public Store()
         {
-            this._dTimerUp.Interval = new TimeSpan(10);
+            this._dTimerUp.Interval = new TimeSpan(TICKS);
             this._dTimerUp.Tick += _dTimerUp_Tick;
 
-            this._dTimerDown.Interval = new TimeSpan(10);
+            this._dTimerDown.Interval = new TimeSpan(TICKS);
             this._dTimerDown.Tick += _dTimerDown_Tick;
         }
 
@@ -200,7 +205,7 @@ namespace RaspiHomePiFaceDigital2
         /// Set the level
         /// </summary>
         /// <param name="propertyName"></param>
-        private void SetLevel(string propertyName)
+        private async void SetLevel(string propertyName)
         {
             switch (propertyName)
             {
@@ -223,14 +228,16 @@ namespace RaspiHomePiFaceDigital2
                 case "IsOpen":
                     this.IsClose = false;
 
-                    MCP23S17.WritePin(CLOSE, OFF);
-                    MCP23S17.WritePin(OPEN, ON);
+                    this.SetLevel("IsUp");
+                    await Task.Delay(TimeSpan.FromSeconds(TICK_SECOND));                
+                    this.SetLevel("IsStop");
                     break;
                 case "IsClose":
                     this.IsOpen = false;
 
-                    MCP23S17.WritePin(OPEN, OFF);
-                    MCP23S17.WritePin(CLOSE, ON);
+                    this.SetLevel("IsDown");
+                    await Task.Delay(TimeSpan.FromSeconds(TICK_SECOND));
+                    this.SetLevel("IsStop");
                     break;
                 case "IsStop":
                     this.IsUp = false;
@@ -240,18 +247,22 @@ namespace RaspiHomePiFaceDigital2
 
                     MCP23S17.WritePin(UP, OFF);
                     MCP23S17.WritePin(DOWN, OFF);
-                    MCP23S17.WritePin(OPEN, OFF);
-                    MCP23S17.WritePin(CLOSE, OFF);
                     break;
             }
         }
 
+        /// <summary>
+        /// Set upper the level of the store
+        /// </summary>
         private void SetLevelUp()
         {
             this._dTimerDown.Stop();
-            this._dTimerUp.Start();            
+            this._dTimerUp.Start();
         }
 
+        /// <summary>
+        /// Set downer the level of the store
+        /// </summary>
         private void SetLevelDown()
         {
             this._dTimerUp.Stop();

@@ -118,13 +118,13 @@
     <Compile Include="Modules\Home\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Home\Location\House\RoomModel.cs" />
-    <Compile Include="Modules\Home\Location\House\RoomView.xaml.cs">
-      <DependentUpon>RoomView.xaml</DependentUpon>
+    <Compile Include="Modules\Home\Location\House\MainRoomModel.cs" />
+    <Compile Include="Modules\Home\Location\House\MainRoomView.xaml.cs">
+      <DependentUpon>MainRoomView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Home\Location\OtherRoom\RoomModel.cs" />
-    <Compile Include="Modules\Home\Location\OtherRoom\RoomView.xaml.cs">
-      <DependentUpon>RoomView.xaml</DependentUpon>
+    <Compile Include="Modules\Home\Location\OtherRoom\OtherRoomModel.cs" />
+    <Compile Include="Modules\Home\Location\OtherRoom\OtherRoomView.xaml.cs">
+      <DependentUpon>OtherRoomView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\Information\InformationModel.cs" />
     <Compile Include="Modules\Information\InformationView.xaml.cs">
@@ -190,11 +190,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modules\Home\Location\House\RoomView.xaml">
+    <Page Include="Modules\Home\Location\House\MainRoomView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modules\Home\Location\OtherRoom\RoomView.xaml">
+    <Page Include="Modules\Home\Location\OtherRoom\OtherRoomView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

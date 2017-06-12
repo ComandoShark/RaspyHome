@@ -25,7 +25,6 @@ namespace RaspiHomeSenseHAT
     {
         #region Fields
         #region Constants
-        private const int TICK = 2;
         #endregion
 
         #region Variables
@@ -46,11 +45,6 @@ namespace RaspiHomeSenseHAT
                 _mSenseHAT = value;
             }
         }
-
-        public string Temperature { set { this.tbxTemp.Text = value; } }
-        public string Humidity { set { this.tbxHumi.Text = value; } }
-        public string Pressure { set { this.tbxPres.Text = value; } }
-        public string IPRasp { set { this.tbxIpv4.Text = value; } }
         #endregion
 
         #region Constructors

@@ -4,7 +4,6 @@ C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWind
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\ARM\Debug\Menu\LocationButton\LocationButtonView.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\ARM\Debug\Modules\GlobalSetup\GlobalSetupView.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\ARM\Debug\Modules\Home\HomeView.xbf
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\ARM\Debug\Modules\Home\Location\House\RoomView.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\ARM\Debug\Modules\Information\InformationView.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\ARM\Debug\Modules\Setting\SettingView.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\ARM\Debug\RaspiHomeTabletWindows.xr.xml
@@ -130,8 +129,6 @@ C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWind
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\GlobalSetup\GlobalSetupView.g.cs
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\HomeView.g.i.cs
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\HomeView.g.cs
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\House\RoomView.g.i.cs
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\House\RoomView.g.cs
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Information\InformationView.g.i.cs
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Information\InformationView.g.cs
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Setting\SettingView.g.i.cs
@@ -145,7 +142,6 @@ C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWind
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Setting\SettingView.xaml
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Menu\LocationButton\LocationButtonView.xaml
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\HomeView.xaml
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\House\RoomView.xaml
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\App.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Menu\MenuToolbar\ToolbarButtonView.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Menu\MenuView.xbf
@@ -154,7 +150,6 @@ C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWind
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Setting\SettingView.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Menu\LocationButton\LocationButtonView.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\HomeView.xbf
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\House\RoomView.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\XamlSaveStateFile.xml
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\RaspiHomeTabletWindows.exe
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\RaspiHomeTabletWindows.pdb
@@ -226,9 +221,14 @@ C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWind
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\resources.en-us.resfiles
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\resources.en-us.resfiles.intermediate
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\ProjectArchitectures.txt
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\ARM\Debug\Modules\Home\Location\OtherRoom\RoomView.xbf
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\OtherRoom\RoomView.g.i.cs
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\OtherRoom\RoomView.g.cs
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\OtherRoom\RoomView.xaml
-C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\OtherRoom\RoomView.xbf
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\RaspiHomeTabletWindows.csprojResolveAssemblyReference.cache
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\ARM\Debug\Modules\Home\Location\House\MainRoomView.xbf
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\bin\ARM\Debug\Modules\Home\Location\OtherRoom\OtherRoomView.xbf
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\House\MainRoomView.g.i.cs
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\House\MainRoomView.g.cs
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\OtherRoom\OtherRoomView.g.i.cs
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\OtherRoom\OtherRoomView.g.cs
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\House\MainRoomView.xaml
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\OtherRoom\OtherRoomView.xaml
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\House\MainRoomView.xbf
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomeTabletWindows\RaspiHomeTabletWindows\obj\ARM\Debug\Modules\Home\Location\OtherRoom\OtherRoomView.xbf

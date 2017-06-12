@@ -4,7 +4,7 @@ Menu\MenuToolbar\ToolbarButtonView.xbf
 Menu\MenuView.xbf
 Modules\GlobalSetup\GlobalSetupView.xbf
 Modules\Home\HomeView.xbf
-Modules\Home\Location\House\RoomView.xbf
-Modules\Home\Location\OtherRoom\RoomView.xbf
+Modules\Home\Location\House\MainRoomView.xbf
+Modules\Home\Location\OtherRoom\OtherRoomView.xbf
 Modules\Information\InformationView.xbf
 Modules\Setting\SettingView.xbf

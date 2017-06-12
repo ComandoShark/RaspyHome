@@ -24,42 +24,6 @@ namespace RaspiHomeSpeechNSynthetize
         private SpeechRecognizer _recoEngine = null;
         private SpiDevice _mcp3202;
 
-
-
-        //private Choices _commands = null;
-        //private GrammarBuilder _grammarBuilder = null;
-        //private Grammar _grammar = null;
-
-        //private Choices _commandsAction = null;
-        //private GrammarBuilder _grammarBuilderAction = null;
-        //private Grammar _grammarAction = null;
-
-        //private Choices _commandsObject = null;
-        //private GrammarBuilder _grammarBuilderObject = null;
-        //private Grammar _grammarObject = null;
-
-        //private Choices _commandsActionNoObject = null;
-        //private GrammarBuilder _grammarBuilderActionNoObject = null;
-        //private Grammar _grammarActionNoObject = null;
-
-        //private Choices _commandsLocation = null;
-        //private GrammarBuilder _grammarBuilderLocation = null;
-        //private Grammar _grammarLocation = null;
-
-        //private Choices _commandsUselessWord = null;
-        //private GrammarBuilder _grammarBuilderUselessWord = null;
-        //private Grammar _grammarUselessWord = null;
-
-        //private Choices _commandsSentence = null;
-        //private GrammarBuilder _grammarBuilderSentence = null;
-        //private Grammar _grammarSentence = null;
-
-        //private DictationGrammar _commandDictationGrammar = null;
-        //private DictationGrammar _defaultDictationGrammar = null;
-        //private DictationGrammar _spellingDictationGrammar = null;
-
-        private Commands _raspiCommands;
-
         private bool _isRaspiCalled = false;
         #endregion
         #endregion
@@ -172,9 +136,16 @@ namespace RaspiHomeSpeechNSynthetize
 
             _mcp3202.TransferFullDuplex(transmitBuffer, receiveBuffer);
 
-            return result = System.Text.Encoding.UTF8.GetString(receiveBuffer);
+            return result = Encoding.UTF8.GetString(receiveBuffer);
         }
 
+        /// <summary>
+        /// (obsolete on UWP) Set the configuration of the speecher
+        /// </summary>
+        private void InitializeSpeechRecognizer()
+        {
+
+        }
 
         /// <summary>
         /// (obsolete on UWP) Enable the speech, used when raspi is not talking
@@ -234,13 +205,6 @@ namespace RaspiHomeSpeechNSynthetize
             this.IsRaspiCalled = false;
 
             EnableSpeech();
-        }
-        /// <summary>
-        /// (obsolete on UWP) Set the configuration of the speecher
-        /// </summary>
-        private void InitializeSpeechRecognizer()
-        {
-
         }
         #endregion
     }

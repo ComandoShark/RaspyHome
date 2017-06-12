@@ -27,7 +27,7 @@ namespace RaspiHomeSenseHAT
         #region Fields
         #region Constants
         // Default information to connect on the server
-        private const int PORT = 8080;
+        private const int PORT = 54565;
         //// Need to be changed fo each configuration
         private const string IPSERVER = "10.134.97.117";// "192.168.2.8";     
 
@@ -202,24 +202,6 @@ namespace RaspiHomeSenseHAT
         }
 
         /// <summary>
-        /// Send to initialize the raspberry to the server
-        /// </summary>
-        private void SendForInitialize()
-        {
-            // Message send: "@NAME@Connection:IPRASP=x.x.x.x;Location=y;Component=z,z"
-            SendMessage(this.Socket, string.Format(COMMUNICATIONSEPARATOR + RPINAME + COMMUNICATIONSEPARATOR + "Connection:" + FORMATSTRING, GetHostName(), LOCATION, COMPONENT));
-        }
-
-        /// <summary>
-        /// Send values in reply to the server
-        /// </summary>
-        public void ReplyValues()
-        {
-            // Message receive : "@Reply:TEMP=x;HUMI=y;PRES=z"
-            SendMessage(this.Socket, COMMUNICATIONSEPARATOR + "Reply:" + this.MSenseHAT.SendValues());
-        }
-
-        /// <summary>
         /// Wait data readed if exist
         /// </summary>
         /// <param name="socket"></param>
@@ -255,6 +237,24 @@ namespace RaspiHomeSenseHAT
             }            
 
             WaitForData(socket);
+        }
+
+        /// <summary>
+        /// Send to initialize the raspberry to the server
+        /// </summary>
+        private void SendForInitialize()
+        {
+            // Message send: "@NAME@Connection:IPRASP=x.x.x.x;Location=y;Component=z,z"
+            SendMessage(this.Socket, string.Format(COMMUNICATIONSEPARATOR + RPINAME + COMMUNICATIONSEPARATOR + "Connection:" + FORMATSTRING, GetHostName(), LOCATION, COMPONENT));
+        }
+
+        /// <summary>
+        /// Send values in reply to the server
+        /// </summary>
+        public void ReplyValues()
+        {
+            // Message receive : "@Reply:TEMP=x;HUMI=y;PRES=z"
+            SendMessage(this.Socket, COMMUNICATIONSEPARATOR + "Reply:" + this.MSenseHAT.SendValues());
         }
 
         /// <summary>

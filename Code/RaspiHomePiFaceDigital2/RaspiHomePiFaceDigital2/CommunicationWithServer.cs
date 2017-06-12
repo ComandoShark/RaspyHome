@@ -26,7 +26,7 @@ namespace RaspiHomePiFaceDigital2
         #region Fields
         #region Constants
         // Default information to connect on the server
-        private const int PORT = 8080;
+        private const int PORT = 54565;
         //// Need to be changed fo each configuration
         private const string IPSERVER = "10.134.97.117";// "192.168.2.8";  
 

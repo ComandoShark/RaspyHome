@@ -19,10 +19,11 @@ namespace RaspiHomeServer
     {
         #region Fields
         #region Constant
-        public static IPAddress DEFAULT_SERVER = IPAddress.Parse("127.0.0.1");
-        public static int DEFAULT_PORT = 8080;
-        public static string DEFAULT_LOCATION = "maison";
-        public static IPEndPoint DEFAULT_IP_END_POINT = new IPEndPoint(DEFAULT_SERVER, DEFAULT_PORT);
+        // Default port communication
+        private const int DEFAULT_PORT = 54565;
+        private static IPAddress DEFAULT_SERVER = IPAddress.Parse("127.0.0.1");
+        private static string DEFAULT_LOCATION = "maison";
+        private static IPEndPoint DEFAULT_IP_END_POINT = new IPEndPoint(DEFAULT_SERVER, DEFAULT_PORT);
         #endregion
 
         #region Variable

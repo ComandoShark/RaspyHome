@@ -6,14 +6,5 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid Background="White">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:ConnectionId='1' x:Name="tbxTemp"/>
-            <TextBlock x:ConnectionId='2' x:Name="tbxHumi" Margin="0,40,0,0"/>
-            <TextBlock x:ConnectionId='3' x:Name="tbxPres" Margin="0,40,0,0"/>
-            <TextBlock x:ConnectionId='4' x:Name="tbxIpv4" Margin="0,40,0,0"/>
-        </StackPanel>
-    </Grid>
 </Page>
 

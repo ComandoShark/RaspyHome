@@ -17,6 +17,7 @@ namespace RaspiHomeSpeechNSynthetize
         #region Constants
         private const string RASPI_NAME = "raspi";
         private const char SEPARATOR = ' ';
+        // Change value when new update ("en" to "fr")
         private const string LANGUAGE_SELECTION = "en";
         private const double TIME_TO_WAIT = 3.0;
         #endregion
@@ -163,11 +164,14 @@ namespace RaspiHomeSpeechNSynthetize
         /// Processus to choose the sentence to say
         /// </summary>
         /// <param name="repertory"> List of sentence to say </param>
-        private void RaspiCalled(List<string> repertory)
+        private async void RaspiCalled(List<string> repertory)
         {
             string messageToSay = repertory[_rnd.Next(0, repertory.Count - 1)];
 
             this.RaspiTalk(messageToSay);
+
+            // Work like Thread.Sleep(TIME_TO_WAIT)
+            await Task.Delay(TimeSpan.FromSeconds(TIME_TO_WAIT));
         }
 
         /// <summary>
@@ -176,6 +180,7 @@ namespace RaspiHomeSpeechNSynthetize
         /// <param name="messageToSay"> sentence to say </param>
         private async void RaspiTalk(string messageToSay)
         {
+            // Get the output element (audio jack)
             MediaElement mediaElement = new MediaElement();
             SpeechSynthesizer synth = new SpeechSynthesizer();
 
@@ -192,12 +197,11 @@ namespace RaspiHomeSpeechNSynthetize
             }
 
             SpeechSynthesisStream synthStream = await synth.SynthesizeTextToStreamAsync(messageToSay);
-
+     
             mediaElement.SetSource(synthStream, synthStream.ContentType);
+            // 0 = min / 1 = max
             mediaElement.Volume = 1;
             mediaElement.Play();
-
-            await Task.Delay(TimeSpan.FromSeconds(TIME_TO_WAIT));
         }
 
         /// <summary>
@@ -213,13 +217,15 @@ namespace RaspiHomeSpeechNSynthetize
         /// Allow the Raspi, to let her talk with list of information
         /// </summary>
         /// <param name="informationsToGive"></param>
-        public void RaspiSayInformation(List<string> informationsToGive)
+        public async void RaspiSayInformation(List<string> informationsToGive)
         {
             foreach (string informationToSay in informationsToGive)
             {
                 if (informationToSay != "")
                 {
                     this.RaspiTalk(informationToSay);
+                    // Work like Thread.Sleep(TIME_TO_WAIT)
+                    await Task.Delay(TimeSpan.FromSeconds(TIME_TO_WAIT));
                 }
             }
         }

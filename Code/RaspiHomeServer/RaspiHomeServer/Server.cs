@@ -26,7 +26,7 @@ namespace RaspiHomeServer
         #region Fields
         #region Constants
         // Default port communication
-        const int DEFAULT_PORT = 8080;
+        private const int DEFAULT_PORT = 54565;
         // Name of the actual computer (where the server is started)
         private const string HOST_NAME = "DESKTOP-UL17MK6";
         #endregion

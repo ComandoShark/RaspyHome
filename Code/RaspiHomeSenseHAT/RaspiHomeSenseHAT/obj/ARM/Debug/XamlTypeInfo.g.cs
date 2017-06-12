@@ -132,21 +132,19 @@ namespace RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[6];
+            _typeNameTable = new string[5];
             _typeNameTable[0] = "RaspiHomeSenseHAT.ViewSenseHAT";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "RaspiHomeSenseHAT.ModelSenseHAT";
             _typeNameTable[4] = "Object";
-            _typeNameTable[5] = "String";
 
-            _typeTable = new global::System.Type[6];
+            _typeTable = new global::System.Type[5];
             _typeTable[0] = typeof(global::RaspiHomeSenseHAT.ViewSenseHAT);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::RaspiHomeSenseHAT.ModelSenseHAT);
             _typeTable[4] = typeof(global::System.Object);
-            _typeTable[5] = typeof(global::System.String);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -197,10 +195,6 @@ namespace RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo
                 userType = new global::RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_0_ViewSenseHAT;
                 userType.AddMemberName("MSenseHAT");
-                userType.AddMemberName("Temperature");
-                userType.AddMemberName("Humidity");
-                userType.AddMemberName("Pressure");
-                userType.AddMemberName("IPRasp");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -223,10 +217,6 @@ namespace RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo
             case 4:   //  Object
                 xamlType = new global::RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
-
-            case 5:   //  String
-                xamlType = new global::RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
             }
             return xamlType;
         }
@@ -242,26 +232,6 @@ namespace RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo
             var that = (global::RaspiHomeSenseHAT.ViewSenseHAT)instance;
             that.MSenseHAT = (global::RaspiHomeSenseHAT.ModelSenseHAT)Value;
         }
-        private void set_1_ViewSenseHAT_Temperature(object instance, object Value)
-        {
-            var that = (global::RaspiHomeSenseHAT.ViewSenseHAT)instance;
-            that.Temperature = (global::System.String)Value;
-        }
-        private void set_2_ViewSenseHAT_Humidity(object instance, object Value)
-        {
-            var that = (global::RaspiHomeSenseHAT.ViewSenseHAT)instance;
-            that.Humidity = (global::System.String)Value;
-        }
-        private void set_3_ViewSenseHAT_Pressure(object instance, object Value)
-        {
-            var that = (global::RaspiHomeSenseHAT.ViewSenseHAT)instance;
-            that.Pressure = (global::System.String)Value;
-        }
-        private void set_4_ViewSenseHAT_IPRasp(object instance, object Value)
-        {
-            var that = (global::RaspiHomeSenseHAT.ViewSenseHAT)instance;
-            that.IPRasp = (global::System.String)Value;
-        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -275,26 +245,6 @@ namespace RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo
                 xamlMember = new global::RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo.XamlMember(this, "MSenseHAT", "RaspiHomeSenseHAT.ModelSenseHAT");
                 xamlMember.Getter = get_0_ViewSenseHAT_MSenseHAT;
                 xamlMember.Setter = set_0_ViewSenseHAT_MSenseHAT;
-                break;
-            case "RaspiHomeSenseHAT.ViewSenseHAT.Temperature":
-                userType = (global::RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeSenseHAT.ViewSenseHAT");
-                xamlMember = new global::RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo.XamlMember(this, "Temperature", "String");
-                xamlMember.Setter = set_1_ViewSenseHAT_Temperature;
-                break;
-            case "RaspiHomeSenseHAT.ViewSenseHAT.Humidity":
-                userType = (global::RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeSenseHAT.ViewSenseHAT");
-                xamlMember = new global::RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo.XamlMember(this, "Humidity", "String");
-                xamlMember.Setter = set_2_ViewSenseHAT_Humidity;
-                break;
-            case "RaspiHomeSenseHAT.ViewSenseHAT.Pressure":
-                userType = (global::RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeSenseHAT.ViewSenseHAT");
-                xamlMember = new global::RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo.XamlMember(this, "Pressure", "String");
-                xamlMember.Setter = set_3_ViewSenseHAT_Pressure;
-                break;
-            case "RaspiHomeSenseHAT.ViewSenseHAT.IPRasp":
-                userType = (global::RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeSenseHAT.ViewSenseHAT");
-                xamlMember = new global::RaspiHomeSenseHAT.RaspiHomeSenseHAT_XamlTypeInfo.XamlMember(this, "IPRasp", "String");
-                xamlMember.Setter = set_4_ViewSenseHAT_IPRasp;
                 break;
             }
             return xamlMember;
