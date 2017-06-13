@@ -81,6 +81,8 @@ namespace RaspiHomeServer
             { "eteins", new Dictionary<string, bool> { { "IsOn", false } } }, { "eteindre", new Dictionary<string, bool> { { "IsOn", false } } },
             { "monte", new Dictionary<string, bool> { { "IsUp", true } } }, { "monter", new Dictionary<string, bool> { { "IsUp", true } } },
             { "descends", new Dictionary<string, bool> { { "IsDown", true } } }, { "descendre", new Dictionary<string, bool> { { "IsDown", true } } },
+            { "ouvre", new Dictionary<string, bool> { { "IsOpen", true } } }, { "ouvrir", new Dictionary<string, bool> { { "IsOpen", true } } },
+            { "ferme", new Dictionary<string, bool> { { "IsClose", true } } }, { "fermer", new Dictionary<string, bool> { { "IsClose", true } } },
             { "stop",new Dictionary<string, bool> { {"IsStop",true } } },{"stopper",new Dictionary<string, bool> { {"IsStop",true } } },
         };
         #endregion

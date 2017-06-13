@@ -35,7 +35,7 @@ namespace RaspiHomePiFaceDigital2
         private const string COMMUNICATIONSEPARATOR = "@";
 
         // Important need to be changed if it's another room!
-        private const string LOCATION = "Salon";
+        private const string LOCATION = "Cuisine";
         private const string RPINAME = "PiFace_" + LOCATION;
 
         private const int MESSAGE_FULL_LENGHT = 512;

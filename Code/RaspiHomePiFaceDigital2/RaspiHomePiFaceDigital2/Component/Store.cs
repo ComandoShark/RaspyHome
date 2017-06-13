@@ -104,7 +104,7 @@ namespace RaspiHomePiFaceDigital2
             {
                 _isOpen = value;
 
-                if (value)
+                if (value && this.CounterStopped < MAX_LEVEL)
                 {
                     this.SetLevel("IsOpen");
                 }
@@ -122,7 +122,7 @@ namespace RaspiHomePiFaceDigital2
             {
                 _isClose = value;
 
-                if (value)
+                if (value &&  this.CounterStopped > MIN_LEVEL)
                 {
                     this.SetLevel("IsClose");
                 }

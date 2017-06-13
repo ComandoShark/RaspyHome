@@ -70,7 +70,6 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="Source" />
-      <RootProperty Name="Visibility" />
     </RootType>
     <RootType FullName="RaspiHomeTabletWindows.Menu.MenuToolbar.ToolbarButtonView" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">

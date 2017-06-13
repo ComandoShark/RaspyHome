@@ -22,7 +22,7 @@ namespace RaspiHomeServer
         // Default port communication
         private const int DEFAULT_PORT = 54565;
         private static IPAddress DEFAULT_SERVER = IPAddress.Parse("127.0.0.1");
-        private static string DEFAULT_LOCATION = "maison";
+
         private static IPEndPoint DEFAULT_IP_END_POINT = new IPEndPoint(DEFAULT_SERVER, DEFAULT_PORT);
         #endregion
 

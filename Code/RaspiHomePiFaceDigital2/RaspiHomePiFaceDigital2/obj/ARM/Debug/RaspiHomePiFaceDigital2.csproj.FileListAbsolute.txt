@@ -191,3 +191,4 @@ C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomePiFaceDigital2\RaspiHomePiFaceDig
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomePiFaceDigital2\RaspiHomePiFaceDigital2\obj\ARM\Debug\resources.en-us.resfiles
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomePiFaceDigital2\RaspiHomePiFaceDigital2\obj\ARM\Debug\resources.en-us.resfiles.intermediate
 C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomePiFaceDigital2\RaspiHomePiFaceDigital2\obj\ARM\Debug\ProjectArchitectures.txt
+C:\Users\Cyril\Desktop\RaspiHome\Code\RaspiHomePiFaceDigital2\RaspiHomePiFaceDigital2\obj\ARM\Debug\RaspiHomePiFaceDigital2.csprojResolveAssemblyReference.cache

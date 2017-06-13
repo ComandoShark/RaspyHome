@@ -39,6 +39,9 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
         private bool _isDown = false;
         private bool _isOpen = false;
         private bool _isClose = false;
+        
+        private bool _upActivate = false;
+        private bool _downActivate = false;
         #endregion
         #endregion
 
@@ -180,6 +183,32 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
                 _isClose = value;
             }
         }
+
+        public bool UpActivate
+        {
+            get
+            {
+                return _upActivate;
+            }
+
+            set
+            {
+                _upActivate = value;
+            }
+        }
+
+        public bool DownActivate
+        {
+            get
+            {
+                return _downActivate;
+            }
+
+            set
+            {
+                _downActivate = value;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -189,6 +218,10 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
         public OtherRoomView()
         {
             this.InitializeComponent();
+
+            this.imgThermometer.Visibility = Visibility.Collapsed;
+            this.imgHumidity.Visibility = Visibility.Collapsed;
+            this.imgBarometer.Visibility = Visibility.Collapsed;
 
             this.Model = new OtherRoomModel(this);
         }
@@ -209,13 +242,35 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
         private void btnStoreUp_Click(object sender, RoutedEventArgs e)
         {
             this.IsUp = true;
-            this.Model.SendMessage("monter", "store");
+            // 2 states on the button; UP and STOP
+            if (!this.UpActivate)
+            {
+                this.Model.SendMessage("monter", "store");
+                this.UpActivate = true;
+                this.DownActivate = false;
+            }
+            else
+            {
+                this.Model.SendMessage("stop", "store");
+                this.UpActivate = false;
+            }
         }
 
         private void btnStoreDown_Click(object sender, RoutedEventArgs e)
         {
             this.IsDown = true;
-            this.Model.SendMessage("descendre", "store");
+            // 2 states on the button; DOWN and STOP
+            if (!this.DownActivate)
+            {
+                this.Model.SendMessage("descendre", "store");
+                this.DownActivate = true;
+                this.UpActivate = false;
+            }
+            else
+            {
+                this.Model.SendMessage("stop", "store");
+                this.DownActivate = false;
+            }
         }
 
         private void btnStoreOpen_Click(object sender, RoutedEventArgs e)
@@ -228,6 +283,7 @@ namespace RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom
         {
             this.IsClose = true;
             this.Model.SendMessage("fermer", "store");
+
         }
         #endregion
 

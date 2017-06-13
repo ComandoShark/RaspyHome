@@ -19,17 +19,17 @@
         <!--HUMIDITY-->
         <Rectangle x:Name="rectHumid" RelativePanel.AlignBottomWithPanel="True" Height="34"/>
         <Rectangle x:Name="rectInformation" RelativePanel.Above="rectHumid" Width="75"/>
-        <Image x:Name="imgHumidity" Visibility="Collapsed" Source="ms-appx:///Icon/Humidity.png " RelativePanel.AlignLeftWithPanel="True" RelativePanel.Above="rectHumid" Height="75"/>
+        <Image x:Name="imgHumidity" Source="ms-appx:///Icon/Humidity.png " RelativePanel.AlignLeftWithPanel="True" RelativePanel.Above="rectHumid" Height="75"/>
 
         <!--TEMPERATURE-->
         <Rectangle x:Name="rectThermo" RelativePanel.Above="imgHumidity" Height="34"/>
-        <Image x:Name="imgThermometer" Visibility="Collapsed" Source="ms-appx:///Icon/Thermometer.png " RelativePanel.AlignHorizontalCenterWith="imgHumidity" RelativePanel.Above="rectThermo" Height="75"/>
+        <Image x:Name="imgThermometer" Source="ms-appx:///Icon/Thermometer.png " RelativePanel.AlignHorizontalCenterWith="imgHumidity" RelativePanel.Above="rectThermo" Height="75"/>
 
         <Rectangle x:Name="rectPressure" RelativePanel.Above="rectHumid" Width="250"/>
         <Rectangle x:Name="rectInformation2" RelativePanel.Above="rectHumid" Width="350"/>
         
         <!--PRESSURE-->        
-        <Image x:Name="imgBarometer" Visibility="Collapsed" Source="ms-appx:///Icon/Pressure.png " RelativePanel.RightOf="rectPressure" RelativePanel.AlignVerticalCenterWith="imgThermometer" Height="65"/>
+        <Image x:Name="imgBarometer" Source="ms-appx:///Icon/Pressure.png " RelativePanel.RightOf="rectPressure" RelativePanel.AlignVerticalCenterWith="imgThermometer" Height="65"/>
 
         <TextBlock x:Name="tblTemperature" RelativePanel.RightOf="rectInformation"  RelativePanel.AlignVerticalCenterWith="imgThermometer" FontSize="26"/>
         <TextBlock x:Name="tblHumidity" RelativePanel.RightOf="rectInformation" RelativePanel.AlignVerticalCenterWith="imgHumidity" FontSize="26"/>

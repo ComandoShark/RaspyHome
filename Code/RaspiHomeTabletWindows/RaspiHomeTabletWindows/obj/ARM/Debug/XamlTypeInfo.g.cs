@@ -488,6 +488,8 @@ namespace RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo
                 userType.AddMemberName("IsDown");
                 userType.AddMemberName("IsOpen");
                 userType.AddMemberName("IsClose");
+                userType.AddMemberName("UpActivate");
+                userType.AddMemberName("DownActivate");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -511,6 +513,8 @@ namespace RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo
                 userType.AddMemberName("IsDown");
                 userType.AddMemberName("IsOpen");
                 userType.AddMemberName("IsClose");
+                userType.AddMemberName("UpActivate");
+                userType.AddMemberName("DownActivate");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -916,112 +920,152 @@ namespace RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.House.MainRoomView)instance;
             that.IsClose = (global::System.Boolean)Value;
         }
-        private object get_36_OtherRoomView_Model(object instance)
+        private object get_36_MainRoomView_UpActivate(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.House.MainRoomView)instance;
+            return that.UpActivate;
+        }
+        private void set_36_MainRoomView_UpActivate(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.House.MainRoomView)instance;
+            that.UpActivate = (global::System.Boolean)Value;
+        }
+        private object get_37_MainRoomView_DownActivate(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.House.MainRoomView)instance;
+            return that.DownActivate;
+        }
+        private void set_37_MainRoomView_DownActivate(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.House.MainRoomView)instance;
+            that.DownActivate = (global::System.Boolean)Value;
+        }
+        private object get_38_OtherRoomView_Model(object instance)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             return that.Model;
         }
-        private void set_36_OtherRoomView_Model(object instance, object Value)
+        private void set_38_OtherRoomView_Model(object instance, object Value)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             that.Model = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomModel)Value;
         }
-        private object get_37_OtherRoomView_StrTemp(object instance)
+        private object get_39_OtherRoomView_StrTemp(object instance)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             return that.StrTemp;
         }
-        private void set_37_OtherRoomView_StrTemp(object instance, object Value)
+        private void set_39_OtherRoomView_StrTemp(object instance, object Value)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             that.StrTemp = (global::System.String)Value;
         }
-        private object get_38_OtherRoomView_StrHumi(object instance)
+        private object get_40_OtherRoomView_StrHumi(object instance)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             return that.StrHumi;
         }
-        private void set_38_OtherRoomView_StrHumi(object instance, object Value)
+        private void set_40_OtherRoomView_StrHumi(object instance, object Value)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             that.StrHumi = (global::System.String)Value;
         }
-        private object get_39_OtherRoomView_StrPres(object instance)
+        private object get_41_OtherRoomView_StrPres(object instance)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             return that.StrPres;
         }
-        private void set_39_OtherRoomView_StrPres(object instance, object Value)
+        private void set_41_OtherRoomView_StrPres(object instance, object Value)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             that.StrPres = (global::System.String)Value;
         }
-        private object get_40_OtherRoomView_IsOn(object instance)
+        private object get_42_OtherRoomView_IsOn(object instance)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             return that.IsOn;
         }
-        private void set_40_OtherRoomView_IsOn(object instance, object Value)
+        private void set_42_OtherRoomView_IsOn(object instance, object Value)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             that.IsOn = (global::System.Boolean)Value;
         }
-        private object get_41_OtherRoomView_IsUp(object instance)
+        private object get_43_OtherRoomView_IsUp(object instance)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             return that.IsUp;
         }
-        private void set_41_OtherRoomView_IsUp(object instance, object Value)
+        private void set_43_OtherRoomView_IsUp(object instance, object Value)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             that.IsUp = (global::System.Boolean)Value;
         }
-        private object get_42_OtherRoomView_IsDown(object instance)
+        private object get_44_OtherRoomView_IsDown(object instance)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             return that.IsDown;
         }
-        private void set_42_OtherRoomView_IsDown(object instance, object Value)
+        private void set_44_OtherRoomView_IsDown(object instance, object Value)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             that.IsDown = (global::System.Boolean)Value;
         }
-        private object get_43_OtherRoomView_IsOpen(object instance)
+        private object get_45_OtherRoomView_IsOpen(object instance)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             return that.IsOpen;
         }
-        private void set_43_OtherRoomView_IsOpen(object instance, object Value)
+        private void set_45_OtherRoomView_IsOpen(object instance, object Value)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             that.IsOpen = (global::System.Boolean)Value;
         }
-        private object get_44_OtherRoomView_IsClose(object instance)
+        private object get_46_OtherRoomView_IsClose(object instance)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             return that.IsClose;
         }
-        private void set_44_OtherRoomView_IsClose(object instance, object Value)
+        private void set_46_OtherRoomView_IsClose(object instance, object Value)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
             that.IsClose = (global::System.Boolean)Value;
         }
-        private object get_45_InformationView_Model(object instance)
+        private object get_47_OtherRoomView_UpActivate(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
+            return that.UpActivate;
+        }
+        private void set_47_OtherRoomView_UpActivate(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
+            that.UpActivate = (global::System.Boolean)Value;
+        }
+        private object get_48_OtherRoomView_DownActivate(object instance)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
+            return that.DownActivate;
+        }
+        private void set_48_OtherRoomView_DownActivate(object instance, object Value)
+        {
+            var that = (global::RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView)instance;
+            that.DownActivate = (global::System.Boolean)Value;
+        }
+        private object get_49_InformationView_Model(object instance)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Information.InformationView)instance;
             return that.Model;
         }
-        private void set_45_InformationView_Model(object instance, object Value)
+        private void set_49_InformationView_Model(object instance, object Value)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Information.InformationView)instance;
             that.Model = (global::RaspiHomeTabletWindows.Modules.Information.InformationModel)Value;
         }
-        private object get_46_SettingView_Model(object instance)
+        private object get_50_SettingView_Model(object instance)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Setting.SettingView)instance;
             return that.Model;
         }
-        private void set_46_SettingView_Model(object instance, object Value)
+        private void set_50_SettingView_Model(object instance, object Value)
         {
             var that = (global::RaspiHomeTabletWindows.Modules.Setting.SettingView)instance;
             that.Model = (global::RaspiHomeTabletWindows.Modules.Setting.SettingModel)Value;
@@ -1250,71 +1294,95 @@ namespace RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo
                 xamlMember.Getter = get_35_MainRoomView_IsClose;
                 xamlMember.Setter = set_35_MainRoomView_IsClose;
                 break;
+            case "RaspiHomeTabletWindows.Modules.Home.Location.House.MainRoomView.UpActivate":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.House.MainRoomView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "UpActivate", "Boolean");
+                xamlMember.Getter = get_36_MainRoomView_UpActivate;
+                xamlMember.Setter = set_36_MainRoomView_UpActivate;
+                break;
+            case "RaspiHomeTabletWindows.Modules.Home.Location.House.MainRoomView.DownActivate":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.House.MainRoomView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "DownActivate", "Boolean");
+                xamlMember.Getter = get_37_MainRoomView_DownActivate;
+                xamlMember.Setter = set_37_MainRoomView_DownActivate;
+                break;
             case "RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView.Model":
                 userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView");
                 xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "Model", "RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomModel");
-                xamlMember.Getter = get_36_OtherRoomView_Model;
-                xamlMember.Setter = set_36_OtherRoomView_Model;
+                xamlMember.Getter = get_38_OtherRoomView_Model;
+                xamlMember.Setter = set_38_OtherRoomView_Model;
                 break;
             case "RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView.StrTemp":
                 userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView");
                 xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "StrTemp", "String");
-                xamlMember.Getter = get_37_OtherRoomView_StrTemp;
-                xamlMember.Setter = set_37_OtherRoomView_StrTemp;
+                xamlMember.Getter = get_39_OtherRoomView_StrTemp;
+                xamlMember.Setter = set_39_OtherRoomView_StrTemp;
                 break;
             case "RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView.StrHumi":
                 userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView");
                 xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "StrHumi", "String");
-                xamlMember.Getter = get_38_OtherRoomView_StrHumi;
-                xamlMember.Setter = set_38_OtherRoomView_StrHumi;
+                xamlMember.Getter = get_40_OtherRoomView_StrHumi;
+                xamlMember.Setter = set_40_OtherRoomView_StrHumi;
                 break;
             case "RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView.StrPres":
                 userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView");
                 xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "StrPres", "String");
-                xamlMember.Getter = get_39_OtherRoomView_StrPres;
-                xamlMember.Setter = set_39_OtherRoomView_StrPres;
+                xamlMember.Getter = get_41_OtherRoomView_StrPres;
+                xamlMember.Setter = set_41_OtherRoomView_StrPres;
                 break;
             case "RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView.IsOn":
                 userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView");
                 xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "IsOn", "Boolean");
-                xamlMember.Getter = get_40_OtherRoomView_IsOn;
-                xamlMember.Setter = set_40_OtherRoomView_IsOn;
+                xamlMember.Getter = get_42_OtherRoomView_IsOn;
+                xamlMember.Setter = set_42_OtherRoomView_IsOn;
                 break;
             case "RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView.IsUp":
                 userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView");
                 xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "IsUp", "Boolean");
-                xamlMember.Getter = get_41_OtherRoomView_IsUp;
-                xamlMember.Setter = set_41_OtherRoomView_IsUp;
+                xamlMember.Getter = get_43_OtherRoomView_IsUp;
+                xamlMember.Setter = set_43_OtherRoomView_IsUp;
                 break;
             case "RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView.IsDown":
                 userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView");
                 xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "IsDown", "Boolean");
-                xamlMember.Getter = get_42_OtherRoomView_IsDown;
-                xamlMember.Setter = set_42_OtherRoomView_IsDown;
+                xamlMember.Getter = get_44_OtherRoomView_IsDown;
+                xamlMember.Setter = set_44_OtherRoomView_IsDown;
                 break;
             case "RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView.IsOpen":
                 userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView");
                 xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "IsOpen", "Boolean");
-                xamlMember.Getter = get_43_OtherRoomView_IsOpen;
-                xamlMember.Setter = set_43_OtherRoomView_IsOpen;
+                xamlMember.Getter = get_45_OtherRoomView_IsOpen;
+                xamlMember.Setter = set_45_OtherRoomView_IsOpen;
                 break;
             case "RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView.IsClose":
                 userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView");
                 xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "IsClose", "Boolean");
-                xamlMember.Getter = get_44_OtherRoomView_IsClose;
-                xamlMember.Setter = set_44_OtherRoomView_IsClose;
+                xamlMember.Getter = get_46_OtherRoomView_IsClose;
+                xamlMember.Setter = set_46_OtherRoomView_IsClose;
+                break;
+            case "RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView.UpActivate":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "UpActivate", "Boolean");
+                xamlMember.Getter = get_47_OtherRoomView_UpActivate;
+                xamlMember.Setter = set_47_OtherRoomView_UpActivate;
+                break;
+            case "RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView.DownActivate":
+                userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Home.Location.OtherRoom.OtherRoomView");
+                xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "DownActivate", "Boolean");
+                xamlMember.Getter = get_48_OtherRoomView_DownActivate;
+                xamlMember.Setter = set_48_OtherRoomView_DownActivate;
                 break;
             case "RaspiHomeTabletWindows.Modules.Information.InformationView.Model":
                 userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Information.InformationView");
                 xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "Model", "RaspiHomeTabletWindows.Modules.Information.InformationModel");
-                xamlMember.Getter = get_45_InformationView_Model;
-                xamlMember.Setter = set_45_InformationView_Model;
+                xamlMember.Getter = get_49_InformationView_Model;
+                xamlMember.Setter = set_49_InformationView_Model;
                 break;
             case "RaspiHomeTabletWindows.Modules.Setting.SettingView.Model":
                 userType = (global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("RaspiHomeTabletWindows.Modules.Setting.SettingView");
                 xamlMember = new global::RaspiHomeTabletWindows.RaspiHomeTabletWindows_XamlTypeInfo.XamlMember(this, "Model", "RaspiHomeTabletWindows.Modules.Setting.SettingModel");
-                xamlMember.Getter = get_46_SettingView_Model;
-                xamlMember.Setter = set_46_SettingView_Model;
+                xamlMember.Getter = get_50_SettingView_Model;
+                xamlMember.Setter = set_50_SettingView_Model;
                 break;
             }
             return xamlMember;
